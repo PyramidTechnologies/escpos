@@ -57,6 +57,7 @@ New Line
 
    #. A print position has not been specified using ``ESC $`` or ``ESC \``
 
+.. _2byte:   
 .. index:: Two-byte
 
 Two-byte Number Definitions

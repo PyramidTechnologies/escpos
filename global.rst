@@ -3,4 +3,5 @@
    :align: middle
 
 .. |pyramidqr| image:: img/pyramidacceptors.com.jpg
-   :align: right
+   :align: middle
+   
