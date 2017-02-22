@@ -9,9 +9,11 @@ This section describes functions for raster images, bitmaps, bar codes, and QR c
 .. 1c7d25:
 .. py:attribute:: QR Generator - $1C $7D $25
 
-    Encodes the specified string as a QR code using the specified width.
+    Encodes the specified string as a QR code using the specified width. The resulting
+	QR code will be center justified unless you override the line justification before
+	issue the command.
 
-    :Range: ``None``
+    :Range: ``1 to 200 alphanumeric and URL-safe characters``
     :Default: ``None``
     :Related: ``None``
     :Example:
@@ -24,6 +26,6 @@ This section describes functions for raster images, bitmaps, bar codes, and QR c
 			write("https://pyramidacceptors.com")            
             print()
             >>> 
-			|pyramidqr|
+|pyramidqr|
 
 ----
