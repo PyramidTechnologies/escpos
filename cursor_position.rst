@@ -146,3 +146,24 @@ movable pointer that allow you to print anywhere on the print ticket.
             write('\x1b\x44\x08\x14\x25\x00') # Set tab stops at 8, 20, and 32 characters
             print('Item\x09Quantity\x09Price')
             >>> Item		Quantity	Price
+
+.. _x18:
+.. py:attribute:: Cancel Current Line- $18
+
+    Deletes/Cancels the current line
+
+    :Format: ``$18`` or ``CAN`` or ``24``
+
+    :Notes:
+        - Sets the print position to the beginning of the line
+
+    :Range: ``None``
+    :Example:
+        .. code-block:: none
+            :emphasize-lines: 2,3
+
+            write('Hello World')              # Put some text in the buffer
+            write('\x18')                     # Send cancel command
+            write('Thank you!')               # Write some other data
+            write('\x1b\x69')                 # Force-print the buffer
+            >>>Thank you!                                            
