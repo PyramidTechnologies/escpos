@@ -103,3 +103,37 @@ This section describes all commands that affect how and which font is rendered.
             print()
             >>> This is not bold      
 
+.. _1b4D:
+.. py:attribute:: Select Character Font - $1B $4D
+
+   Selects character font based on n.
+        +----------------------+------+----------------------+
+        | Chars/Inch ($1B $C1) | n    | DESCRIPTION          |
+        +======================+======+======================+
+        | A = 11 cpi,          | 0,48 | 11 cpi font selected |
+        | B = 15 cpi           +------|----------------------+
+        |                      | 1,49 | 15 cpi font selected |  
+        +----------------------+------+----------------------+
+        | A = 15 cpi,          | 0,48 | 15 cpi font selected |
+        | B = 20 cpi           +------|----------------------+
+        |                      | 1,48 | 20 cpi font selected |  
+        +----------------------+------+----------------------+        
+        | A = 20 cpi,          | 0,48 | 20 cpi font selected |
+        | B = 15 cpi           +------|----------------------+
+        |                      | 1,48 | 15 cpi font selected |          
+        +----------------------+------+----------------------+   
+
+   :Notes:
+       - CPI means characters per inch
+       - A higher CPI equates to a smaller, more compact font
+
+   :Format: ``$1B $4D n`` or ``ESC M n`` or ``27 77 n``
+   :Range: ``n = 0, 1, 48, 49``
+   :Default: ``n=0, n is base 10``
+   :Related: ``:ref:`TODO```
+
+   :Example:
+        .. code-block:: none
+
+            TODO                 
+
