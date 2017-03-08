@@ -38,7 +38,7 @@ This section describes all commands that affect how and which font is rendered.
             write("\x1b\x21\x01")          # Enable underline
             write("This is underlined")
             print()
-            >>>`This text is underlined`  # Note that MD format doesn't support underline but trust us :)
+            >>> This text is underlined  # Note that MD format doesn't support underline but trust us :)
             write("\x1b\x21\x00")          # Disable underline
             write("This is not underlined")
             print()
@@ -49,7 +49,7 @@ This section describes all commands that affect how and which font is rendered.
 
    Turns *italics* mode on or off, based on the following values of n:
        - n = 0, 48 Turns off *italics* mode
-       - n = 1, 49 Turns on *italics* mode (1-dot thick)
+       - n = 1, 49 Turns on *italics* mode
 
    :Notes:
        - This effect is applied immediately
@@ -67,10 +67,39 @@ This section describes all commands that affect how and which font is rendered.
             write("\x1b\x34\x01")              # Enable italics
             write("This is italic")
             print()
-            >>>`This is italic`
+            >>> This is italic
             write("\x1b\x34\x00")              # Disable italics
             write("This is not italic")
             print()
-            >>> This is not italic            
+            >>> This is not italic       
 
+.. _1b45:
+.. py:attribute:: Emphasis Mode - $1B $45
+
+   Turns **emphasis** mode on or off, based on the LSB of n:
+       - n & 1  = 0 Turns off **emphasis** mode
+       - n & 1  = 1 Turns on **emphasis** mode
+
+   :Notes:
+       - This effect is applied immediately
+       - Only the LSB of n is inspected
+       - ESC! can also be used for this settings. The last received command is the effective one.
+
+
+   :Format: ``$1B $45 n`` or ``ESC E n`` or ``27 69 n``
+   :Range: ``0 ≤ n ≤ 255``
+   :Default: ``n=0, n is base 10``
+   :Related: ``:ref:`TODO```
+
+   :Example:
+        .. code-block:: none
+
+            write("\x1b\x45\x01")              # Enable emphasis
+            write("This is bold")
+            print()
+            >>> This is bold
+            write("\x1b\x45\x00")              # Disable itemphasisalics
+            write("This is not bold")
+            print()
+            >>> This is not bold      
 
