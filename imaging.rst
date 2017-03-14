@@ -12,6 +12,11 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
     Encodes the specified string as a QR Code®. The resulting QR Code® will be center justified. Only k bytes of the string will be read and any remaining will be treated as regular text or ESC/POS commands. The command and data must be enclosed by line feeds ($0A).
 
     :Format: ``$1C $7D $25 k D1...Dk``
+
+    :Notes:
+        - The QR Code® Generator command must be sent when the current line is empty. If not, the command will be ignored, and the bytes to be encoded will be printed as text.
+        - If the QR Code® String length exceeds the specified range, only the first 154 characters will be encoded. The rest of the characters to be encoded will be printed as regular ESC/POS characters on a new line.
+
     :Range: ``0 < k <= 154 alphanumeric and URL-safe characters``
     :Default: ``None``
     :Related: ``None``
@@ -26,11 +31,6 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
             write("\x0a")           # Ending line feed
             print()
             >>> 
-Notes:
-
-Notes:
-* The QR Code® Generator command must be sent when the current line is empty. If not, the command will be ignored, and the bytes to be encoded will be printed as text.
-* If the QR Code® String length exceeds the specified range, only the first 154 characters will be encoded. The rest of the characters to be encoded will be printed as regular ESC/POS characters on a new line.
 
 QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
