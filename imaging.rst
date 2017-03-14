@@ -7,11 +7,11 @@ This section describes functions for raster images, bitmaps, bar codes, and QR c
 ----
 
 .. 1c7d25:
-.. py:attribute:: QR Generator - $1C $7D $25 w d1...dk
+.. py:attribute:: QR Generator - $1C $7D $25 k d1...dk
 
     Encodes the specified string as a QR code. The resulting QR code will be center justified. Only k bytes of the string will be read and any remaining will be treated as regular text or ESC/POS commands. The command and data must be enclosed by line feeds ($0A).
 
-    :Format: ``$0A $1C $7D $25 D1...Dk $0A``
+    :Format: ``$0A $1C $7D $25 k D1...Dk $0A``
     :Range: ``0 < k <= 150 alphanumeric and URL-safe characters``
     :Default: ``None``
     :Related: ``None``
