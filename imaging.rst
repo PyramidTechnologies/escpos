@@ -7,17 +7,19 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
 ----
 
 .. 1c7d25:
-.. py:attribute:: QR Code® Generator - $1C $7D $25 k d1...dk
+.. py:attribute:: 2D Barcode Generator - $1C $7D $25 k d1...dk
 
-    Encodes the specified string as a QR Code®. The resulting QR Code® will be center justified. Only k bytes of the string will be read and any remaining will be treated as regular text or ESC/POS commands. The command and data must be enclosed by line feeds ($0A).
+    Encodes the specified string as a center justified 2D barcode. Only k bytes of the string will be read and any remaining will be treated as regular text or ESC/POS commands. The command and data must be enclosed by line feeds ($0A).
 
     :Format: ``$1C $7D $25 k D1...Dk``
 
     :Notes:
-        - The QR Code® Generator command must be sent when the current line is empty. If not, the command will be ignored, and the bytes to be encoded will be printed as text.
-        - If the QR Code® String length exceeds the specified range, only the first 154 characters will be encoded. The rest of the characters to be encoded will be printed as regular ESC/POS characters on a new line.
+        - This 2D barcode is compliant with the QR Code® specicification and can be read by all 2D barcode readers.
+        - This command must be sent when the current line is empty. If not, the command will be ignored, and the bytes to be encoded will be printed as text.
+        - Up to 154 8-bit characters are supported.
+        - If the input string length exceeds the range specified by the k parameter, only the first 154 characters will be encoded. The rest of the characters to be encoded will be printed as regular ESC/POS characters on a new line.
 
-    :Range: ``0 < k <= 154 alphanumeric and URL-safe characters``
+    :Range: ``0 < k <= 154 8-bit alphanumeric and URL-safe characters``
     :Default: ``None``
     :Related: ``None``
     :Example:
