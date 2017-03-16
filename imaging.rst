@@ -11,6 +11,9 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
 
     Encodes the specified string as a center justified 2D barcode. Only k bytes of the string will be read and any remaining will be treated as regular text or ESC/POS commands. The command and data must be enclosed by line feeds ($0A).
 
+    .. note:: Requires firmware 1.9 or newer
+
+
     :Format: ``$1C $7D $25 k D1...Dk``
 
     :Notes:
@@ -38,4 +41,4 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
 |pyramidqr|
 
-----
+
