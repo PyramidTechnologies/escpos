@@ -182,6 +182,3 @@ epub_exclude_files = ['search.html']
 
 
 # -- Options for PDF output -----------------------------------------------
-
-pdf_break_level = 2
-pdf_breakside = "odd"

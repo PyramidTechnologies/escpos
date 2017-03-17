@@ -5,7 +5,9 @@ Font Controlling Commands
 
 This section describes all commands that affect how and which font is rendered.
 
-----------
+.. raw:: latex
+
+    \newpage
 
 .. _1b21:
 .. py:attribute:: Select Print Mode - $1B $21
@@ -79,6 +81,10 @@ This section describes all commands that affect how and which font is rendered.
             print()
             >>> This is font A"
 
+.. raw:: latex
+
+    \newpage
+
 .. _1b2d:
 .. py:attribute:: Underline Mode - $1B $2D
 
@@ -114,6 +120,10 @@ This section describes all commands that affect how and which font is rendered.
             print()
             >>> This is not underlined
 
+.. raw:: latex
+
+    \newpage
+
 .. _1b34:
 .. py:attribute:: Italics Mode - $1B $34
 
@@ -140,6 +150,10 @@ This section describes all commands that affect how and which font is rendered.
             write("This is not italic")
             print()
             >>> This is not italic       
+
+.. raw:: latex
+
+    \newpage
 
 .. _1b45:
 .. py:attribute:: Emphasis Mode - $1B $45
@@ -203,6 +217,10 @@ This section describes all commands that affect how and which font is rendered.
 
         TODO                 
 
+.. raw:: latex
+
+    \newpage
+
 .. _1b56:
 .. py:attribute:: 90° Rotation - $1B $56
 
@@ -223,6 +241,10 @@ This section describes all commands that affect how and which font is rendered.
    :Related: ``None``
    :Example:
         TODO     
+
+.. raw:: latex
+
+    \newpage
 
 .. _1b7b:
 .. py:attribute:: Upside-down Mode - $1B $56
@@ -257,7 +279,9 @@ This section describes all commands that affect how and which font is rendered.
         TODO
 |upsidedown|
 
--------        
+.. raw:: latex
+
+    \newpage      
 
 .. _1bc1:
 .. py:attribute:: Set CPI Mode - $1B $C1
@@ -284,7 +308,9 @@ This section describes all commands that affect how and which font is rendered.
    :Example:
         TODO        
 
--------        
+.. raw:: latex
+
+    \newpage       
 
 .. _1d21:
 .. py:attribute:: Select Character Size - $1D $21
@@ -354,6 +380,10 @@ This section describes all commands that affect how and which font is rendered.
    :Related: :ref:`Select Print Mode (ESC !)<1b21>`
    :Example:
         TODO            
+
+.. raw:: latex
+
+    \newpage
 
 .. _1d42:
 .. py:attribute:: Reverse Print Mode - $1D $42
