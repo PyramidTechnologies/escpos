@@ -197,5 +197,85 @@ This section describes all commands that affect how and which font is rendered.
    :Example:
         .. code-block:: none
 
-            TODO                 
+        TODO                 
 
+.. _1b56:
+.. py:attribute:: 90° Rotation - $1B $56
+
+   Turns 90° rotation on or off, based on n
+
+       - n = 0, 48 Turns off rotation
+       - n = 1, 49 Turns on rotation
+
+   :Format: ``$1B $56 n`` or ``ESC V n`` or ``27 86 n``
+   :Range: ``n = 0, 1, 48, 49``
+   :Default: ``n=0, n is base 10``
+   :Notes:
+       - Invalid n values will be ignored
+       - Double-width and double-height commands in 90° rotation will enlarge the opposite dimension when this mode is enabled.
+         - i.e. width and height scalars are swapped
+       - 90° rotated characters will be underlined in the vertical direction.   
+
+   :Related: ``None``
+   :Example:
+        TODO     
+
+.. _1b7b:
+.. py:attribute:: Upside-down Mode - $1B $56
+
+   Turn upside-down print mode on/off
+
+       - When the LSB of n is 0, upside-down print mode is turned off.
+       - When the LSB of n is 1, upside-down print mode is turned on.  
+
+   :Format: ``$1B $7B n`` or ``ESC { n`` or ``27 123 n``
+   :Range: ``0 ≤ n ≤ 255``
+   :Default: ``n=0, n is base 10``
+   :Notes:
+       - This command is enabled only when processed at the beginning of the line.
+       - When upside-down print mode is turned on, the printer prints all characters rotated 180° from right to left.
+       - Upside-down print mode is effective for all data except for the following:
+       
+          - Graphics from GS TODO ( L <Function 112> or <Function 113>. 
+          - Raster bit image from GS v 0 
+          - Vairable veritical size bit images GS Q 0 
+       - Upside-down print mode is effective until any of the following occur:
+
+          - It is explicitly disabled by settings LSB of n to 0         
+          - ESC @ is executed 
+          - Printer is reset 
+          - Power is turned off 
+
+    .. tip:: The line printing order is not reversed. Therefore, care should be taken when considering the order of the data transmitted.
+
+   :Related: ``None``
+   :Example:
+        TODO
+|upsidedown|
+
+-------        
+
+.. _1bc1:
+.. py:attribute:: Set CPI Mode - $1B $C1
+
+   Selects the active CPI mode.
+
+        +------+-----------------------------------------+
+        | n    |  CPI Mode                               |
+        +======+==================+======================+
+        | 0,48 | Font A = 11 cpi  | Font B = 15 cpi      |
+        +------+------------------+----------------------+           
+        | 1,49 | Font A = 15 cpi  | Font B = 20 cpi      |        
+        +------+------------------+----------------------+   
+        | 2,50 | Font A = 20 cpi  | Font B = 15 cpi      |        
+        +------+------------------+----------------------+   
+
+   :Format: ``$1B $C1 n`` or ``ESC Á n`` or ``27 193 n``
+   :Range: ``n= 0, 1, 2, 48, 49, 50``
+   :Default: ``n=0, n is base 10``
+   :Notes:
+       - CPI is characters per inch
+       - The higher the CPI, the smaller the font
+   :Related: :ref:`Select Print Mode<1b21>`
+   :Example:
+        TODO        

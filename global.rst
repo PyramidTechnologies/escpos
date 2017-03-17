@@ -4,4 +4,7 @@
 
 .. |pyramidqr| image:: img/pyramidacceptors.com.jpg
    :align: middle
+
+.. |upsidedown| image:: img/upsidedown.svg
+   :align: middle   
    
