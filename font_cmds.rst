@@ -7,6 +7,74 @@ This section describes all commands that affect how and which font is rendered.
 
 ----------
 
+.. _1b21:
+.. py:attribute:: Select Print Mode - $1B $21
+
+   Quick-select a variety of print control options such as font type and effects.
+
+   :Notes:
+       - See table for appropriate value of ``n``
+       - Underline exceptions
+         - Does not underline 90°/270° rotation
+         - Does not underline horizontal tabs
+         - Underline thickness is specified by ESC - (TODO link)
+       - This command reste left and right margins
+         - Left margin set by GS L (TODO link)
+         - Right margin ste by GW W (TODO link)
+       - For each of the underline, italic, bold modes:
+         - These can be issues by their respective ESC commands or this command
+         - The last received command is the effective command.
+       - The basline for characters of different vertical scalars will be the same
+
+        +-----+----------+------+---------+------------------------------+
+        | BIT | State    | HEX  | DECIMAL | Function                     |
+        +=====+==========+======+=========+==============================+
+        | 0   | Disabled | 00   | 0       | Select character font A      |
+        |     +----------+------+---------+------------------------------+
+        |     | Enabled  | 01   | 1       | Select character font B      |
+        +-----+----------+------+---------+------------------------------+
+        | 1   | --       | --   | --      | Reserved                     |
+        +-----+----------+------+---------+------------------------------+
+        | 2   | --       | --   |  --     | Reserved                     |
+        +-----+----------+------+---------+------------------------------+
+        | 3   | Disabled | 00   | 0       | Disable emphasis (bold) mode |
+        |     +----------+------+---------+------------------------------+
+        |     | Enabled  | 08   | 8       | Enabled emphasis (bold) mode |
+        +-----+----------+------+---------+------------------------------+
+        | 4   | Disabled | 00   | 0       | Disable double-height mode   |
+        |     +----------+------+---------+------------------------------+
+        |     | Enabled  | 10   | 16      | Enable double-height mode    |
+        +-----+----------+------+---------+------------------------------+
+        | 5   | Disabled | 00   | 0       | Disable double-width mode    |
+        |     +----------+------+---------+------------------------------+
+        |     | Enabled  | 20   | 32      | Enable double-width mode     |
+        +-----+----------+------+---------+------------------------------+
+        | 6   | Disabled | 00   | 0       | Disable italic mode          |
+        |     +----------+------+---------+------------------------------+
+        |     | Enabled  | 40   | 64      | Enable italic mode           |
+        +-----+----------+------+---------+------------------------------+
+        | 7   | Disabled | 00   | 0       | Disable underline mode       |
+        |     +----------+------+---------+------------------------------+
+        |     | Enabled  | 80   | 128     | Enable underline mode        |
+        +-----+----------+------+---------+------------------------------+          
+
+   :Format: ``$1B $21 n`` or ``ESC ! n`` or ``27 33 n``       
+   :Range: ``0 ≤ n ≤ 255``
+   :Default: ``None``
+   :Related: ``:ref:`TODO```
+
+   :Example:
+        .. code-block:: none
+
+            write("\x1b\x21\x01")          # Select Font B
+            write("\x1b\x21\x10")          # Select double-height mode            
+            write("This is font B, double-height")
+            print()
+            >>> This is font B, double-height
+            write("\x1b\x21\x00")          # Select Font A and disable double-height
+            write("This is font A")
+            print()
+            >>> This is font A"
 
 .. _1b2d:
 .. py:attribute:: Underline Mode - $1B $2D
@@ -35,11 +103,11 @@ This section describes all commands that affect how and which font is rendered.
    :Example:
         .. code-block:: none
 
-            write("\x1b\x21\x01")          # Enable underline
+            write("\x1b\x2d\x01")          # Enable underline
             write("This is underlined")
             print()
             >>> This text is underlined  # Note that MD format doesn't support underline but trust us :)
-            write("\x1b\x21\x00")          # Disable underline
+            write("\x1b\x2d\x00")          # Disable underline
             write("This is not underlined")
             print()
             >>> This is not underlined
