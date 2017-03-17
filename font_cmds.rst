@@ -12,6 +12,9 @@ This section describes all commands that affect how and which font is rendered.
 
    Quick-select a variety of print control options such as font type and effects.
 
+   :Format: ``$1B $21 n`` or ``ESC ! n`` or ``27 33 n``  
+   :Range: ``0 ≤ n ≤ 255``
+   :Default: ``None``        
    :Notes:
        - See table for appropriate value of ``n``
        - Underline exceptions
@@ -58,11 +61,7 @@ This section describes all commands that affect how and which font is rendered.
         |     | Enabled  | 80   | 128     | Enable underline mode        |
         +-----+----------+------+---------+------------------------------+          
 
-   :Format: ``$1B $21 n`` or ``ESC ! n`` or ``27 33 n``       
-   :Range: ``0 ≤ n ≤ 255``
-   :Default: ``None``
    :Related: ``:ref:`TODO```
-
    :Example:
         .. code-block:: none
 
@@ -84,6 +83,9 @@ This section describes all commands that affect how and which font is rendered.
        - n = 1, 49 Turns on underline mode (1-dot thick)
        - n = 2, 50 Turns on underline mode (2-dot thick)
 
+   :Format: ``$1B $2D n`` or ``ESC - n`` or ``27 45 n``
+   :Range: ``0  n ≤ 2, 48 ≤ n ≤ 50``
+   :Default: ``0``
    :Notes:
        - Invalid n values will be ignored. The existing underline and underline thickness settings will be maintained.
        - 90° (ESC V) characters will not be underlined
@@ -95,11 +97,7 @@ This section describes all commands that affect how and which font is rendered.
        - Thickness moves downward from the natural top of the character.
        - ESC ! Can also be used for this setting. The last received command is the effective one.
 
-
-   :Format: ``$1B $2D n`` or ``ESC - n`` or ``27 45 n``
-   :Range: ``0  n ≤ 2, 48 ≤ n ≤ 50``
-   :Default: ``0``
-
+   :Related: ``:ref:`TODO```
    :Example:
         .. code-block:: none
 
@@ -119,16 +117,14 @@ This section describes all commands that affect how and which font is rendered.
        - n = 0, 48 Turns off *italics* mode
        - n = 1, 49 Turns on *italics* mode
 
+   :Format: ``$1B $34 n`` or ``ESC 4 n`` or ``27 52 n``
+   :Range: ``0 ≤ n ≤ 1, 48 ≤ n ≤ 59``
+   :Default: ``n=0, n is base 10``
    :Notes:
        - This effect is applied immediately
        - ESC! can also be used for this settings. The last received command is the effective one.
 
-
-   :Format: ``$1B $34 n`` or ``ESC 4 n`` or ``27 52 n``
-   :Range: ``0 ≤ n ≤ 1, 48 ≤ n ≤ 59``
-   :Default: ``n=0, n is base 10``
    :Related: ``:ref:`TODO```
-
    :Example:
         .. code-block:: none
 
@@ -148,17 +144,15 @@ This section describes all commands that affect how and which font is rendered.
        - n & 1  = 0 Turns off **emphasis** mode
        - n & 1  = 1 Turns on **emphasis** mode
 
+   :Format: ``$1B $45 n`` or ``ESC E n`` or ``27 69 n``
+   :Range: ``0 ≤ n ≤ 255``
+   :Default: ``n=0, n is base 10``
    :Notes:
        - This effect is applied immediately
        - Only the LSB of n is inspected
        - ESC! can also be used for this settings. The last received command is the effective one.
 
-
-   :Format: ``$1B $45 n`` or ``ESC E n`` or ``27 69 n``
-   :Range: ``0 ≤ n ≤ 255``
-   :Default: ``n=0, n is base 10``
    :Related: ``:ref:`TODO```
-
    :Example:
         .. code-block:: none
 
@@ -175,31 +169,31 @@ This section describes all commands that affect how and which font is rendered.
 .. py:attribute:: Select Character Font - $1B $4D
 
    Selects character font based on n.
+
         +----------------------+------+----------------------+
         | Chars/Inch ($1B $C1) | n    | DESCRIPTION          |
         +======================+======+======================+
-        | A = 11 cpi,          | 0,48 | 11 cpi font selected |
-        | B = 15 cpi           +------|----------------------+
-        |                      | 1,49 | 15 cpi font selected |  
+        | A = 11 cpi           | 0,48 | 11 cpi font selected |
+        |                      +------+----------------------+
+        | B = 15 cpi           | 1,49 | 15 cpi font selected |  
         +----------------------+------+----------------------+
-        | A = 15 cpi,          | 0,48 | 15 cpi font selected |
-        | B = 20 cpi           +------|----------------------+
-        |                      | 1,48 | 20 cpi font selected |  
+        | A = 15 cpi           | 0,48 | 15 cpi font selected |
+        |                      +------+----------------------+
+        | B = 20 cpi           | 1,48 | 20 cpi font selected |  
         +----------------------+------+----------------------+        
-        | A = 20 cpi,          | 0,48 | 20 cpi font selected |
-        | B = 15 cpi           +------|----------------------+
-        |                      | 1,48 | 15 cpi font selected |          
+        | A = 20 cpi           | 0,48 | 20 cpi font selected |
+        |                      +------+----------------------+
+        | B = 15 cpi           | 1,48 | 15 cpi font selected |          
         +----------------------+------+----------------------+   
-
-   :Notes:
-       - CPI means characters per inch
-       - A higher CPI equates to a smaller, more compact font
 
    :Format: ``$1B $4D n`` or ``ESC M n`` or ``27 77 n``
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
-   :Related: ``:ref:`TODO```
+   :Notes:
+       - CPI means characters per inch
+       - A higher CPI equates to a smaller, more compact font
 
+   :Related: ``:ref:`TODO```   
    :Example:
         .. code-block:: none
 
