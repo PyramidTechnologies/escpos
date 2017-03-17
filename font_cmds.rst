@@ -12,21 +12,25 @@ This section describes all commands that affect how and which font is rendered.
 
    Quick-select a variety of print control options such as font type and effects.
 
-   :Format: ``$1B $21 n`` or ``ESC ! n`` or ``27 33 n``  
+   :Format: ``Hex       $1B $21 n`` 
+
+            ``ASCII     ESC !   n``
+
+            ``Decimal   27  33  n``  
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``None``        
    :Notes:
-       - See table for appropriate value of ``n``
+       - See table for appropriate value of n.
        - Underline exceptions
-         - Does not underline 90°/270° rotation
-         - Does not underline horizontal tabs
-         - Underline thickness is specified by ESC - (TODO link)
-       - This command reste left and right margins
-         - Left margin set by GS L (TODO link)
-         - Right margin ste by GW W (TODO link)
+          - Does not underline 90°/270° rotation
+          - Does not underline horizontal tabs
+          - Underline thickness is specified by ESC - (TODO link)
+       - This command resets the left and right margins
+          - Left margin set by GS L (TODO link)
+          - Right margin ste by GW W (TODO link)
        - For each of the underline, italic, bold modes:
-         - These can be issues by their respective ESC commands or this command
-         - The last received command is the effective command.
+          - These can be issues by their respective ESC commands or this command
+          - The last received command is the effective command.
        - The basline for characters of different vertical scalars will be the same
 
         +-----+----------+------+---------+------------------------------+
