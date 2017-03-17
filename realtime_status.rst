@@ -30,6 +30,7 @@ fields for legacy support reasons but you effectively have access to all error a
     == =====================================
 
     :n=1 Printer Status:
+    
         +-----+--------+------+---------+-------------+
         | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION |
         +=====+========+======+=========+=============+
@@ -53,6 +54,7 @@ fields for legacy support reasons but you effectively have access to all error a
         +-----+--------+------+---------+-------------+
 
     :n=2 Offline Status:
+
         +-----+--------+------+---------+-----------------------------------+
         | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                       |
         +=====+========+======+=========+===================================+
@@ -82,6 +84,7 @@ fields for legacy support reasons but you effectively have access to all error a
         +-----+--------+------+---------+-----------------------------------+
 
     :n=3 Error Status:
+
         +-----+--------+------+---------+-----------------------------------+
         | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                       |
         +=====+========+======+=========+===================================+
@@ -109,6 +112,7 @@ fields for legacy support reasons but you effectively have access to all error a
         +-----+--------+------+---------+-----------------------------------+
 
     :n=4 Paper Roll Sensor Status:
+
         +-----+--------+------+---------+-----------------------------------+
         | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                       |
         +=====+========+======+=========+===================================+
@@ -130,6 +134,7 @@ fields for legacy support reasons but you effectively have access to all error a
         +-----+--------+------+---------+-----------------------------------+
 
     :n=17 Print Status:
+
         +-----+--------+------+---------+-----------------------------------+
         | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                       |
         +=====+========+======+=========+===================================+

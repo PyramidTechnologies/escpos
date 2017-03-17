@@ -181,3 +181,7 @@ epub_copyright = copyright
 epub_exclude_files = ['search.html']
 
 
+# -- Options for PDF output -----------------------------------------------
+
+pdf_break_level = 1
+pdf_breakside = "odd"
