@@ -6,5 +6,8 @@
    :align: middle
 
 .. |absolutepp| image:: img/AbsolutePrintPosition.png
+   :align: middle 
+   
+.. |upsidedown| image:: img/upsidedown.svg
    :align: middle   
    
