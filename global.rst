@@ -4,4 +4,7 @@
 
 .. |pyramidqr| image:: img/pyramidacceptors.com.jpg
    :align: middle
+
+.. |absolutepp| image:: img/AbsolutePrintPosition.png
+   :align: middle   
    

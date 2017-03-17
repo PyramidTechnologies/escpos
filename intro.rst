@@ -37,7 +37,7 @@ indicate what form is being used.
 ----
 
 .. index:: Terminology
-
+.. _terminology:
 Terminology
 ===========
 This section describes the terminology used in this document to describe the command and their functions.
