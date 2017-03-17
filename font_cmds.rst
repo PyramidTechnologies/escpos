@@ -279,3 +279,101 @@ This section describes all commands that affect how and which font is rendered.
    :Related: :ref:`Select Print Mode<1b21>`
    :Example:
         TODO        
+
+-------        
+
+.. _1d21:
+.. py:attribute:: Select Character Size - $1D $21
+    
+    Select character width and height according the bits of n.
+    - Bits 0 to 3 : select character height (see table 2)
+    - Bits 4 to 7 : select character width (see table 1)
+
+    Table 1 - Width
+        +-----+---------+---------------+
+        | HEX | DECIMAL | Width         |
+        +=====+=========+===============+
+        | 0   | 0       | 1 (normal)    |
+        +-----+---------+---------------+
+        | 10  | 16      | 2 (2x width)  |
+        +-----+---------+---------------+
+        | 20  | 32      | 3 (3x width)  |
+        +-----+---------+---------------+
+        | 30  | 48      | 4 (4x width)  |
+        +-----+---------+---------------+
+        | 40  | 64      | 5 (5x width)  |
+        +-----+---------+---------------+
+        | 50  | 80      | 6 (6x width)  |
+        +-----+---------+---------------+
+        | 60  | 96      | 7 (7x width)  |
+        +-----+---------+---------------+
+        | 70  | 112     | 8 (8x width)  |
+        +-----+---------+---------------+
+
+    Table 2 - Height
+        +-----+---------+---------------+
+        | HEX | DECIMAL | Height        |
+        +=====+=========+===============+
+        | 0   | 0       | 1 (normal)    |
+        +-----+---------+---------------+
+        | 1   | 1       | 2 (2x height) |
+        +-----+---------+---------------+
+        | 2   | 2       | 3 (3x height) |
+        +-----+---------+---------------+
+        | 3   | 3       | 4 (4x height) |
+        +-----+---------+---------------+
+        | 4   | 4       | 5 (5x height) |
+        +-----+---------+---------------+
+        | 5   | 5       | 6 (6x height) |
+        +-----+---------+---------------+
+        | 6   | 6       | 7 (7x height) |
+        +-----+---------+---------------+
+        | 7   | 7       | 8 (8x height) |
+        +-----+---------+---------------+        
+
+   :Format:
+        ``Hex       $1B $21  n``  
+
+        ``ASCII     GS   !   n``  
+        
+        ``Decimal   29  33   n``  
+
+   :Range: ``0 ≤ n ≤ 255``
+   :Default: ``n=0, n is base 10``
+   :Notes:
+       - Invalid n values are ignored, the current character size is maintained.
+       - Characters on the same line sized to different heights will be aligned to the topline.
+       - Width is expanded to the right.
+       - In standard mode, the character is enlarged in the paper feed direction when double-height mode is selected, and it is enlarged perpendicular to the paper feed direction when double-width mode is selected. However, when character orientation changes in 90° clockwise rotation mode, the relationship between double-height and double-width is reversed.
+       - :ref:`ESC !<1b21>` Can also be used for this setting. The last received command is the effective one.
+
+   :Related: :ref:`Select Print Mode (ESC !)<1b21>`
+   :Example:
+        TODO            
+
+.. _1d42:
+.. py:attribute:: Reverse Print Mode - $1D $42
+    
+    Turn white/black reverse printing (inverted) mode on/off based on the LSB of n
+    - LSB Set: reverse enabled
+    - LSB Clear: reverse disabled
+
+   :Format:
+        ``Hex       $1B $42  n``  
+
+        ``ASCII     GS   B   n``  
+        
+        ``Decimal   29  66   n``  
+
+   :Range: ``0 ≤ n ≤ 255``
+   :Default: ``n=0, n is base 10``
+   :Notes:
+       - Only the LSB of n is inspected.
+       - This does not affect images, bardocdes, or user defined images.
+       - This has a higher priority than underline. 
+
+          - Underline will stay enabled but no be applied if this setting is enabled.        
+
+   :Related: ``None``
+   :Example:
+        TODO           
