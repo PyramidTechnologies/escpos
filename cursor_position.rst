@@ -1,4 +1,6 @@
 .. index:: Position
+.. include:: global.rst
+.. include:: intro.rst
 
 Cursor Position Commands
 ==========================
@@ -118,6 +120,92 @@ movable pointer that allow you to print anywhere on the print ticket.
 
 ----
 
+.. _x18:
+.. py:attribute:: Cancel Current Line- $18
+
+    Deletes/Cancels the current line
+
+    :Format: ``$18`` or ``CAN`` or ``24``
+
+    :Notes:
+        - Sets the print position to the beginning of the line
+
+    :Range: ``None``
+    :Example:
+        .. code-block:: none
+            :emphasize-lines: 2,3
+
+            write('Hello World')              # Put some text in the buffer
+            write('\x18')                     # Send cancel command
+            write('Thank you!')               # Write some other data
+            write('\x1b\x69')                 # Force-print the buffer
+            print()
+            >>>Thank you! 
+
+----
+
+.. _1b24:
+.. py:attribute:: Absolute Print Position - $1B $24
+
+    Moves the print position to [(nL + (nH × 256)) × (horizontal or vertical 
+    motion unit)] from the left edge of the print area. Uses Two Byte Number 
+    Definitions. See :ref:`Terminology Section <terminology>`
+
+    |absolutepp|
+
+    :Format: 
+             ``Hex      $1B $24 nL  nH``
+
+             ``ASCII    ESC $   nL  nH``
+
+             ``Decimal  27  36  nL  nH``
+    :Range: ``None``
+    :Default: ``nL = 0, nH = 0``
+    :Notes:
+        - Settings that exceed the printable area are ignored.
+        - If settings exceed the print area width, the absolute print position 
+          is set, but no text will be able to fit in the print area width and 
+          any text will be treated as a line feed.
+        - When standard mode is selected, the horizontal 
+          (perpendicular to paper feed) motion unit is used.
+        - When this command is executed, the printer is no longer in a 
+          “New Line” state. See :ref:`Terminology Section <terminology>`
+        - The horizontal and vertical motion units are specified by ``$1D $50``. 
+          Changing the horizontal or vertical motion unit does not affect the 
+          current absolute print position.
+        - Absolute print position is effective until it is changed, a new line 
+          event occurs, ``ESC @`` is executed, the printer is reset, or the power 
+          is turned off.
+        - Even if underline mode is turned on, areas skipped with this command 
+          are not underlined.
+
+    :Related: :ref:`Motion Units <todo>`
+
+              :ref:`Relative Print Position <todo>`
+              
+              .. @todo $1D $D0 command
+    :Example:
+        .. code-block:: none
+            :emphasize-lines: 2
+
+            write('\x1d\x57\x2c\x01')   # Set print area width of 300
+            write('\x1b\x24\x64\x00')   # Set absolute print position to 100
+            write('\x1b\x4d\x01')       # Select character font 
+            # Write text to see multiple lines
+            write('Print area width of 300 and absolute print position of 100.
+             Only the first line should have this absolute print position.')
+            print()
+            >>>     
+                   Print area wid
+            th of 300 and absolut 
+            e print position of 1
+            00. Only the first li 
+            ne should have this a 
+            bsolute print positio 
+            n.
+
+----
+
 .. _1b44:
 .. py:attribute:: Horizontal Tab Positions - $1B $44
 
@@ -144,26 +232,7 @@ movable pointer that allow you to print anywhere on the print ticket.
 
             write('\x1b\x44\x00')             # Cancel previous tab settings, restores defaults
             write('\x1b\x44\x08\x14\x25\x00') # Set tab stops at 8, 20, and 32 characters
-            print('Item\x09Quantity\x09Price')
+            write('Item\x09Quantity\x09Price')
+            print()
             >>> Item		Quantity	Price
-
-.. _x18:
-.. py:attribute:: Cancel Current Line- $18
-
-    Deletes/Cancels the current line
-
-    :Format: ``$18`` or ``CAN`` or ``24``
-
-    :Notes:
-        - Sets the print position to the beginning of the line
-
-    :Range: ``None``
-    :Example:
-        .. code-block:: none
-            :emphasize-lines: 2,3
-
-            write('Hello World')              # Put some text in the buffer
-            write('\x18')                     # Send cancel command
-            write('Thank you!')               # Write some other data
-            write('\x1b\x69')                 # Force-print the buffer
-            >>>Thank you!                                            
+----
