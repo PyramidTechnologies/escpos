@@ -31,7 +31,7 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
 
             write("\x0a")           # Beginning line feed
             write("\x1c\x7d\x25")   # Start QR Code® command
-            write("28")             # Length of string to follow
+            write("\x1C")           # Length of string to follow (28 bytes in this example)
             write("https://pyramidacceptors.com")
             write("\x0a")           # Ending line feed
             print()
