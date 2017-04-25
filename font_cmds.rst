@@ -247,7 +247,7 @@ This section describes all commands that affect how and which font is rendered.
     \newpage
 
 .. _1b7b:
-.. py:attribute:: Upside-down Mode - $1B $56
+.. py:attribute:: Upside-down Mode - $1B $7B
 
    Turn upside-down print mode on/off
 
