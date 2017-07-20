@@ -19,12 +19,12 @@ supported by the Reliance Printer.
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
 
    intro
    font_cmds
    cursor_position
    paper_movement
+   layout
    imaging
    realtime_status
 

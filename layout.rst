@@ -8,9 +8,8 @@ This section describes all commands that affect the layout of text in terms of s
 are advanced features that are not commonly by most users.
 
 ----------
+
 .. _1b20:
-Right Side Character Spacing - $1b $20
---------------------------------------
 
 .. py:attribute:: Right Side Character Spacing - $1b $20
 
@@ -41,9 +40,8 @@ Right Side Character Spacing - $1b $20
    :Example: ``None``
 
 ----
+
 .. _1b33:
-Line Spacing Spacing - $1b $33
-------------------------------
 
 .. py:attribute:: Line Spacing Spacing - $1b $33
 
@@ -79,9 +77,8 @@ Line Spacing Spacing - $1b $33
    :Example: ``None``
 
 ----
+
 .. _1b32:
-Select 1/6 Inch Line Spacing - $1b $32
-----------------------------
 
 .. py:attribute:: Select 1/6 Inch Line Spacing - $1b $32
 
@@ -109,9 +106,8 @@ Select 1/6 Inch Line Spacing - $1b $32
     :Example: ``None``
 
 ----
+
 .. _1b30:
-Select 1/8 Inch Line Spacing Spacing - $1b $30
-----------------------------------------------
 
 .. py:attribute:: Select 1/8 Inch Line Spacing - $1b $30
 
@@ -140,9 +136,8 @@ Select 1/8 Inch Line Spacing Spacing - $1b $30
    :Example: ``None``
 
 ----
+
 .. _1b61:
-Select Justification - $1b $61
-------------------------------
 
 .. py:attribute:: Select Justification - $1b $61
 
@@ -159,7 +154,7 @@ Select Justification - $1b $61
        - This command is enabled only when processed at the beginning of a line. (When the current line is empty) 
        - This command applies the justification within the area set by ​$1D $4C ​and $1D $57 
        - This command will justify all data in the printing area such as characters, graphics, bit images, bar code and space area set by ​$09, $1B $24 and $1B $5C​. 
-       - Settings of this command are effective until ​:ref:`initialize <1b40>`​ is executed, the printer is reset, or the power is turned off. 
+       - Settings of this command are effective until ​the :ref:`Initialize <1b40>` command is executed, the printer is reset, or the power is turned off. 
    
    :Range: ``n=0,1,2,48,49,50``
    :Default: ``0``
@@ -172,15 +167,14 @@ Select Justification - $1b $61
 
             :ref:`TODO <1b5c>`                              
 
-            :ref:`TODO <x9>`   
+            :ref:`TODO <x09>`   
 
    :Example:
       |justification|
 
-----
-.. _1b61:
-Left Margin - $1d $4c
-------------------------------
+---
+
+.. _1d4c:
 
 .. py:attribute:: Left Margin - $1d $4c
 
@@ -210,12 +204,10 @@ Left Margin - $1d $4c
        :ref:`Print Area Width <1d57>`                              
 
    :Example: ``None``
-   
+
 ----
 
 .. _1d50:
-Motion Units - $1d $50
-------------------------------
 
 .. py:attribute:: Motion Units - $1d $50
 
@@ -224,11 +216,8 @@ Motion Units - $1d $50
 ----
 
 .. _1d57:
-Print Area Width  - $1d $57
-------------------------------
 
 .. py:attribute:: Print Area Width  - $1d $57
 
     Set print area width 
 
-----

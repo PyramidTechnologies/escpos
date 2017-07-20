@@ -1,3 +1,5 @@
+.. index:: realtime_status
+
 Real Time Status
 ================
 This command provides a wealth of information about the printers current status. The command will always receive a response unless

@@ -5,9 +5,30 @@ Font Controlling Commands
 
 This section describes all commands that affect how and which font is rendered.
 
-.. raw:: latex
+----
 
-    \newpage
+.. _1b40:
+.. py:attribute:: Initialize - $1B $40
+   
+   Clears the data in the print buffer and resets the printer modes to the modes that were in effect when the power was turned on. 
+   
+   :Format: ``Hex       $1B $40`` 
+
+            ``ASCII     ESC @``
+
+            ``Decimal   27  64`` 
+   :Range: ``None``
+   :Default: ``None``   
+   :Notes:
+       - Print buffer is cleared 
+       - Data buffer contents are preserved
+       - NV graphics (NV bit image) information is maintained. 
+       - User NV memory data is maintained. 
+
+   :Related: ``None``
+   :Example: ``None``   
+
+----
 
 .. _1b21:
 .. py:attribute:: Select Print Mode - $1B $21
@@ -23,17 +44,18 @@ This section describes all commands that affect how and which font is rendered.
    :Default: ``None``        
    :Notes:
        - See table for appropriate value of n.
-       - Underline exceptions
+       - The basline for characters of different vertical scalars will be the same
+
+       Underline exceptions
           - Does not underline 90°/270° rotation
           - Does not underline horizontal tabs
-          - Underline thickness is specified by ESC - (TODO link)
-       - This command resets the left and right margins
-          - Left margin set by GS L (TODO link)
-          - Right margin ste by GW W (TODO link)
-       - For each of the underline, italic, bold modes:
+          - Underline thickness is specified by :ref:`Underline Mode<1b2d>`
+       This command resets the left and right margins
+          - Left margin set by :ref:`Left Margin<1d4c>`
+          - Right margin ste by :ref:`Print Area Width<1d57>`
+       For each of the underline, italic, bold modes:
           - These can be issues by their respective ESC commands or this command
           - The last received command is the effective command.
-       - The basline for characters of different vertical scalars will be the same
 
         +-----+----------+------+---------+------------------------------+
         | BIT | State    | HEX  | DECIMAL | Function                     |
@@ -67,7 +89,7 @@ This section describes all commands that affect how and which font is rendered.
         |     | Enabled  | 80   | 128     | Enable underline mode        |
         +-----+----------+------+---------+------------------------------+          
 
-   :Related: ``:ref:`TODO```
+   :Related: ``None``
    :Example:
         .. code-block:: none
 
@@ -89,11 +111,17 @@ This section describes all commands that affect how and which font is rendered.
 .. py:attribute:: Underline Mode - $1B $2D
 
    Turns underline mode on or off, based on the following values of n:
+
        - n = 0, 48 Turns off underline mode
        - n = 1, 49 Turns on underline mode (1-dot thick)
        - n = 2, 50 Turns on underline mode (2-dot thick)
 
-   :Format: ``$1B $2D n`` or ``ESC - n`` or ``27 45 n``
+   :Format: ``Hex       $1B $2D n`` 
+
+            ``ASCII     ESC -   n``
+
+            ``Decimal   27  45  n``  
+
    :Range: ``0  n ≤ 2, 48 ≤ n ≤ 50``
    :Default: ``0``
    :Notes:
@@ -107,14 +135,14 @@ This section describes all commands that affect how and which font is rendered.
        - Thickness moves downward from the natural top of the character.
        - ESC ! Can also be used for this setting. The last received command is the effective one.
 
-   :Related: ``:ref:`TODO```
+   :Related: ``None``
    :Example:
         .. code-block:: none
 
             write("\x1b\x2d\x01")          # Enable underline
             write("This is underlined")
             print()
-            >>> This text is underlined  # Note that MD format doesn't support underline but trust us :)
+            >>> This text is underlined    # This format doesn't support underline but trust us :)
             write("\x1b\x2d\x00")          # Disable underline
             write("This is not underlined")
             print()
@@ -277,11 +305,10 @@ This section describes all commands that affect how and which font is rendered.
    :Related: ``None``
    :Example:
         TODO
+        
 |upsidedown|
 
-.. raw:: latex
-
-    \newpage      
+---    
 
 .. _1bc1:
 .. py:attribute:: Set CPI Mode - $1B $C1

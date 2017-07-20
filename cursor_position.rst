@@ -1,6 +1,5 @@
 .. index:: Position
 .. include:: global.rst
-.. include:: intro.rst
 
 Cursor Position Commands
 ==========================
@@ -8,7 +7,7 @@ Cursor Position Commands
 This section describes all commands that affect the location of the print position. Consider the print position as a
 movable pointer that allow you to print anywhere on the print ticket.
 
-----------
+---
 
 .. _x08:
 .. py:attribute:: Backspace - $08
@@ -179,9 +178,9 @@ movable pointer that allow you to print anywhere on the print ticket.
         - Even if underline mode is turned on, areas skipped with this command 
           are not underlined.
 
-    :Related: :ref:`Motion Units <todo>`
+    :Related: :ref:`Motion Units <1d50>`
 
-              :ref:`Relative Print Position <todo>`
+              :ref:`Relative Print Position<1b5c>`
               
               .. @todo $1D $D0 command
     :Example:
@@ -235,4 +234,13 @@ movable pointer that allow you to print anywhere on the print ticket.
             write('Item\x09Quantity\x09Price')
             print()
             >>> Item		Quantity	Price
-----
+
+---
+
+.. _1b5c:
+
+------------------------------
+
+.. py:attribute:: Relative Print Position  - $1B $5C
+
+    Relative Print Position 

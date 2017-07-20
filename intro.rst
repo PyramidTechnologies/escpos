@@ -37,9 +37,9 @@ indicate what form is being used.
 ----
 
 .. index:: Terminology
+
 .. _terminology:
-Terminology
-===========
+
 This section describes the terminology used in this document to describe the command and their functions.
 
 Data Buffer
@@ -59,6 +59,7 @@ New Line
    
    
 .. index:: Dots and Pixels   
+
 Dots vs Pixels vs Bytes
     In the context of Reliance printing, we prefer to speak in terms of dots. A dot is a literal
     dot on the thermal printer burn head. This is essentialyl the same concept as a pixel on your monitor.
@@ -71,7 +72,8 @@ Dots vs Pixels vs Bytes
     paper roll (80mm). 
 
 
-.. _2byte:   
+.. _2byte:
+
 .. index:: Two-byte
 
 Two-byte Number Definitions
@@ -101,7 +103,7 @@ Two-byte Number Definitions
 
    :Example 2:
 
-      The Left Margin ESC/POS command ``$1D $4C``, requires a two-byte parameter for horizontal motion units. To get a left margin of 549 motion units
+      :ref:`The Left Margin ESC/POS command<1d4c>`, requires a two-byte parameter for horizontal motion units. To get a left margin of 549 motion units
 
       :math:`nH = Quotient = \frac{549}{256} = 2`
 
