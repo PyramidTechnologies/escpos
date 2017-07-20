@@ -8,6 +8,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b40:
+
 .. py:attribute:: Initialize - $1B $40
    
    Clears the data in the print buffer and resets the printer modes to the modes that were in effect when the power was turned on. 
@@ -31,6 +32,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b21:
+
 .. py:attribute:: Select Print Mode - $1B $21
 
    Quick-select a variety of print control options such as font type and effects.
@@ -103,11 +105,10 @@ This section describes all commands that affect how and which font is rendered.
             print()
             >>> This is font A"
 
-.. raw:: latex
-
-    \newpage
+----
 
 .. _1b2d:
+
 .. py:attribute:: Underline Mode - $1B $2D
 
    Turns underline mode on or off, based on the following values of n:
@@ -126,14 +127,14 @@ This section describes all commands that affect how and which font is rendered.
    :Default: ``0``
    :Notes:
        - Invalid n values will be ignored. The existing underline and underline thickness settings will be maintained.
-       - 90° (ESC V) characters will not be underlined
-       - Black/White reverse (GS B) characters will not be underlined.
+       - :ref:`90° Rotation<1b56>` characters will not be underlined
+       - :ref:`Black/White Reverse<1d42>` characters will not be underlined.
        - Tab characters are not underlined when this mode is enabled.
        - Disabled or enabling this mode takes is applied immediately. The following data will be underlined.
        - Default underline thickness is 1 dot.
        - Character size does not affect underline thickness.
        - Thickness moves downward from the natural top of the character.
-       - ESC ! Can also be used for this setting. The last received command is the effective one.
+       - :ref:`Select Print Mode<1b21>` Can also be used for this setting. The last received command is the effective one.
 
    :Related: ``None``
    :Example:
@@ -142,31 +143,36 @@ This section describes all commands that affect how and which font is rendered.
             write("\x1b\x2d\x01")          # Enable underline
             write("This is underlined")
             print()
-            >>> This text is underlined    # This format doesn't support underline but trust us :)
+            >>> __This text is underlined__    # This format doesn't support underline but trust us :)
             write("\x1b\x2d\x00")          # Disable underline
             write("This is not underlined")
             print()
             >>> This is not underlined
 
-.. raw:: latex
-
-    \newpage
+----
 
 .. _1b34:
+
 .. py:attribute:: Italics Mode - $1B $34
 
    Turns *italics* mode on or off, based on the following values of n:
+
        - n = 0, 48 Turns off *italics* mode
        - n = 1, 49 Turns on *italics* mode
 
-   :Format: ``$1B $34 n`` or ``ESC 4 n`` or ``27 52 n``
+   :Format: ``Hex       $1B $34 n`` 
+
+            ``ASCII     ESC 4   n``
+
+            ``Decimal   27  52  n``  
+
    :Range: ``0 ≤ n ≤ 1, 48 ≤ n ≤ 59``
    :Default: ``n=0, n is base 10``
    :Notes:
        - This effect is applied immediately
-       - ESC! can also be used for this settings. The last received command is the effective one.
+       - :ref:`Select Print Mode<1b21>` can also be used for this settings. The last received command is the effective one.
 
-   :Related: ``:ref:`TODO```
+   :Related: ``None``
    :Example:
         .. code-block:: none
 
@@ -179,26 +185,31 @@ This section describes all commands that affect how and which font is rendered.
             print()
             >>> This is not italic       
 
-.. raw:: latex
-
-    \newpage
+----
 
 .. _1b45:
+
 .. py:attribute:: Emphasis Mode - $1B $45
 
    Turns **emphasis** mode on or off, based on the LSB of n:
+
        - n & 1  = 0 Turns off **emphasis** mode
        - n & 1  = 1 Turns on **emphasis** mode
 
-   :Format: ``$1B $45 n`` or ``ESC E n`` or ``27 69 n``
+   :Format: ``Hex       $1B $45 n`` 
+
+            ``ASCII     ESC E   n``
+
+            ``Decimal   27  69  n``  
+
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``n=0, n is base 10``
    :Notes:
        - This effect is applied immediately
        - Only the LSB of n is inspected
-       - ESC! can also be used for this settings. The last received command is the effective one.
+       - :ref:`Select Print Mode<1b21>` can also be used for this settings. The last received command is the effective one.
 
-   :Related: ``:ref:`TODO```
+   :Related: ``TODO``
    :Example:
         .. code-block:: none
 
@@ -211,7 +222,10 @@ This section describes all commands that affect how and which font is rendered.
             print()
             >>> This is not bold      
 
+----
+
 .. _1b4D:
+
 .. py:attribute:: Select Character Font - $1B $4D
 
    Selects character font based on n.
@@ -232,24 +246,25 @@ This section describes all commands that affect how and which font is rendered.
         | B = 15 cpi           | 1,48 | 15 cpi font selected |          
         +----------------------+------+----------------------+   
 
-   :Format: ``$1B $4D n`` or ``ESC M n`` or ``27 77 n``
+   :Format: ``Hex       $1B $4D n`` 
+
+            ``ASCII     ESC M   n``
+
+            ``Decimal   27  77  n`` 
+
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
    :Notes:
        - CPI means characters per inch
        - A higher CPI equates to a smaller, more compact font
 
-   :Related: ``:ref:`TODO```   
-   :Example:
-        .. code-block:: none
+   :Related: ``None``   
+   :Example: ``None``             
 
-        TODO                 
-
-.. raw:: latex
-
-    \newpage
+----
 
 .. _1b56:
+
 .. py:attribute:: 90° Rotation - $1B $56
 
    Turns 90° rotation on or off, based on n
@@ -257,24 +272,27 @@ This section describes all commands that affect how and which font is rendered.
        - n = 0, 48 Turns off rotation
        - n = 1, 49 Turns on rotation
 
-   :Format: ``$1B $56 n`` or ``ESC V n`` or ``27 86 n``
+   :Format: ``Hex       $1B $56 n`` 
+
+            ``ASCII     ESC V   n``
+
+            ``Decimal   27  86  n`` 
+
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
    :Notes:
        - Invalid n values will be ignored
+       - 90° rotated characters will be underlined in the vertical direction.          
        - Double-width and double-height commands in 90° rotation will enlarge the opposite dimension when this mode is enabled.
-         - i.e. width and height scalars are swapped
-       - 90° rotated characters will be underlined in the vertical direction.   
+          - i.e. width and height scalars are swapped
 
    :Related: ``None``
-   :Example:
-        TODO     
+   :Example: ``None``   
 
-.. raw:: latex
-
-    \newpage
+----
 
 .. _1b7b:
+
 .. py:attribute:: Upside-down Mode - $1B $7B
 
    Turn upside-down print mode on/off
@@ -282,7 +300,12 @@ This section describes all commands that affect how and which font is rendered.
        - When the LSB of n is 0, upside-down print mode is turned off.
        - When the LSB of n is 1, upside-down print mode is turned on.  
 
-   :Format: ``$1B $7B n`` or ``ESC { n`` or ``27 123 n``
+   :Format: ``Hex       $1B $7B n`` 
+
+            ``ASCII     ESC {   n``
+
+            ``Decimal   27  123  n`` 
+
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``n=0, n is base 10``
    :Notes:
@@ -303,14 +326,14 @@ This section describes all commands that affect how and which font is rendered.
     .. tip:: The line printing order is not reversed. Therefore, care should be taken when considering the order of the data transmitted.
 
    :Related: ``None``
-   :Example:
-        TODO
+   :Example: ``None``    
         
 |upsidedown|
 
----    
+---- 
 
 .. _1bc1:
+
 .. py:attribute:: Set CPI Mode - $1B $C1
 
    Selects the active CPI mode.
@@ -325,21 +348,24 @@ This section describes all commands that affect how and which font is rendered.
         | 2,50 | Font A = 20 cpi  | Font B = 15 cpi      |        
         +------+------------------+----------------------+   
 
-   :Format: ``$1B $C1 n`` or ``ESC Á n`` or ``27 193 n``
+   :Format: ``Hex       $1B $C1 n`` 
+
+            ``ASCII     ESC Á   n``
+
+            ``Decimal   27  193  n`` 
+
    :Range: ``n= 0, 1, 2, 48, 49, 50``
    :Default: ``n=0, n is base 10``
    :Notes:
        - CPI is characters per inch
        - The higher the CPI, the smaller the font
    :Related: :ref:`Select Print Mode<1b21>`
-   :Example:
-        TODO        
+   :Example: ``None``        
 
-.. raw:: latex
-
-    \newpage       
+----     
 
 .. _1d21:
+
 .. py:attribute:: Select Character Size - $1D $21
     
     Select character width and height according the bits of n.
@@ -405,14 +431,12 @@ This section describes all commands that affect how and which font is rendered.
        - :ref:`ESC !<1b21>` Can also be used for this setting. The last received command is the effective one.
 
    :Related: :ref:`Select Print Mode (ESC !)<1b21>`
-   :Example:
-        TODO            
+   :Example: ``None``            
 
-.. raw:: latex
-
-    \newpage
+----
 
 .. _1d42:
+
 .. py:attribute:: Reverse Print Mode - $1D $42
     
     Turn white/black reverse printing (inverted) mode on/off based on the LSB of n
@@ -436,5 +460,4 @@ This section describes all commands that affect how and which font is rendered.
           - Underline will stay enabled but no be applied if this setting is enabled.        
 
    :Related: ``None``
-   :Example:
-        TODO           
+   :Example: ``None``           
