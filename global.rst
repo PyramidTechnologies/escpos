@@ -11,3 +11,8 @@
 .. |upsidedown| image:: img/upsidedown.svg
    :align: middle   
    
+.. |justification| image:: img/justification_ex.png
+   :align: middle
+
+.. |leftmargin| image:: img/left_margin.png
+   :align: middle   
