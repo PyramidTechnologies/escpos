@@ -12,3 +12,37 @@ pip install sphinx==1.2.2
 
 [Read on Readthedocs](http://reliance-escpos-commands.readthedocs.io/)
 
+
+## Template (RST)
+
+.. _tagname:
+.. index:: $BYTE1 $BYTE2
+.. py:attribute:: Command Name - $BYTE1 $BYTE2
+
+    Short description
+
+    :Format: 
+             ``Hex      $BYTE11B $CODE  ARGS``
+
+             ``ASCII    ASCII CODE    ARGS``
+
+             ``Decimal  DEC  CODE   ARGS``
+    :Notes:
+        - Caveats and exception
+        - Go in this section of the doc
+        - If you need subnotes, then indent 3x
+          - Like this!
+
+    :Range: ``None``
+    :Default: ``None``
+    :Related: :ref:`Description of what you're linking to <tagname>`
+    :Example:
+        .. code-block:: none
+            :emphasize-lines: 1
+
+            write('\x1b\x44\x00')             # Cancel previous tab settings, restores defaults
+            write('\x1b\x44\x08\x14\x25\x00') # Set tab stops at 8, 20, and 32 characters
+            write('Item\x09Quantity\x09Price')
+            print()
+            >>> Item		Quantity	Price
+

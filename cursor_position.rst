@@ -242,8 +242,7 @@ movable pointer that allow you to print anywhere on the print ticket.
 ---
 
 .. _1b5c:
-
-------------------------------
+.. index:: $1B $5C
 
 .. py:attribute:: Relative Print Position  - $1B $5C
 
