@@ -5,8 +5,8 @@
 Official Reliance Thermal Printer ESC/POS Command Set Documentation
 
 ## Building
-pip install sphinx_rtd_theme
-pip install sphinx==1.2.2
+    pip install sphinx_rtd_theme
+    pip install sphinx==1.2.2
 
 (Can't use requirements.txt as that will break the build server for some reason)
 
@@ -15,9 +15,9 @@ pip install sphinx==1.2.2
 
 ## Template (RST)
 
-.. _tagname:
-.. index:: $BYTE1 $BYTE2
-.. py:attribute:: Command Name - $BYTE1 $BYTE2
+.. _tagname:  
+.. index:: $BYTE1 $BYTE2  
+.. py:attribute:: Command Name - $BYTE1 $BYTE2  
 
     Short description
 
