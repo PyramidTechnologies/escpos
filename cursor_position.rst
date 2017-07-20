@@ -7,7 +7,7 @@ Cursor Position Commands
 This section describes all commands that affect the location of the print position. Consider the print position as a
 movable pointer that allow you to print anywhere on the print ticket.
 
----
+----
 
 .. _x08:
 .. py:attribute:: Backspace - $08
@@ -210,8 +210,12 @@ movable pointer that allow you to print anywhere on the print ticket.
 
     Sets the horizontal tab positions calculated from the start of the line.
 
-    :Format: ``$1B $44 n1...nk 00`` or ``ESC D n1...nk NUL`` or ``27 68 n1...nk 0``
+    :Format: 
+             ``Hex      $1B $44  n1...nk 00``
 
+             ``ASCII    ESC D    n1...nk 00``
+
+             ``Decimal  27  68   n1...nk 00``
     :Notes:
         - N is the column number specified from line start
         - K is the total number of horizontal tab positions

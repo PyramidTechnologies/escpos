@@ -32,7 +32,12 @@ indicate what form is being used.
 
 .. py:attribute:: Format Order
 
-    :Format: ``$Hex 1st``  ``ASCII 2nd`` ``Dec 3rd``
+    :Format: 
+        ``$Hex 1st``  
+
+        ``ASCII 2nd``
+        
+        ``Dec 3rd``
 
 ----
 
