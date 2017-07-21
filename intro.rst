@@ -60,7 +60,7 @@ New Line
 
    #. There is no skipped portion using the HT (horizontal tab) command
 
-   #. A print position has not been specified using ``ESC $`` or ``ESC \``
+   #. A print position has not been specified using :ref:`Absolute<1b24>` or :ref:`Relative<1b5c>` print position commands
    
    
 .. index:: Dots and Pixels   
@@ -108,7 +108,7 @@ Two-byte Number Definitions
 
    :Example 2:
 
-      :ref:`The Left Margin ESC/POS command<1d4c>`, requires a two-byte parameter for horizontal motion units. To get a left margin of 549 motion units
+      The :ref:`Left Margin<1d4c>` command requires a two-byte parameter for horizontal motion units. To get a left margin of 549 motion units
 
       :math:`nH = Quotient = \frac{549}{256} = 2`
 
@@ -152,7 +152,7 @@ Command     Description
 =========== ===========
 write(data) Writes the specified data to the printer. The data may be hex, ascii, mixed, etc.
 print()     Request the printer to print its buffer
-`>>>`       Print result or printer data response
+`>>>`       Display result or the printer's response
 =========== ===========
 
 These examples will reside in code blocks with the important lines highlighted yellow.
