@@ -8,7 +8,7 @@
 .. |absolutepp| image:: img/AbsolutePrintPosition.png
    :align: middle 
    
-.. |upsidedown| image:: img/upsidedown.svg
+.. |upsidedown| image:: img/upsidedown.png
    :align: middle   
    
 .. |justification| image:: img/justification_ex.png
