@@ -30,6 +30,9 @@ Each command will be described in the format as shown below.
 Commands are represented in hexadecimal, ascii, and decimal, in that order. We use the following notation to
 indicate what form is being used.
 
+.. _formatOrder:  
+.. index:: Format Order 
+
 .. py:attribute:: Format Order
 
     :Format: 
