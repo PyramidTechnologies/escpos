@@ -16,3 +16,6 @@
 
 .. |leftmargin| image:: img/left_margin.png
    :align: middle   
+
+.. |printablearea| image:: img/printablearea.png
+   :align: middle

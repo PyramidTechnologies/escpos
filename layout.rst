@@ -249,7 +249,42 @@ are advanced features that are not commonly by most users.
 .. py:attribute:: Motion Units - $1D $50
 
     Set horizontal and vertical motion units
-.. warning:: TODO
+
+   :Format:
+        ``Hex       $1D $50 x   y``  
+
+        ``ASCII     GS  P   x   y``  
+        
+        ``Decimal   29  80  x   y``     
+
+   :Notes:        
+       - Sets the horizontal and vertical motion units to approximately 25.4/x mm {1/x"} and approximately 25.4/y mm {1/y"}, respectively.
+
+        - When x = 0, the default value of the horizontal motion unit is used. 
+        - When y = 0, the default value of the horizontal motion unit is used.
+        - When x > 204, the default value of the horizontal motion unit is used.
+        - When y > 204, the default value of the horizontal motion unit is used.
+
+       - The horizontal direction is perpendicular to the paper feed direction and the vertical direction is the paper feed direction. 
+       - The horizontal and vertical motion units indicate the minimum pitch used for calculating the values of related commands 
+       - In standard mode, the following commands use x or y. 
+
+         - Commands using x: :ref:`Left Margin <1d4c>`, :ref:`Print Area Width <1d57>` 
+         - Commands using y
+
+       - If the result is a decimal number, the decimal is ignored. 
+       - This command does not affect the previously defined values for settings that use the horizontal or vertical motion units. 
+       - Settings of this command are effective until it is changed, :ref:`Initialize<1b40>` is executed, the printer is reset, or the power is turned off. 
+
+
+   :Range: ``0 ≤ x, y ≤ 255``
+   :Default: ``x = 204, y = 204``
+   :Related: 
+       :ref:`Left Margin <1d4c>`
+
+       :ref:`Print Area Width <1d57>`       
+
+   :Example: ``None``
 
 ----
 
@@ -263,5 +298,29 @@ are advanced features that are not commonly by most users.
 .. py:attribute:: Print Area Width  - $1D $57
 
     Set print area width 
-.. warning:: TODO
 
+   :Format:
+        ``Hex       $1D $57 nL  nH``  
+
+        ``ASCII     GS  W   nL  nH``  
+        
+        ``Decimal   29  87  nL  nH``     
+
+   :Notes:        
+       - In standard mode, sets the print area width  to [(nL + (nH × 256)) × (horizontal motion unit)] from the right edge of the left margin. See :ref:`Two-byte Numbers<2byte>`
+       - This command is only executed when the printer is in a :ref:`New Line State<newlinestate>`
+       - If the setting exceeds the printable area, the print area width is automatically set to the maximum value of the printable area. 
+       - If the [left margin + print area width] is greater than the printable area, the print area will be truncated automatically to [printable area - left margin]. If left margin is changed, the print area width will also change until there is room to fit the specified print area width. 
+       - If the print area width equals 0, then the print area width is automatically set to the maximum value of the printable area. 
+       - The horizontal (perpendicular to paper feed direction) motion unit is used to set print area width. 
+       - The horizontal and vertical motion units are specified by :ref:`Motion Units<1d50>`. Changing the horizontal or vertical motion unit does not affect the current print area width. 
+       - Settings of this command are effective until it is changed, :ref:`Initialize<1b40>` is executed, the printer is reset, or the power is turned off. 
+
+   :Range: ``0 ≤ nL, nH ≥ 255, 0 ≤ (nL + (nH × 256))≤ 65535``
+   :Default: ``nL = 64, nH = 2``
+   :Related: 
+       :ref:`Motion Units<1d50>`
+
+       :ref:`Print Area Width<1d57>`       
+
+   :Example: |printablearea|

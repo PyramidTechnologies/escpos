@@ -63,6 +63,8 @@ Data Buffer
 Print Buffer
    Buffer for storing ticket image before printing
 
+.. _newlinestate:
+
 New Line
    A new line (line empty state) is a state that satisfies the following conditions:
 
