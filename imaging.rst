@@ -85,6 +85,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
          - Print Area Width 
 
        - A raster bit image data is printed in the following order: 
+
         +--------+--------+--------+--------+
         | d1     | d2     | ...    |   dx   |
         +========+========+========+========+
@@ -96,7 +97,8 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
         +--------+--------+--------+--------+
      
 
-       - Defines and prints a raster bit image using the mode specified by ​m​.
+       - Defines and prints a raster bit image using the mode specified by ​m​:
+       
         +-------+---------------------+--------------+--------------+
         | m     | Mode                | Width Scalar | Heigh Scalar |
         +=======+=====================+==============+==============+
