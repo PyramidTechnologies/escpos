@@ -17,6 +17,9 @@ supported by the PTI Reliance Thermal Printer. This document will provide descri
 explanations, use cases, and examples of how to use the ESC/POS command protocol 
 supported by the Reliance Printer.
 
+.. tip:: `Thermal Talk ESC/POS API <https://github.com/PyramidTechnologies/ThermalTalk>`_ automates a lot of these features for you. Continue reading this document if you specific requirements not yet covered by our ESC/POS API.
+
+
 .. toctree::
    :maxdepth: 4
 
