@@ -324,7 +324,7 @@ movable pointer that allow you to print anywhere on the print ticket.
             print()
             >>> Item		Quantity	Price
 
----
+----
 
 .. raw:: latex
 
@@ -335,5 +335,35 @@ movable pointer that allow you to print anywhere on the print ticket.
 
 .. py:attribute:: Relative Print Position  - $1B $5C
 
-    Relative Print Position
-.. warning:: TODO
+   Relative Print Position
+
+   :Format: 
+       ``Hex      $1B $5C  nL nH``
+
+       ``ASCII    ESC \    nL nH``
+       
+       ``Decimal  27  92   nL nH``
+
+   :Notes:
+       - Moves the print position to [(nL + (nH × 256)) × (horizontal or vertical motion unit)] from the current position. Uses :ref:`Two Byte Number Definitions<2byte>`. 
+       - A positive number specifies movement to the right, and a negative number specifies movement to the left. 
+       - Negative numbers are represented by the complement of 65536. For example, when moving in the left direction N motion units, use: 
+
+         - nL + nH × 256 = 65536-N 
+
+       - Settings that exceed the printable area are ignored. 
+       - If settings exceed the print area width, the relative print position is set, but no text will be able to fit in the print area width and any text will be treated as a line feed. 
+       - When ​standard mode​ is selected, the horizontal (perpendicular to paper feed) motion unit is used. 
+       - When this command is executed, the printer is no longer in a :ref:`New Line State<newlinestate>`
+       - The horizontal and vertical motion units are specified :ref:`Motion Units Tab<1d50>` Changing the horizontal or vertical motion unit does not affect the current relative print position. 
+       - Even if underline mode is turned on, areas skipped with this command are not underlined. 
+
+
+   :Range: ``0 ≤ nL, nH ≥ 255, -32768 ≤ (nL + (nH × 256)) ≤ 32767``
+   :Default: ``nL = 0, nH = 0``
+   :Related: 
+      :ref:`Motion Units Tab<1d50>`
+
+      :ref:`Absolute Print Position<1b24>`
+
+   :Example: ``None``
