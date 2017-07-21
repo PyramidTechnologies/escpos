@@ -82,9 +82,8 @@ Dots vs Pixels vs Bytes
 
 .. _2byte:
 
-.. index:: Two-byte
-
 Two-byte Number Definitions
+
    Many ESC/POS commands use two-byte number definitions to represent large numbers in
    two data bytes. In order to represent numbers greater than 255 in this way, we perform
    and integer division and a modulo division to obtain the high and low bytes, respectively.
