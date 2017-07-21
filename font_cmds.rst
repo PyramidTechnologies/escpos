@@ -8,6 +8,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b40:
+.. index:: $1B $40 - Initialize 
 
 .. py:attribute:: Initialize - $1B $40
    
@@ -32,6 +33,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b21:
+.. index:: $1B $21 - Select Print Mode 
 
 .. py:attribute:: Select Print Mode - $1B $21
 
@@ -108,6 +110,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b2d:
+.. index:: $1B $2D - Underline Mode 
 
 .. py:attribute:: Underline Mode - $1B $2D
 
@@ -143,7 +146,7 @@ This section describes all commands that affect how and which font is rendered.
             write("\x1b\x2d\x01")          # Enable underline
             write("This is underlined")
             print()
-            >>> __This text is underlined__    # This format doesn't support underline but trust us :)
+            >>> __This text is underlined__
             write("\x1b\x2d\x00")          # Disable underline
             write("This is not underlined")
             print()
@@ -152,6 +155,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b34:
+.. index:: $1B $34 - Italics Mode 
 
 .. py:attribute:: Italics Mode - $1B $34
 
@@ -188,6 +192,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b45:
+.. index:: $1B $45 - Emphasis Mode 
 
 .. py:attribute:: Emphasis Mode - $1B $45
 
@@ -209,7 +214,7 @@ This section describes all commands that affect how and which font is rendered.
        - Only the LSB of n is inspected
        - :ref:`Select Print Mode<1b21>` can also be used for this settings. The last received command is the effective one.
 
-   :Related: ``TODO``
+   :Related: ``None``
    :Example:
         .. code-block:: none
 
@@ -225,6 +230,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b4D:
+.. index:: $1B $4D - Select Character Font 
 
 .. py:attribute:: Select Character Font - $1B $4D
 
@@ -264,6 +270,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b56:
+.. index:: $1B $56 - 90° Rotation
 
 .. py:attribute:: 90° Rotation - $1B $56
 
@@ -282,9 +289,9 @@ This section describes all commands that affect how and which font is rendered.
    :Default: ``n=0, n is base 10``
    :Notes:
        - Invalid n values will be ignored
-       - 90° rotated characters will be underlined in the vertical direction.          
-       - Double-width and double-height commands in 90° rotation will enlarge the opposite dimension when this mode is enabled.
-          - i.e. width and height scalars are swapped
+       - :ref:`90° Rotation<1b56>` characters will be underlined in the vertical direction.     
+
+   .. tip:: :ref:`Double-width<1b21>` and :ref:`Double-height<1b21>` commands in :ref:`90° Rotation<1b56>` will enlarge the opposite dimension when this mode is enabled. i.e. width and height scalars are swapped
 
    :Related: ``None``
    :Example: ``None``   
@@ -292,6 +299,7 @@ This section describes all commands that affect how and which font is rendered.
 ----
 
 .. _1b7b:
+.. index:: $1B $7B - Upside-down Mode
 
 .. py:attribute:: Upside-down Mode - $1B $7B
 
@@ -313,26 +321,24 @@ This section describes all commands that affect how and which font is rendered.
        - When upside-down print mode is turned on, the printer prints all characters rotated 180° from right to left.
        - Upside-down print mode is effective for all data except for the following:
        
-          - Graphics from GS TODO ( L <Function 112> or <Function 113>. 
-          - Raster bit image from GS v 0 
-          - Vairable veritical size bit images GS Q 0 
+          - Raster bit image from :ref:`Raster Image<1d7630>`
+
        - Upside-down print mode is effective until any of the following occur:
 
           - It is explicitly disabled by settings LSB of n to 0         
-          - ESC @ is executed 
+          - :ref:`Initialize<1b40>` is executed 
           - Printer is reset 
           - Power is turned off 
 
-    .. tip:: The line printing order is not reversed. Therefore, care should be taken when considering the order of the data transmitted.
+   .. tip:: The line printing order is not reversed. Therefore, care should be taken when considering the order of the data transmitted.
 
    :Related: ``None``
-   :Example: ``None``    
-        
-|upsidedown|
+   :Example: |upsidedown|
 
 ---- 
 
 .. _1bc1:
+.. index:: $1B $C1 - Set CPI Mode
 
 .. py:attribute:: Set CPI Mode - $1B $C1
 
@@ -365,6 +371,7 @@ This section describes all commands that affect how and which font is rendered.
 ----     
 
 .. _1d21:
+.. index:: $1D $21 - Select Character Size
 
 .. py:attribute:: Select Character Size - $1D $21
     
@@ -428,14 +435,15 @@ This section describes all commands that affect how and which font is rendered.
        - Characters on the same line sized to different heights will be aligned to the topline.
        - Width is expanded to the right.
        - In standard mode, the character is enlarged in the paper feed direction when double-height mode is selected, and it is enlarged perpendicular to the paper feed direction when double-width mode is selected. However, when character orientation changes in 90° clockwise rotation mode, the relationship between double-height and double-width is reversed.
-       - :ref:`ESC !<1b21>` Can also be used for this setting. The last received command is the effective one.
+       - :ref:`Select Print Mode<1b21>` Can also be used for this setting. The last received command is the effective one.
 
-   :Related: :ref:`Select Print Mode (ESC !)<1b21>`
+   :Related: :ref:`Select Print Mode<1b21>`
    :Example: ``None``            
 
 ----
 
 .. _1d42:
+.. index:: $1D $42 - Reverse Print Mode
 
 .. py:attribute:: Reverse Print Mode - $1D $42
     
