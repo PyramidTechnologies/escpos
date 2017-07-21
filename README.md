@@ -19,6 +19,12 @@ Official Reliance Thermal Printer ESC/POS Command Set Documentation
  - All ESC (ASCII) commands must be exactly the right case
  - Pay attention to tabs, spacing and newlines
 
+ - Use \clearpage for forced page breaks on PDF render
+ 
+ .. raw:: latex
+
+    \clearpage
+
 .. _tagname:  
 .. index:: $BYTE1 $BYTE2  
 .. py:attribute:: Command Name - $BYTE1 $BYTE2  

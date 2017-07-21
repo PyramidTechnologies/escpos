@@ -30,14 +30,13 @@ Each command will be described in the format as shown below.
 :Example:
    Displays and example of the command if it is available
 
-
-Commands are represented in hexadecimal, ascii, and decimal, in that order. We use the following notation to
-indicate what form is being used.
-
 .. _formatOrder:  
 .. index:: Format Order 
 
 .. py:attribute:: Format Order
+
+Commands are represented in hexadecimal, ascii, and decimal, in that order. We use the following notation to
+indicate what form is being used.
 
     :Format: 
         ``$Hex 1st``  
@@ -47,6 +46,10 @@ indicate what form is being used.
         ``Dec 3rd``
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. index:: Terminology
 
@@ -69,7 +72,6 @@ New Line
 
    #. A print position has not been specified using :ref:`Absolute<1b24>` or :ref:`Relative<1b5c>` print position commands
    
-   
 .. index:: Dots and Pixels   
 
 Dots vs Pixels vs Bytes
@@ -83,6 +85,9 @@ Dots vs Pixels vs Bytes
     margins. Another import number is 680. That is the absolute maximum number of dots we support on our absolute widest
     paper roll (80mm). 
 
+.. raw:: latex
+
+    \clearpage
 
 .. _2byte:
 
@@ -144,6 +149,10 @@ Two-byte Number Definitions
 
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. index:: Pseudo Commands
 
