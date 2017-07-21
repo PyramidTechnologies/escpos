@@ -41,4 +41,9 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
 |pyramidqr|
 
+----
 
+.. _1d7630:
+.. index:: $1D $76 $30 - Raster Image
+
+.. py:attribute:: Raster Image - $1D $76 $30 m xL xH yL yH d1...dk
