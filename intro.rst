@@ -3,6 +3,10 @@
 Command Table Layout
 ====================
 
+.. raw:: latex
+
+    \clearpage
+
 Each command will be described in the format as shown below.
 
 :Name:
