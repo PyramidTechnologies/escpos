@@ -9,6 +9,10 @@ are advanced features that are not commonly by most users.
 
 ----------
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1b20:
 .. index:: $1B $20 - Right Side Character Spacing
 
@@ -41,6 +45,10 @@ are advanced features that are not commonly by most users.
    :Example: ``None``
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1b33:
 .. index:: $1B $33 - Line Spacing 
@@ -81,6 +89,10 @@ are advanced features that are not commonly by most users.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1b32:
 .. index:: $1B $32 - 1/6"  Line Spacing 
 
@@ -112,6 +124,10 @@ are advanced features that are not commonly by most users.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1b30:
 .. index:: $1B $30 - 1/8"  Line Spacing 
 
@@ -142,6 +158,10 @@ are advanced features that are not commonly by most users.
    :Example: ``None``
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1b61:
 .. index:: $1B $61 - 1/8"  Select Justification 
@@ -181,6 +201,10 @@ are advanced features that are not commonly by most users.
 
 ---
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1d4c:
 .. index:: $1D $4C - Left Margin 
 
@@ -215,6 +239,10 @@ are advanced features that are not commonly by most users.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1d50:
 .. index:: $1D $50 - Motion Units 
 
@@ -224,6 +252,10 @@ are advanced features that are not commonly by most users.
 .. warning:: TODO
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1d57:
 .. index:: $1D $57 - Print Area Width 

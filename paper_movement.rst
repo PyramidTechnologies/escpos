@@ -8,6 +8,10 @@ presenting and retracting.
 
 ----------
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1b69:
 .. index:: $1B $69 - Total Cut
 

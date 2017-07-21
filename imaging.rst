@@ -6,8 +6,13 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
 
 ----
 
-.. 1c7d25:
+.. raw:: latex
+
+    \clearpage
+
+.. _1c7d25:
 .. index:: $1C $7D $25 - 2D Barcode Generator
+
 .. py:attribute:: 2D Barcode Generator - $1C $7D $25 k d1...dk
 
    Encodes the specified string as a center justified 2D barcode. Only k bytes of the string will be read and any remaining will be treated as regular text or ESC/POS commands. The command and data must be enclosed by :ref:`Line Feeds<x0a>`.
@@ -46,6 +51,10 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 |pyramidqr|
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1d7630:
 .. index:: $1D $76 $30 - Raster Image

@@ -7,6 +7,10 @@ Cursor Position Commands
 This section describes all commands that affect the location of the print position. Consider the print position as a
 movable pointer that allow you to print anywhere on the print ticket.
 
+.. raw:: latex
+
+    \clearpage
+
 ----
 
 .. _x08:
@@ -38,6 +42,10 @@ movable pointer that allow you to print anywhere on the print ticket.
             >>> Hello World?
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _x09:
 .. index:: $09 - Horizontal Tab 
@@ -72,6 +80,10 @@ movable pointer that allow you to print anywhere on the print ticket.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _x0A:
 .. index:: $0A - Line Feed
 
@@ -102,6 +114,10 @@ movable pointer that allow you to print anywhere on the print ticket.
             >>>
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _x0C:
 .. index:: $0C - Form Feed
@@ -135,6 +151,10 @@ movable pointer that allow you to print anywhere on the print ticket.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _x0D:
 .. index:: $0D - Carriage Return
 
@@ -159,6 +179,10 @@ movable pointer that allow you to print anywhere on the print ticket.
     :Related: :ref:`Line Feed<x0A>`
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _x18:
 .. index:: $18 - Cancel Current Line
@@ -190,6 +214,10 @@ movable pointer that allow you to print anywhere on the print ticket.
             >>>Thank you! 
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1b24:
 .. index:: $1B $24 - Absolute Print Position
@@ -256,6 +284,10 @@ movable pointer that allow you to print anywhere on the print ticket.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1b44:
 .. index:: $1B $44 - Horizontal Tab Positions
 
@@ -293,6 +325,10 @@ movable pointer that allow you to print anywhere on the print ticket.
             >>> Item		Quantity	Price
 
 ---
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1b5c:
 .. index:: $1B $5C - Relative Print Position 

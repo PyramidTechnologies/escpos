@@ -7,7 +7,13 @@ the printer is offline (powered down, disconnected, etc.) or paper is actively b
 argument is provided which controls the meaning of each bit in the returned byte(s). There is some duplication between
 fields for legacy support reasons but you effectively have access to all error and status conditions.
 
+.. tip:: See realtime status examples on Github: `Thermal Talk API <https://github.com/PyramidTechnologies/ThermalTalk>`_
+
 ----------
+
+.. raw:: latex
+
+    \clearpage
 
 .. _x1004:
 .. Index:: $10 $04 - Real Time Status
@@ -300,5 +306,3 @@ fields for legacy support reasons but you effectively have access to all error a
 
         write("\x10\x04\x04")   # Paper Roll Status
         >>> 0b00001100          # $0C or 12, this means that the paper level is low
-
-   :Examples on Github: `Thermal Talk API <https://github.com/PyramidTechnologies/ThermalTalk>`_

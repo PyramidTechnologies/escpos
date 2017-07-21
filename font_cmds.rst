@@ -5,6 +5,10 @@ Font Controlling Commands
 
 This section describes all commands that affect how and which font is rendered.
 
+.. raw:: latex
+
+    \clearpage
+
 ----
 
 .. _1b40:
@@ -31,6 +35,10 @@ This section describes all commands that affect how and which font is rendered.
    :Example: ``None``   
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1b21:
 .. index:: $1B $21 - Select Print Mode 
@@ -109,6 +117,10 @@ This section describes all commands that affect how and which font is rendered.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1b2d:
 .. index:: $1B $2D - Underline Mode 
 
@@ -154,6 +166,10 @@ This section describes all commands that affect how and which font is rendered.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1b34:
 .. index:: $1B $34 - Italics Mode 
 
@@ -190,6 +206,10 @@ This section describes all commands that affect how and which font is rendered.
             >>> This is not italic       
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1b45:
 .. index:: $1B $45 - Emphasis Mode 
@@ -228,6 +248,10 @@ This section describes all commands that affect how and which font is rendered.
             >>> This is not bold      
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1b4D:
 .. index:: $1B $4D - Select Character Font 
@@ -269,6 +293,10 @@ This section describes all commands that affect how and which font is rendered.
 
 ----
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1b56:
 .. index:: $1B $56 - 90° Rotation
 
@@ -297,6 +325,10 @@ This section describes all commands that affect how and which font is rendered.
    :Example: ``None``   
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1b7b:
 .. index:: $1B $7B - Upside-down Mode
@@ -337,6 +369,10 @@ This section describes all commands that affect how and which font is rendered.
 
 ---- 
 
+.. raw:: latex
+
+    \clearpage
+
 .. _1bc1:
 .. index:: $1B $C1 - Set CPI Mode
 
@@ -369,6 +405,10 @@ This section describes all commands that affect how and which font is rendered.
    :Example: ``None``        
 
 ----     
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1d21:
 .. index:: $1D $21 - Select Character Size
@@ -441,6 +481,10 @@ This section describes all commands that affect how and which font is rendered.
    :Example: ``None``            
 
 ----
+
+.. raw:: latex
+
+    \clearpage
 
 .. _1d42:
 .. index:: $1D $42 - Reverse Print Mode
