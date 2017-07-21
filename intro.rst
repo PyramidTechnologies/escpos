@@ -90,22 +90,22 @@ Dots vs Pixels vs Bytes
     \clearpage
 
 .. _2byte:
+.. index:: Two-byte Number  
 
 Two-byte Number Definitions
+    Many ESC/POS commands use two-byte number definitions to represent large numbers in
+    two data bytes. In order to represent numbers greater than 255 in this way, we perform
+    and integer division and a modulo division to obtain the high and low bytes, respectively.
 
-   Many ESC/POS commands use two-byte number definitions to represent large numbers in
-   two data bytes. In order to represent numbers greater than 255 in this way, we perform
-   and integer division and a modulo division to obtain the high and low bytes, respectively.
+    The common terms, nH and nL are used throughout this document and refer to the high and low
+    bytes, respectively.
 
-   The common terms, nH and nL are used throughout this document and refer to the high and low
-   bytes, respectively.
-
-   .. note:: ProTip:
+    .. note:: ProTip:
       If the target value is less than 256, set nH to 0 and nL to the
       target value.
 
 
-   :Example 1:
+    :Example 1:
 
       To load the value 456 into two bytes, you first must solve for the quotient.
 
@@ -117,7 +117,7 @@ Two-byte Number Definitions
 
       The resulting byte order transmitted to the printer would then be [01, 200] where transmission is from left to right.
 
-   :Example 2:
+    :Example 2:
 
       The :ref:`Left Margin<1d4c>` command requires a two-byte parameter for horizontal motion units. To get a left margin of 549 motion units
 
@@ -129,7 +129,7 @@ Two-byte Number Definitions
 
       :math:`Verify: 37 + (2 * 256) = 549`
 
-   :Example 3:
+    :Example 3:
 
       To represent a negative number, use the identity
 

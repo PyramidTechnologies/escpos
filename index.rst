@@ -23,6 +23,7 @@ supported by the Reliance Printer.
 .. toctree::
    :maxdepth: 4
 
+   self
    intro
    font_cmds
    cursor_position
@@ -30,7 +31,6 @@ supported by the Reliance Printer.
    layout
    imaging
    realtime_status
-
 
 Indices and tables
 ==================
