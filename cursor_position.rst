@@ -18,9 +18,11 @@ movable pointer that allow you to print anywhere on the print ticket.
     to print two or more characters at the same position.
 
     :Format: 
-       ``$08``
-       ``BS``
-       ``8``
+       ``Hex        $08``
+
+       ``ASCII      BS``
+
+       ``Decimal    8``
     
     :Range: ``None``
     :Default: ``None``
@@ -45,9 +47,11 @@ movable pointer that allow you to print anywhere on the print ticket.
     Advances the horizontal print position to the next column as specified by the Set Horizontal Tab Position command.
 
     :Format: 
-       ``$09``
-       ``HT``
-       ``9``
+       ``Hex        $09``
+
+       ``ASCII      HT``
+
+       ``Decimal    9``
     
     :Notes:
         - If no tab position has been set, default columns of 8 characters will be used.
@@ -76,9 +80,12 @@ movable pointer that allow you to print anywhere on the print ticket.
     Prints the data in the print buffer and feeds one line based on the current line spacing.
 
     :Format: 
-       ``$0A``
-       ``LF``
-       ``10``
+       ``Hex        $0A``
+
+       ``ASCII      LF``
+
+       ``Decimal    10``
+
     :Notes:
         - Sets the print position to the beginning of the line.
 
@@ -104,9 +111,12 @@ movable pointer that allow you to print anywhere on the print ticket.
     Prints the data in the print buffer, cuts the paper and presents the ticket.
 
     :Format: 
-       ``$0C``
-       ``FF``
-       ``12``
+       ``Hex        $0C``
+
+       ``ASCII      FF``
+
+       ``Decimal    12``
+
     :Notes:
         - Sets the print position to the beginning of the line.
 
@@ -134,9 +144,12 @@ movable pointer that allow you to print anywhere on the print ticket.
     otherwise the command is ignored.
 
     :Format: 
-       ``$0D``
-       ``CR``
-       ``13``
+       ``Hex        $0D``
+
+       ``ASCII      CR``
+
+       ``Decimal    13``
+
     :Notes:
         - Sets the print position to the beginning of the line
         - CR can be enabled or disabled with `Reliance Tools <https://pyramidacceptors.com/app/reliance-tools/>`_
@@ -155,9 +168,11 @@ movable pointer that allow you to print anywhere on the print ticket.
     Deletes/Cancels the current line
 
     :Format: 
-       ``$18``
-       ``CAN``
-       ``24``
+       ``Hex        $18``
+
+       ``ASCII      CAN``
+
+       ``Decimal    24``
 
     :Notes:
         - Sets the print position to the beginning of the line
@@ -193,6 +208,7 @@ movable pointer that allow you to print anywhere on the print ticket.
              ``ASCII    ESC $   nL  nH``
 
              ``Decimal  27  36  nL  nH``
+
     :Range: ``None``
     :Default: ``nL = 0, nH = 0``
     :Notes:
@@ -283,4 +299,5 @@ movable pointer that allow you to print anywhere on the print ticket.
 
 .. py:attribute:: Relative Print Position  - $1B $5C
 
-    Relative Print Position 
+    Relative Print Position
+.. warning:: TODO
