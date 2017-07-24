@@ -164,7 +164,7 @@ are advanced features that are not commonly by most users.
     \clearpage
 
 .. _1b61:
-.. index:: $1B $61 - 1/8"  Select Justification 
+.. index:: $1B $61 - Select Justification 
 
 .. py:attribute:: Select Justification - $1B $61
 
