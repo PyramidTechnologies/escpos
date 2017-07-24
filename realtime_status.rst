@@ -1,4 +1,4 @@
-.. index:: realtime_status
+.. index:: Real Time Status
 
 Real Time Status
 ================
@@ -175,7 +175,8 @@ fields for legacy support reasons but you effectively have access to all error a
        | 7   | `-`    | `-`  | `-`     | Reserved                          |
        +-----+--------+------+---------+-----------------------------------+
 
-   :n=20 Full Status (6 bytes):
+   :n=20 Full Status:
+
        1st Byte = $10 (DLE)
 
        2nd Byte = $0F
