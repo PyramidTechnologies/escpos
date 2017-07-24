@@ -57,7 +57,7 @@ presenting and retracting.
        - This command controls the operation of the ejector and presenter. The command can be used to present, retract and/or produce a blank ticket. Also this command can enable and disable the ​continuous mode​ feature. The value of ``n​`` determines what the command will do and what additional (if any) parameters it may need. All additional parameters will use ``​m​``  or ``​t``.​ See table below.        
 
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
-        | n   | Additional Parameters    | Description                                                                                                     |
+        | n   | Args    | Description                                                                                                     |
         +=====+==========================+=================================================================================================================+
         | 1   | None                     | ``None``                                                                                                        |
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
