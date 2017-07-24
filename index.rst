@@ -25,6 +25,7 @@ supported by the Reliance Printer.
 
    self
    intro
+   info
    font_cmds
    cursor_position
    paper_movement
