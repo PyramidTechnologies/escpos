@@ -140,3 +140,47 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
    :Default: ``N/A``
    :Related: ``N/A``
    :Example: `Github <https://github.com/PyramidTechnologies/reliance-helpers>`_
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1bfa:  
+.. index:: $1B $FA -  Print Graphic Bank/Logo  
+.. py:attribute::  Print Graphic Bank/Logo - $1B $FA  
+
+    Prints logo ``n`` from internal storage using dimensions defined as :ref:`Two Byte Numbers<2byte>`.
+
+    :Format: 
+             ``Hex      $1B $FA n   xH  xL  yH  yL``
+
+             ``ASCII    ESC {}  n   xH  xL  yH  yL``
+
+             ``Decimal  27  250 n   xH  xL  yH  yL``
+    :Notes:
+        - n specifies which logo to print.
+        - :math:`xL + (xHx256)` specifies the starting dotline.
+        - Dolines start at line 0.
+        - :math:`yL + (yHx256)` specifies the number of dotlines to print.
+        - If :math:`xL + (xHx256)`  is greater than the specified logos height, the printer does not execute the command.
+        - If :math:`[(xL + (xHx256))  + (yL + (yHx256) )]` is greater than the specified logos height, only dotlines from the specified start dotline to the end of the logo will be printed.
+        - If the logo specified by n has not been downloaded or n is out of range, then logo 1 will be printed.
+
+    :Range:
+      ``1 ≤ n ≤ 255``
+
+      ``0 ≤ xH, xL, yH, yL, ≤ 255``
+    :Default: ``N/A``
+    :Related: ``None```
+
+    :Example Print logo 1 from dotlines 10 to 200:
+        .. code-block:: none
+
+            write('\x1b\xfa\x01\x00\x0a\x00\xc8')
+
+    :Example Print logo 2 from dotlines 0 to 861:
+        .. code-block:: none
+
+            write('\x1b\xfa\x02\x00\x00\x03\x5e')   #  862 dotlines total
