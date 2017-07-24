@@ -33,3 +33,104 @@ presenting and retracting.
    :Range: ``None``
    :Default: ``None``
    :Related: :ref:`Form Feed<x0c>`
+
+----------
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1D65:
+.. index:: $1D $65 - Ejector
+
+.. py:attribute:: Ejector - $1D $65
+
+   Ejector Commands 
+
+   :Notes:
+       - The ``​m​`` parameter must be sent for ``n = 3``, and ``n = 32`` . 
+       - The ``​t`` parameter must be sent for ``n = 32``.
+       - When ``n = 3``, 32 and the value of ``m`` is longer than the current ticket, the ticket will be ejected the length of the ticket. 
+       - When ``n = 2, 3, 5, 32``, the printer will cut the ticket before it executes. 
+       - When ``n = 32``, and the printer is told to print another ticket, the current ticket will be ejected or retracted based on the printer configuration. When the timeout condition has been met, the ticket is ejected or retracted based on the printer configuration.  
+       - When in continuous mode and  ``m = 3, 32``, the ticket is not presented any further if the ticket is at least the minimum ticket size. This command will just enable ticket pull detection and/or the set timeout.
+       - This command controls the operation of the ejector and presenter. The command can be used to present, retract and/or produce a blank ticket. Also this command can enable and disable the ​continuous mode​ feature. The value of ``n​`` determines what the command will do and what additional (if any) parameters it may need. All additional parameters will use ``​m​``  or ``​t``.​ See table below.        
+
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
+        | n   | Additional Parameters    | Description                                                                                                     |
+        +=====+==========================+=================================================================================================================+
+        | 1   | None                     | ``None``                                                                                                        |
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
+        | 2   | None                     | Retract ticket                                                                                                  |
+        |     |                          |                                                                                                                 |
+        |     |                          | - Only if paper retracting is enabled)                                                                          |
+        |     |                          |                                                                                                                 |        
+        |     |                          | - This command will cut the ticket if it is not already                                                         |
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
+        | 3   | 0 ≤ m ≤ 255              | Present ticket with ``m`` steps                                                                                 |
+        |     |                          |                                                                                                                 |
+        |     |                          | - 1 step = 7 mm                                                                                                 |
+        |     |                          |                                                                                                                 |        
+        |     |                          | - This command will cut the ticket if it is not already.                                                        | 
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
+        | 5   | None                     | Eject ticket                                                                                                    |
+        |     |                          |                                                                                                                 | 
+        |     |                          | - This command will cut the ticket if it is not already                                                         |                
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
+        | 6   | None                     | Transmit ejector status byte                                                                                    |
+        |     |                          |                                                                                                                 |          
+        |     |                          | - See Ejector Status table below                                                                                |
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
+        | 18  | None                     | Disable dispenser continuous mode                                                                               |
+        |     |                          |                                                                                                                 |
+        |     |                          | - While printing, the ticket remains at printer bezel.                                                          |
+        |     |                          |                                                                                                                 |         
+        |     |                          |  - The ticket can be cut and presented to the customer                                                          |
+        |     |                          |                                                                                                                 |         
+        |     |                          |  - The ticket can be cut and retracted back in                                                                  |
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
+        | 20  | None                     | Enable dispenser continuous mode                                                                                |
+        |     |                          |                                                                                                                 |        
+        |     |                          | - While printing, the ticket is continuously pushed from outlet                                                 |
+        |     |                          |                                                                                                                 |        
+        |     |                          | - This is the default printer state on power up.                                                                |                         
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
+        | 32  | 0 ≤ m ≤ 255              | Present the ticket with m* steps and a timeout *t*                                                              |
+        |     |                          |                                                                                                                 |        
+        |     | 0 ≤ t ≤ 255              | - 1 step = 7 mm   if it is not already.                                                                         |
+        |     |                          |                                                                                                                 | 
+        |     |                          | - This command will cut the ticket if it is not already                                                         |               
+        +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+          
+
+   :Format:
+       ``Hex       $1B $65  n   m   t``  
+
+       ``ASCII     GS   E   n   m   t``  
+
+       ``Decimal   29   101 n   m   t``
+
+   :Range: 
+     ``1 ≤ n ≤ 3, 5 ≤ n ≤ 6, n = 18, n = 20, n = 32``
+
+     ``0 ≤ m ≤ 255`` 
+
+     ``0 ≤ t ≤ 255``
+   :Default: ``N/A``
+   :Related: :ref:`Form Feed<x0c>`    
+   :Example clear paper path:
+    .. code-block:: none
+
+        write("\x1d\x65\x05")   # Eject Ticket
+        write("\x1d\x65\x02")   # Retract Ticket
+        
+   :Example cut and present printed ticket:
+    .. code-block:: none
+
+        write("\x1d\x65\x03\x0c")       # Present 84 mm
+        write("\x1d\x65\x20\x0c\x1e")   # Present 84 mm with timeout of 30 seconds 
+
+   :Example Set and clear continuous mode:
+    .. code-block:: none
+
+        write("\x1d\x65\x14")   # Set continuous mode
+        write("\x1d\x65\x12")   # Disable continuous mode      
