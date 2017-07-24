@@ -326,6 +326,52 @@ This section describes all commands that affect how and which font is rendered.
 
 ----
 
+.. _1b74:
+.. index:: $1B $74 - Select Character Code Page
+
+.. py:attribute:: Select Character Code Page - $1B $74
+    
+    Select character code page based on ``n``
+
+   :Format:
+        ``Hex       $1B $74  n``  
+
+        ``ASCII     ESC t   n``  
+        
+        ``Decimal   27  116 n``  
+
+   :Range: ``See n Table Below``
+   :Default: ``n=0, n is base 10``
+   :Notes:
+       - Reserved values of ``n`` should not be used in your application     
+
+       +------+----------------------------------------------------+
+       |  n   |  Font Code Page                                    |
+       +======+====================================================+
+       | 0    | **Default**                                        |
+       |      |                                                    |
+       |      | USA ASCII + Cyrillic                               |
+       +------+----------------------------------------------------+
+       | 2    | Reserved                                           |
+       +------+----------------------------------------------------+
+       | 3    | CP437 (Spanish)                                    |
+       +------+----------------------------------------------------+       
+       | 4    | Reserved                                           |
+       +------+----------------------------------------------------+
+       | 5    | Reserved                                           |
+       +------+----------------------------------------------------+
+       | 17   | CP771 (Cyrillic)                                   |
+       +------+----------------------------------------------------+
+       | 19   | Reserved                                           |                     
+       +------+----------------------------------------------------+
+       | 255  | Reserved                                           |       
+       +------+----------------------------------------------------+
+
+   :Related: ``None``
+   :Example: ``None``   
+
+----
+
 .. raw:: latex
 
     \clearpage
@@ -462,7 +508,7 @@ This section describes all commands that affect how and which font is rendered.
         +-----+---------+---------------+        
 
    :Format:
-        ``Hex       $1B $21  n``  
+        ``Hex       $1D $21  n``  
 
         ``ASCII     GS   !   n``  
         
@@ -496,7 +542,7 @@ This section describes all commands that affect how and which font is rendered.
     - LSB Clear: reverse disabled
 
    :Format:
-        ``Hex       $1B $42  n``  
+        ``Hex       $1D $42  n``  
 
         ``ASCII     GS   B   n``  
         
