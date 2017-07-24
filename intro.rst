@@ -78,13 +78,13 @@ New Line
 
 Dots vs Pixels vs Bytes
     In the context of Reliance printing, we prefer to speak in terms of dots. A dot is a literal
-    dot on the thermal printer burn head. This is essentialyl the same concept as a pixel on your monitor.
+    dot on the thermal printer burn head. This is essentially the same concept as a pixel on your monitor.
     Each of our dots are 0.12499975mm (0.00492125") in diameter. This means we achieve a dot-density of 203.2, 
     or more commonly stated as 203 DPI. Some of our commands are simplified to use bytes, or clusters of 8 dots.
     This reduces errors due to incorrect Two-byte calculations and provides slightly faster command parsing. 
 
     A good rule of thumb is that 1 byte == 8 dots == 1mm. Keep this in mind when you are printing images and dealing with
-    margins. Another import number is 680. That is the absolute maximum number of dots we support on our absolute widest
+    margins. Another important number is 640. That is the absolute maximum number of dots we support on our absolute widest
     paper roll (80mm). 
 
 .. raw:: latex
