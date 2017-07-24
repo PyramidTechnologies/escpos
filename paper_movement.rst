@@ -181,7 +181,7 @@ presenting and retracting.
     \clearpage
 
 .. _1b64:  
-.. index:: $1B $64  
+.. index:: $1B $64 - Print And Feed
 .. py:attribute::  Print And Feed Paper n Rows - $1B $64  
 
     Print and feed paper n rows
