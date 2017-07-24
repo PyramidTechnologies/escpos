@@ -206,3 +206,45 @@ presenting and retracting.
 
       :ref:`1/8" Line Spacing<1b32>`    
     :Example: ``None``
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1d56:  
+.. index:: $1D $56 - Select Cut Mode 
+.. py:attribute:: Select Cut Mode - $1D $56
+
+    Select cut mode
+
+    :Format: 
+             ``Hex      $1D $56 m   n``
+
+             ``ASCII    GS  v   m   n``
+
+             ``Decimal  29  86  m   n``
+    :Notes:
+      - ``m`` is cut mode
+
+        - If ``m`` is 0 or 48 then Full cut
+        - If ``m`` is 65 ($41) then feed paper a distance then full cut
+
+          - Distance defined as :math:`cut position + [n * vertical motion units]`  
+      - ``n`` is only required if ``m`` is 65 ($41)
+
+    :Range: 
+      ``m=0,48,65``
+
+      ``0 ≤ n ≤ 255``
+
+    :Default: ``m=0``
+    :Related:
+      :ref:`Motion Units<1d50>`   
+
+   :Example Feed 10 motion and Full Cut:
+    .. code-block:: none
+
+        write("\x1d\x56\x41\x0A")
+    
