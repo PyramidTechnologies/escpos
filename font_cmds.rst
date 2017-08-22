@@ -552,7 +552,7 @@ This section describes all commands that affect how and which font is rendered.
    :Default: ``n=0, n is base 10``
    :Notes:
        - Only the LSB of n is inspected.
-       - This does not affect images, bardcodes, or user defined images.
+       - This does not affect images, barcodes, or user defined images.
        - This has a higher priority than underline. 
 
           - Underline will stay enabled but no be applied if this setting is enabled.        
