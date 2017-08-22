@@ -91,7 +91,7 @@ presenting and retracting.
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
         | 20  | None                     | Enable dispenser continuous mode                                                                                |
         |     |                          |                                                                                                                 |        
-        |     |                          | - While printing, the ticket is continuously pushed from the outlet                                                 |
+        |     |                          | - While printing, the ticket is continuously pushed from the outlet                                             |
         |     |                          |                                                                                                                 |        
         |     |                          | - This is the default printer state on power up.                                                                |                         
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
