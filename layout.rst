@@ -40,7 +40,7 @@ are advanced features that are not commonly by most users.
    :Related: 
        :ref:`Motion Units <1d50>`   
 
-       :ref:`Reliative Print Position <1b5c>` 
+       :ref:`Relative Print Position <1b5c>` 
 
    :Example: ``None``
 
@@ -180,7 +180,7 @@ are advanced features that are not commonly by most users.
    :Notes:
        - This command is enabled only when processed at the beginning of a line. (When the current line is empty) 
        - This command applies the justification within the area set by :ref:`Left Margin<1d4c>` ​and :ref:`Print Area Width<1d57>`
-       - This command will justify all data in the printing area such as characters, graphics, bit images, bar code and space area set by :ref:`Horizontal Tab<x09>`, :ref:`Absolute<1b24>` and :ref:`Relative<1b5c>` print positions. 
+       - This command will justify all data in the printing area such as characters, graphics, bit images, barcode and space area set by :ref:`Horizontal Tab<x09>`, :ref:`Absolute<1b24>` and :ref:`Relative<1b5c>` print positions. 
        - Settings of this command are effective until ​the :ref:`Initialize <1b40>` command is executed, the printer is reset, or the power is turned off. 
    
    :Range: ``n=0,1,2,48,49,50``
@@ -310,7 +310,7 @@ are advanced features that are not commonly by most users.
        - In standard mode, sets the print area width  to [(nL + (nH × 256)) × (horizontal motion unit)] from the right edge of the left margin. See :ref:`Two-byte Numbers<2byte>`
        - This command is only executed when the printer is in a :ref:`New Line State<newlinestate>`
        - If the setting exceeds the printable area, the print area width is automatically set to the maximum value of the printable area. 
-       - If the [left margin + print area width] is greater than the printable area, the print area will be truncated automatically to [printable area - left margin]. If left margin is changed, the print area width will also change until there is room to fit the specified print area width. 
+       - If the [left margin + print area width] is greater than the printable area, the print area will be truncated automatically to [printable area - left margin]. If the left margin is changed, the print area width will also change until there is room to fit the specified print area width. 
        - If the print area width equals 0, then the print area width is automatically set to the maximum value of the printable area. 
        - The horizontal (perpendicular to paper feed direction) motion unit is used to set print area width. 
        - The horizontal and vertical motion units are specified by :ref:`Motion Units<1d50>`. Changing the horizontal or vertical motion unit does not affect the current print area width. 

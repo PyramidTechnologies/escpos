@@ -55,8 +55,8 @@ This section describes all commands that affect how and which font is rendered.
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``None``        
    :Notes:
-       - See table for appropriate value of n.
-       - The basline for characters of different vertical scalars will be the same
+       - See table for the appropriate value of n.
+       - The baseline for characters of different vertical scalars will be the same
 
        Underline exceptions
           - Does not underline 90°/270° rotation
@@ -64,9 +64,9 @@ This section describes all commands that affect how and which font is rendered.
           - Underline thickness is specified by :ref:`Underline Mode<1b2d>`
        This command resets the left and right margins
           - Left margin set by :ref:`Left Margin<1d4c>`
-          - Right margin ste by :ref:`Print Area Width<1d57>`
+          - Right margin set by :ref:`Print Area Width<1d57>`
        For each of the underline, italic, bold modes:
-          - These can be issues by their respective ESC commands or this command
+          - These can be issued by their respective ESC commands or this command
           - The last received command is the effective command.
 
         +-----+----------+------+---------+------------------------------+
@@ -461,7 +461,7 @@ This section describes all commands that affect how and which font is rendered.
 
 .. py:attribute:: Select Character Size - $1D $21
     
-    Select character width and height according the bits of n.
+    Select character width and height according to the bits of n.
     - Bits 0 to 3 : select character height (see table 2)
     - Bits 4 to 7 : select character width (see table 1)
 
@@ -552,7 +552,7 @@ This section describes all commands that affect how and which font is rendered.
    :Default: ``n=0, n is base 10``
    :Notes:
        - Only the LSB of n is inspected.
-       - This does not affect images, bardocdes, or user defined images.
+       - This does not affect images, barcodes, or user defined images.
        - This has a higher priority than underline. 
 
           - Underline will stay enabled but no be applied if this setting is enabled.        

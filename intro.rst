@@ -35,7 +35,7 @@ Each command will be described in the format as shown below.
 
 .. py:attribute:: Format Order
 
-Commands are represented in hexadecimal, ascii, and decimal, in that order. We use the following notation to
+Commands are represented in hexadecimal, ASCII, and decimal, in that order. We use the following notation to
 indicate what form is being used.
 
     :Format: 
@@ -97,7 +97,7 @@ Dots vs Pixels vs Bytes
 Two-byte Number Definitions
     Many ESC/POS commands use two-byte number definitions to represent large numbers in
     two data bytes. In order to represent numbers greater than 255 in this way, we perform
-    and integer division and a modulo division to obtain the high and low bytes, respectively.
+    an integer division and a modulo division to obtain the high and low bytes, respectively.
 
     The common terms, nH and nL are used throughout this document and refer to the high and low
     bytes, respectively.

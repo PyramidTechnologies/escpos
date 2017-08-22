@@ -26,7 +26,7 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
         
        ``Decimal   28  125  37  k d1...dk``  
    :Notes:
-       - This 2D barcode is compliant with the QR Code® specicification and can be read by all 2D barcode readers.
+       - This 2D barcode is compliant with the QR Code® specification and can be read by all 2D barcode readers.
        - This command must be sent when the current line is empty. If not, the command will be ignored, and the bytes to be encoded will be printed as text.
        - Up to 154 8-bit characters are supported.
        - If the input string length exceeds the range specified by the k parameter, only the first 154 characters will be encoded. The rest of the characters to be encoded will be printed as regular ESC/POS characters on a new line.
@@ -73,9 +73,9 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
        - When ​standard mode​ is enabled, this command is only executed when there is no data in the print buffer. (Line is empty) 
        - The defined data (​d​) defines each byte of the raster image. Each bit in every byte defines a pixel. A bit set to 1 is printed and a bit set to 0 is not printed.
        - If a raster bit image exceeds one line, the excess data is not printed. 
-       - This commands feeds as much paper as is required to print the entire raster bit image, regardless of line spacing defined by :ref:`1/6" or 1/8"<1b32>` commands.
+       - This command feeds as much paper as is required to print the entire raster bit image, regardless of line spacing defined by :ref:`1/6" or 1/8"<1b32>` commands.
        - After the raster bit image is printed, the print position goes to the beginning of the line. 
-       - The following commands have no affect on a raster bit image: 
+       - The following commands have no effect on a raster bit image: 
 
          - Emphasized  
 
@@ -120,10 +120,10 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
         | 3, 51 | Double Width/Height | x2           | x2           |
         +-------+---------------------+--------------+--------------+
         
-        - xL, xH ​defines the raster bit image in the horizontal direction in ​bytes​ using two byte number definitions. (​xL + (xH * 256)) Bytes
-        - yL, yH ​defines the raster bit image in the vertical direction in ​dots​ using two byte number definitions. (​yL + (yH * 256)) Dots 
+        - xL, xH ​defines the raster bit image in the horizontal direction in ​bytes​ using two-byte number definitions. (​xL + (xH * 256)) Bytes
+        - yL, yH ​defines the raster bit image in the vertical direction in ​dots​ using two-byte number definitions. (​yL + (yH * 256)) Dots 
         - d ​ specifies the bit image data in raster format. 
-        - k ​indicates the number of of bytes in the bit image. ​k ​is not transmitted and is there for explanation only.         
+        - k ​indicates the number of bytes in the bit image. ​k ​is not transmitted and is there for explanation only.         
 
 
    :Range:
@@ -164,8 +164,8 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
         - :math:`xL + (xHx256)` specifies the starting dotline.
         - Dolines start at line 0.
         - :math:`yL + (yHx256)` specifies the number of dotlines to print.
-        - If :math:`xL + (xHx256)`  is greater than the specified logos height, the printer does not execute the command.
-        - If :math:`[(xL + (xHx256))  + (yL + (yHx256) )]` is greater than the specified logos height, only dotlines from the specified start dotline to the end of the logo will be printed.
+        - If :math:`xL + (xHx256)`  is greater than the specified logo's height, the printer does not execute the command.
+        - If :math:`[(xL + (xHx256))  + (yL + (yHx256) )]` is greater than the specified logo's height, only dotlines from the specified start dotline to the end of the logo will be printed.
         - If the logo specified by n has not been downloaded or n is out of range, then logo 1 will be printed.
 
     :Range:
