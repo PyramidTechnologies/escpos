@@ -54,7 +54,7 @@ presenting and retracting.
        - When ``n = 2, 3, 5, 32``, the printer will cut the ticket before it executes. 
        - When ``n = 32``, and the printer is told to print another ticket, the current ticket will be ejected or retracted based on the printer configuration. When the timeout condition has been met, the ticket is ejected or retracted based on the printer configuration.  
        - When in continuous mode and  ``m = 3, 32``, the ticket is not presented any further if the ticket is at least the minimum ticket size. This command will just enable ticket pull detection and/or the set timeout.
-       - This command controls the operation of the ejector and presenter. The command can be used to present, retract and/or produce a blank ticket. Also this command can enable and disable the ​continuous mode​ feature. The value of ``n​`` determines what the command will do and what additional (if any) parameters it may need. All additional parameters will use ``​m​``  or ``​t``.​ See table below.        
+       - This command controls the operation of the ejector and presenter. The command can be used to present, retract and/or produce a blank ticket. Also, this command can enable and disable the ​continuous mode​ feature. The value of ``n​`` determines what the command will do and what additional (if any) parameters it may need. All additional parameters will use ``​m​``  or ``​t``.​ See table below.        
 
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
         | n   | Args                     | Description                                                                                                     |
@@ -91,7 +91,7 @@ presenting and retracting.
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
         | 20  | None                     | Enable dispenser continuous mode                                                                                |
         |     |                          |                                                                                                                 |        
-        |     |                          | - While printing, the ticket is continuously pushed from outlet                                                 |
+        |     |                          | - While printing, the ticket is continuously pushed from the outlet                                                 |
         |     |                          |                                                                                                                 |        
         |     |                          | - This is the default printer state on power up.                                                                |                         
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
