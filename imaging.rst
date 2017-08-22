@@ -120,8 +120,8 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
         | 3, 51 | Double Width/Height | x2           | x2           |
         +-------+---------------------+--------------+--------------+
         
-        - xL, xH ​defines the raster bit image in the horizontal direction in ​bytes​ using two byte number definitions. (​xL + (xH * 256)) Bytes
-        - yL, yH ​defines the raster bit image in the vertical direction in ​dots​ using two byte number definitions. (​yL + (yH * 256)) Dots 
+        - xL, xH ​defines the raster bit image in the horizontal direction in ​bytes​ using two-byte number definitions. (​xL + (xH * 256)) Bytes
+        - yL, yH ​defines the raster bit image in the vertical direction in ​dots​ using two-byte number definitions. (​yL + (yH * 256)) Dots 
         - d ​ specifies the bit image data in raster format. 
         - k ​indicates the number of bytes in the bit image. ​k ​is not transmitted and is there for explanation only.         
 
