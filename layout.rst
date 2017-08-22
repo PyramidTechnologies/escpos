@@ -40,7 +40,7 @@ are advanced features that are not commonly by most users.
    :Related: 
        :ref:`Motion Units <1d50>`   
 
-       :ref:`Reliative Print Position <1b5c>` 
+       :ref:`Relative Print Position <1b5c>` 
 
    :Example: ``None``
 
