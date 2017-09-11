@@ -173,7 +173,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
       ``0 ≤ xH, xL, yH, yL, ≤ 255``
     :Default: ``N/A``
-    :Related: ``None```
+    :Related: :ref:`Print Graphic Bank/Logo (Simplified)<1c79>`
 
     :Example Print logo 1 from dotlines 10 to 200:
         .. code-block:: none
@@ -184,3 +184,39 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
         .. code-block:: none
 
             write('\x1b\xfa\x02\x00\x00\x03\x5e')   #  862 dotlines total
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1c79:  
+.. index:: $1C $79 -  Print Graphic Bank/Logo (Simplified)
+.. py:attribute::  Print Graphic Bank/Logo (Simplified) - $1C $79  
+
+    Prints logo ``n`` from internal storage using the dimensions stored in flash. This command is similar to the "Print Graphic Bank/Logo" command using the command bytes ``$1B $FA``, but does not need the dimensions to be specified as part of the command.
+
+    :Format: 
+             ``Hex      $1C $79 n   $00``
+
+             ``ASCII    FS  y   n   NUL``
+
+             ``Decimal  28  121 n   0``
+    :Notes:
+        - n specifies which logo to print.
+        - The fourth byte of this command is an option specifier reserved for future use. It must be set to zero.
+        - If the logo specified by n has not been downloaded or n is out of range, then nothing will be printed.
+
+    :Range:
+      ``1 ≤ n ≤ 255``
+
+    :Default: ``N/A``
+
+    :Related: :ref:`Print Graphic Bank/Logo<1bfa>`
+
+    :Example Print the second logo:
+        .. code-block:: none
+
+            write('\x1c\x79\x02\x00')
+
