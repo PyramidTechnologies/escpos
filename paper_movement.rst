@@ -54,7 +54,7 @@ presenting and retracting.
        - When ``n = 2, 3, 5, 32``, the printer will cut the ticket before it executes. 
        - When ``n = 32``, and the printer is told to print another ticket, the current ticket will be ejected or retracted based on the printer configuration. When the timeout condition has been met, the ticket is ejected or retracted based on the printer configuration.  
        - When in continuous mode and  ``m = 3, 32``, the ticket is not presented any further if the ticket is at least the minimum ticket size. This command will just enable ticket pull detection and/or the set timeout.
-       - This command controls the operation of the ejector and presenter. The command can be used to present, retract and/or produce a blank ticket. Also this command can enable and disable the ​continuous mode​ feature. The value of ``n​`` determines what the command will do and what additional (if any) parameters it may need. All additional parameters will use ``​m​``  or ``​t``.​ See table below.        
+       - This command controls the operation of the ejector and presenter. The command can be used to present, retract and/or produce a blank ticket. Also, this command can enable and disable the ​continuous mode​ feature. The value of ``n​`` determines what the command will do and what additional (if any) parameters it may need. All additional parameters will use ``​m​``  or ``​t``.​ See table below.        
 
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
         | n   | Args                     | Description                                                                                                     |
@@ -91,7 +91,7 @@ presenting and retracting.
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
         | 20  | None                     | Enable dispenser continuous mode                                                                                |
         |     |                          |                                                                                                                 |        
-        |     |                          | - While printing, the ticket is continuously pushed from outlet                                                 |
+        |     |                          | - While printing, the ticket is continuously pushed from the outlet                                             |
         |     |                          |                                                                                                                 |        
         |     |                          | - This is the default printer state on power up.                                                                |                         
         +-----+--------------------------+-----------------------------------------------------------------------------------------------------------------+
@@ -173,3 +173,78 @@ presenting and retracting.
 
         write("\x1d\x65\x14")   # Set continuous mode
         write("\x1d\x65\x12")   # Disable continuous mode      
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b64:  
+.. index:: $1B $64 - Print And Feed
+.. py:attribute::  Print And Feed Paper n Rows - $1B $64  
+
+    Print and feed paper n rows
+
+    :Format: 
+             ``Hex      $1B $64 n``
+
+             ``ASCII    ESC d   n``
+
+             ``Decimal  27  100 n``
+    :Notes:
+      - ``n`` rows = ``n`` * (char height + line spacing)
+      - Once finished, the print position is set to the beginning of the line.
+      - This command has no effect on the line spacing setting set by :ref:`1/6" or 1/8"<1b32>` line spacing commands
+      - If ``n`` = 0, the command does a normal line feed. Same as the :ref:`Line Feed<x0a>` command.
+      - If ``n`` > 0, the command will do (``n``-1) extra line feeds. This makes a maximum paper feed limit of 254 rows.
+
+    :Range: ``0 ≤ 255``
+    :Default: ``None``
+    :Related:
+      :ref:`1/6" Line Spacing<1b32>`
+
+      :ref:`1/8" Line Spacing<1b32>`    
+    :Example: ``None``
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1d56:  
+.. index:: $1D $56 - Select Cut Mode 
+.. py:attribute:: Select Cut Mode - $1D $56
+
+    Select cut mode
+
+    :Format: 
+             ``Hex      $1D $56 m   n``
+
+             ``ASCII    GS  v   m   n``
+
+             ``Decimal  29  86  m   n``
+    :Notes:
+      - ``m`` is cut mode
+
+        - If ``m`` is 0 or 48 then Full cut
+        - If ``m`` is 65 ($41) then feed paper a distance then full cut
+
+          - Distance defined as :math:`cut position + [n * vertical motion units]`  
+      - ``n`` is only required if ``m`` is 65 ($41)
+
+    :Range: 
+      ``m=0,48,65``
+
+      ``0 ≤ n ≤ 255``
+
+    :Default: ``m=0``
+    :Related:
+      :ref:`Motion Units<1d50>`   
+
+   :Example Feed 10 motion and Full Cut:
+    .. code-block:: none
+
+        write("\x1d\x56\x41\x0A")
+    

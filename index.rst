@@ -20,7 +20,7 @@ supported by the Reliance Printer.
 Please refer to our operations manual for detailed cleaning and usage instructions:
 
 - `English Manual <https://pyramidacceptors.com/pdf/Reliance_Manual.pdf>`_
-- `Руководство Русский <https://pyramidacceptors.com/pdf/Russian-Translated-Reliance-Installation-and-Operation-Manual.pdf>`_
+- `Руководство Русский <https://pyramidacceptors.com/pdf/Reliance_Manual_Russian.PDF>`_
 
 .. tip:: `Thermal Talk ESC/POS API <https://github.com/PyramidTechnologies/ThermalTalk>`_ automates a lot of these features for you. Continue reading this document if your specific requirements are not yet covered by our ESC/POS API.
 

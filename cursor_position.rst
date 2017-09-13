@@ -5,7 +5,7 @@ Cursor Position Commands
 ==========================
 
 This section describes all commands that affect the location of the print position. Consider the print position as a
-movable pointer that allow you to print anywhere on the print ticket.
+movable pointer that allows you to print anywhere on the print ticket.
 
 .. raw:: latex
 
@@ -161,7 +161,7 @@ movable pointer that allow you to print anywhere on the print ticket.
 .. py:attribute:: Carriage Return - $0D
 
     If CR command is enabled, this command will function exactly like the command $0A does,
-    otherwise the command is ignored.
+    otherwise, the command is ignored.
 
     :Format: 
        ``Hex        $0D``
