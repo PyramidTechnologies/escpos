@@ -56,6 +56,58 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
     \clearpage
 
+.. _1d6b:
+.. index:: $1D $6B - Barcode Generator
+
+.. py:attribute:: Barcode Generator - $1D $6B m d1...dk $00
+
+       - Defines and prints a raster bit image using the mode specified by ​m​:
+       
+        +-------+----------------+-------------------+----------------------------+
+        | m     | Barcode System | No. of Characters | Valid Characters (decimal) |
+        +=======+================+===================+============================+
+        | 4     | Code  39       | k >= 1            | 48 <= d <= 57,             |
+        |       |                |                   | 65 <= d =< 90, 32, 36, 37, |
+        |       |                |                   | 43, 45, 46, 47, 58          |
+        +-------+----------------+-------------------+----------------------------+
+        
+       - Currently only Code 39 is supported.
+
+
+   .. note:: Requires firmware 1.17 or newer
+
+
+   :Format:
+       ``Hex       $1D $6B m   d1...dk $00``  
+
+       ``ASCII     GS  k   m   d1...dk NUL``  
+        
+       ``Decimal   29  107 m   d1...dk 0``  
+       
+   :Notes:
+       - If there is data in the buffer when the printer receives this command, the buffered data will be printed, and the barcode will be printed on the following line.
+       - If the barcode generated is too long to be printed, nothing will be printed.
+       - If an invalid value of `m` is sent, nothing will be printed.
+       - If an invalid character is sent, the text "HRI NOT OK" will be printed.
+       - Barcode justification is set by the ``$1B $61`` (Select Justification) command.
+       - Barcode height is set by the ``$1D $68`` (Set Barcode Height) command.
+       - Barcode width is set by the ``S1D $77`` (Set Barcode Width) command.
+       
+
+   :Range: See table above for range of valid barcode systems, and the range of valid characters and string lengths for each system.
+   :Default: ``None``
+   :Related: :ref:`Select Justification<1b61>`
+   :Example:
+       .. code-block:: none
+         # Encode the text "CODE 39" as a Code 39 barcode
+         write("\x1d\x6b\x04\x43\x4f\x44\x45\x20\x33\x39\x00")
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
 .. _1d7630:
 .. index:: $1D $76 $30 - Raster Image
 
