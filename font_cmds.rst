@@ -326,6 +326,11 @@ This section describes all commands that affect how and which font is rendered.
 
 ----
 
+.. raw:: html
+
+    </div>
+    <div id="1b74">
+
 .. _1b74:
 .. index:: $1B $74 - Select Character Code Page
 
