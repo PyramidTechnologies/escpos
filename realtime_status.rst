@@ -102,7 +102,7 @@ fields for legacy support reasons but you effectively have access to all error a
    .. note:: DIAG Button:
       This bit is *always* set because our diagnostic button is always enabled.
       
-   .. note: Error:
+   .. note:: Error:
       This bit means that *any* error has been reported. Query the other status commands to determine the precise error.
 
    :n=3 Error Status:
