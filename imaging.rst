@@ -59,7 +59,8 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 .. _1d6b:
 .. index:: $1D $6B - Barcode Generator
 
-.. py:attribute:: Barcode Generator - $1D $6B m d1...dk $00
+.. py:attribute:: Barcode Generator (1) - $1D $6B m d1...dk $00
+.. py:attribute:: Barcode Generator (2) - $1D $6B m n d1...dk
 
        - Defines and prints a raster bit image using the mode specified by `m`:
        
@@ -73,6 +74,17 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
         | 8     | Code  128      | 1 <= k            | 1 <= d <= 127              |
         +-------+----------------+-------------------+----------------------------+
         
+        - To use the second form of the command, a value of `m` from this table must be used:
+        
+        +-------+----------------+-------------------+----------------------------+
+        | m     | Barcode System | No. of Characters | Valid Characters (decimal) |
+        +-------+----------------+-------------------+----------------------------+
+        | 73    | Code  128      | 1 <= k            | 0 <= d <= 127              |
+        +-------+----------------+-------------------+----------------------------+
+        
+       - Note that this form of the command does not end with a NUL byte, but specifies `n`, the string length, after `m`.
+       
+        
        - Currently only Code 39 and Code 128 are supported.
 
 
@@ -80,11 +92,17 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
 
    :Format:
-       ``Hex       $1D $6B m   d1...dk $00``  
+       ``Hex (1)      $1D $6B m   d1...dk $00``
+       
+       ``Hex (2)      $1D $6B m   n   d1...dk``
 
-       ``ASCII     GS  k   m   d1...dk NUL``  
+       ``ASCII (1)    GS  k   m   d1...dk NUL``  
+       
+       ``ASCII (2)    GS  k   m   n   d1...dk``
         
-       ``Decimal   29  107 m   d1...dk 0``  
+       ``Decimal (1)  29  107 m   d1...dk 0  ``  
+       
+       ``Decimal (2)  29  107 m   n   d1...dk``
        
    :Notes:
        - If there is data in the buffer when the printer receives this command, the buffered data will be printed, and the barcode will be printed on the following line.
@@ -93,9 +111,10 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
        - If an invalid character is sent, the text "HRI NOT OK" will be printed.
        - Barcode justification is set by the ``$1B $61`` (Select Justification) command.
        - Barcode height is set by the ``$1D $68`` (Set 1D Barcode Height) command.
-       - Barcode width is set by the ``S1D $77`` (Set 1D Barcode Width Multiplier) command.
+       - Barcode width is set by the ``$1D $77`` (Set 1D Barcode Width Multiplier) command.
        
    :Notes for Code 128:
+       - To encode a string with a NUL byte, the second form of the barcode generator command must be used. In this case, the string length `n` equals the count of all characters following `n`.
        - Characters that are within the valid range defined in the table above, but are invalid to the current mode are ignored, and not encoded.
        - Special characters (mode select, mode shift, FNC) are transmitted by sending the '{' character before the special character. The first two characters following `m` must select either mode A, B, or C. The '{' character is transmitted by sending two '{' characters. A special character (one that is preceded by '{' but not defined in the table below) are ignored, and not encoded.
        - If the first two characters following `m` do not select a valid mode, the text "HRI NOT OK" is printed.
