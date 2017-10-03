@@ -56,6 +56,173 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
     \clearpage
 
+.. _1d6b:
+.. index:: $1D $6B - Barcode Generator
+
+.. py:attribute:: Barcode Generator - $1D $6B m d1...dk $00
+
+       - Defines and prints a raster bit image using the mode specified by `m`:
+       
+        +-------+----------------+-------------------+----------------------------+
+        | m     | Barcode System | No. of Characters | Valid Characters (decimal) |
+        +=======+================+===================+============================+
+        | 4     | Code  39       | 1 <= k            | 48 <= d <= 57,             |
+        |       |                |                   | 65 <= d =< 90, 32, 36, 37, |
+        |       |                |                   | 43, 45, 46, 47, 58         |
+        +-------+----------------+-------------------+----------------------------+
+        | 8     | Code  128      | 1 <= k            | 1 <= d <= 127              |
+        +-------+----------------+-------------------+----------------------------+
+        
+       - Currently only Code 39 and Code 128 are supported.
+
+
+   .. note:: Requires firmware 1.18 or newer
+
+
+   :Format:
+       ``Hex       $1D $6B m   d1...dk $00``  
+
+       ``ASCII     GS  k   m   d1...dk NUL``  
+        
+       ``Decimal   29  107 m   d1...dk 0``  
+       
+   :Notes:
+       - If there is data in the buffer when the printer receives this command, the buffered data will be printed, and the barcode will be printed on the following line.
+       - If the barcode generated is too long to be printed, nothing will be printed.
+       - If an invalid value of `m` is sent, nothing will be printed.
+       - If an invalid character is sent, the text "HRI NOT OK" will be printed.
+       - Barcode justification is set by the ``$1B $61`` (Select Justification) command.
+       - Barcode height is set by the ``$1D $68`` (Set 1D Barcode Height) command.
+       - Barcode width is set by the ``S1D $77`` (Set 1D Barcode Width Multiplier) command.
+       
+   :Notes for Code 128:
+       - Characters that are within the valid range defined in the table above, but are invalid to the current mode are ignored, and not encoded.
+       - Special characters (mode select, mode shift, FNC) are transmitted by sending the '{' character before the special character. The first two characters following `m` must select either mode A, B, or C. The '{' character is transmitted by sending two '{' characters. A special character (one that is preceded by '{' but not defined in the table below) are ignored, and not encoded.
+       - If the first two characters following `m` do not select a valid mode, the text "HRI NOT OK" is printed.
+       
+        +===========+=============+=======+=========+
+        | Character | Hexadecimal | ASCII | Decimal |
+        +===========+=============+=======+=========+
+        | Shift     | $7B $53     | { S   | 123 83  |
+        +===========+=============+=======+=========+
+        | Mode A    | $7B $41     | { A   | 123 65  |
+        +===========+=============+=======+=========+
+        | Mode B    | $7B $42     | { B   | 123 66  |
+        +===========+=============+=======+=========+
+        | Mode C    | $7B $43     | { C   | 123 67  |
+        +===========+=============+=======+=========+
+        | FNC 1     | $7B $31     | { 1   | 123 49  |
+        +===========+=============+=======+=========+
+        | FNC 2     | $7B $32     | { 2   | 123 50  |
+        +===========+=============+=======+=========+
+        | FNC 3     | $7B $33     | { 3   | 123 51  |
+        +===========+=============+=======+=========+
+        | FNC 4     | $7B $34     | { 4   | 123 52  |
+        +===========+=============+=======+=========+
+        | '{'       | $7B $7B     | { {   | 123 123 |
+        +===========+=============+=======+=========+
+       
+
+   :Range: See table above for range of valid barcode systems, and the range of valid characters and string lengths for each system.
+   :Default: ``None``
+   :Related: :ref:`Select Justification<1b61>`
+             :ref:`Set 1D Barcode Height<1d68>`
+             :ref:`Set 1D Barcode Width Multiplier<1d77>`
+   :Example:
+        .. code-block:: none
+        
+            # Encode the text "CODE 39" as a Code 39 barcode
+            write("\x1d\x6b\x04\x43\x4f\x44\x45\x20\x33\x39\x00")
+            
+            # Encode the text "Code 128" as a Code 128 barcode, using mode B
+            write("\x1d\x6b\x08\x7b\x42\x43\x6f\x64\x65\x20\x31\x32\x38\x00")
+
+
+----
+
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1d77:
+.. index:: $1D $77 - Set 1D Barcode Width Multiplier
+
+.. py:attribute:: Set 1D Barcode Width Multiplier - $1D $77 n
+
+   Sets the 1D barcode width multiplier.
+
+   :Format:
+       ``Hex       $1D $77 n``  
+
+       ``ASCII     GS  w   n``  
+        
+       ``Decimal   29  119 n``
+
+   :Notes:
+       - The barcode is scaled horizontally by `n` units. A value of 2 doubles the width of each bar in the barcode, doubling the width of the entire barcode. A value of 1 does not scale the barcode. In an unscaled barcode, the thinnest bar has a width of one dot (0.12499975mm, or 0.00492125 inches).
+       - This parameter does not need to be set for every barcode. It is only reset to the default value when the printer is rebooted.
+       - If an invalid (out of range) value of `n` is sent, the command is ignored.
+       - When using code 128, a scalar of 1 may produce barcodes that are valid, but too small to be properly read.
+       
+   :Range:
+       ``1 ≤ n ≤ 6``
+
+   :Default:
+       ``n = 2``
+
+   :Example:
+        .. code-block:: none
+        
+            # Set the 1D barcode width to be three times the base width
+            write("\x1d\x77\x03")
+
+
+----
+
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1d68:
+.. index:: $1D $68 - Set 1D Barcode Height
+
+.. py:attribute:: Set 1D Barcode Height - $1D $68 n
+
+   Sets the 1D barcode height, measured in dots.
+
+   :Format:
+       ``Hex       $1D $68 n``  
+
+       ``ASCII     GS  h   n``  
+        
+       ``Decimal   29  104 n``
+
+   :Notes:
+       - The barcode height `n` is measured in dots. One dot equals 0.12499975mm, or 0.00492125 inches.
+       - This parameter does not need to be set for every barcode. It is only reset to the default value when the printer is rebooted.
+       - If an invalid (out of range) value of `n` is sent, the command is ignored.
+       
+   :Range:
+       ``1 ≤ n ≤ 255``
+
+   :Default:
+       ``n = 100``
+
+   :Example:
+        .. code-block:: none
+        
+            # Set the 1D barcode height to 50 dots
+            write("\x1d\x68\x32")
+
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
 .. _1d7630:
 .. index:: $1D $76 $30 - Raster Image
 
