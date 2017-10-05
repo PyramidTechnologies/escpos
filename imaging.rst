@@ -65,7 +65,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
        - Defines and prints a 1D barcode using the mode specified by `m`. This command has two forms. Form 1 does not take the string length `n`, but reads all bytes after `m` and before the first NUL byte (0x00) received as the string to encode. Form 2 of the command reads `n` bytes following `n` as the string to encode. The form used is determined by the value of `m` received.
 
-       -Form 1: 0 ≤ `m` ≤ 20
+       - Form 1: 0 ≤ `m` ≤ 20
        
         +-------+----------------+-------------------+----------------------------+
         | m     | Barcode System | No. of Characters | Valid Characters (decimal) |
@@ -118,7 +118,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
    :Notes for Code 128:
        - To encode a string with a NUL byte, the second form of the barcode generator command must be used. In this case, the string length `n` equals the count of all characters following `n`.
        - Characters that are within the valid range defined in the table above, but are invalid to the current mode are ignored, and not encoded.
-       - Special characters (mode select, mode shift, FNC) are transmitted by sending the '{' character before the special character. The first two characters following `m` must select either mode A, B, or C. The '{' character is transmitted by sending two '{' characters. A special character (one that is preceded by '{' but not defined in the table below) are ignored, and not encoded.
+       - Special characters (mode select, mode shift, FNC) are transmitted by sending the '{' character before the special character. The first two characters following `m` must select either mode A, B, or C. The '{' character is transmitted by sending two '{' characters. A special character (one that is preceded by '{') that is not defined in the table below is ignored, and not encoded.
        - If the first two characters following `m` do not select a valid mode, the text "HRI NOT OK" is printed.
        
         +-----------+-------------+-------+---------+
