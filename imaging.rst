@@ -60,31 +60,33 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 .. index:: $1D $6B - Barcode Generator
 
 .. py:attribute:: Barcode Generator (1) - $1D $6B m d1...dk $00
-.. py:attribute:: Barcode Generator (2) - $1D $6B m n d1...dk
+.. py:attribute:: Barcode Generator (2) - $1D $6B m n d1...dn
 
-       - Defines and prints a raster bit image using the mode specified by `m`:
+
+       - Defines and prints a 1D barcode using the mode specified by `m`. This command has two forms. Form 1 does not take the string length `n`, but reads all bytes after `m` and before the first NUL byte (0x00) received as the string to encode. Form 2 of the command reads `n` bytes following `n` as the string to encode. The form used is determined by the value of `m` received.
+
+       -Form 1: 0 ≤ `m` ≤ 20
        
         +-------+----------------+-------------------+----------------------------+
         | m     | Barcode System | No. of Characters | Valid Characters (decimal) |
         +=======+================+===================+============================+
-        | 4     | Code  39       | 1 <= k            | 48 <= d <= 57,             |
-        |       |                |                   | 65 <= d =< 90, 32, 36, 37, |
-        |       |                |                   | 43, 45, 46, 47, 58         |
+        | 4     | Code  39       | 1 ≤ k             | 48 ≤ d ≤ 57, 65 ≤ d ≤ 90,  |
+        |       |                |                   | 32, 36, 37, 43, 45, 46,    |
+        |       |                |                   | 47, 58                     |
         +-------+----------------+-------------------+----------------------------+
-        | 8     | Code  128      | 1 <= k            | 1 <= d <= 127              |
+        | 8     | Code  128      | 1 ≤ k             | 1 ≤ d ≤ 127                |
         +-------+----------------+-------------------+----------------------------+
         
-        - To use the second form of the command, a value of `m` from this table must be used:
+        - Form 2: 65 ≤ `m` ≤ 90
         
         +-------+----------------+-------------------+----------------------------+
         | m     | Barcode System | No. of Characters | Valid Characters (decimal) |
         +-------+----------------+-------------------+----------------------------+
-        | 73    | Code  128      | 1 <= k            | 0 <= d <= 127              |
+        | 73    | Code  128      | 1 ≤ k             | 0 ≤ d ≤ 127                |
         +-------+----------------+-------------------+----------------------------+
         
-       - Note that this form of the command does not end with a NUL byte, but specifies `n`, the string length, after `m`.
+       - Form 2 of the command allows a NUL byte to be encoded when used with Code 128.
        
-        
        - Currently only Code 39 and Code 128 are supported.
 
 
@@ -100,14 +102,14 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
        
        ``ASCII (2)    GS  k   m   n   d1...dk``
         
-       ``Decimal (1)  29  107 m   d1...dk 0  ``  
+       ``Decimal (1)  29  107 m   d1...dk 0``
        
        ``Decimal (2)  29  107 m   n   d1...dk``
        
    :Notes:
        - If there is data in the buffer when the printer receives this command, the buffered data will be printed, and the barcode will be printed on the following line.
        - If the barcode generated is too long to be printed, nothing will be printed.
-       - If an invalid value of `m` is sent, nothing will be printed.
+       - If an invalid value of `m` is sent, no barcode will be printed, and the string sent will be parsed normally.
        - If an invalid character is sent, the text "HRI NOT OK" will be printed.
        - Barcode justification is set by the ``$1B $61`` (Select Justification) command.
        - Barcode height is set by the ``$1D $68`` (Set 1D Barcode Height) command.
@@ -119,42 +121,50 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
        - Special characters (mode select, mode shift, FNC) are transmitted by sending the '{' character before the special character. The first two characters following `m` must select either mode A, B, or C. The '{' character is transmitted by sending two '{' characters. A special character (one that is preceded by '{' but not defined in the table below) are ignored, and not encoded.
        - If the first two characters following `m` do not select a valid mode, the text "HRI NOT OK" is printed.
        
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | Character | Hexadecimal | ASCII | Decimal |
         +===========+=============+=======+=========+
         | Shift     | $7B $53     | { S   | 123 83  |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | Mode A    | $7B $41     | { A   | 123 65  |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | Mode B    | $7B $42     | { B   | 123 66  |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | Mode C    | $7B $43     | { C   | 123 67  |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | FNC 1     | $7B $31     | { 1   | 123 49  |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | FNC 2     | $7B $32     | { 2   | 123 50  |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | FNC 3     | $7B $33     | { 3   | 123 51  |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | FNC 4     | $7B $34     | { 4   | 123 52  |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
         | '{'       | $7B $7B     | { {   | 123 123 |
-        +===========+=============+=======+=========+
+        +-----------+-------------+-------+---------+
        
 
    :Range: See table above for range of valid barcode systems, and the range of valid characters and string lengths for each system.
    :Default: ``None``
    :Related: :ref:`Select Justification<1b61>`
+   
              :ref:`Set 1D Barcode Height<1d68>`
+             
              :ref:`Set 1D Barcode Width Multiplier<1d77>`
+
    :Example:
         .. code-block:: none
         
             # Encode the text "CODE 39" as a Code 39 barcode
             write("\x1d\x6b\x04\x43\x4f\x44\x45\x20\x33\x39\x00")
             
-            # Encode the text "Code 128" as a Code 128 barcode, using mode B
+            # Encode the text "Code 128" as a Code 128 barcode, using form 1 of the command, and mode B
             write("\x1d\x6b\x08\x7b\x42\x43\x6f\x64\x65\x20\x31\x32\x38\x00")
+            
+            # Encode the text "pi = 3.14159265" as a Code 128 barcode, using form 2 of the command, and modes B and C
+            write("\x1d\x6b\x49\x0f")                       # Command header (includes code system and string length)
+            write("\x7b\x42\x70\x69\x20\x3a\x20\x33\x2e")   # Mode B select, and the string "pi = 3."
+            write("\x7b\x43\x0e\x0f\x5c\x41")               # Mode C select, and the string "14159265"
 
 
 ----
