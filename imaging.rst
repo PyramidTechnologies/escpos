@@ -158,13 +158,20 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
             # Encode the text "CODE 39" as a Code 39 barcode
             write("\x1d\x6b\x04\x43\x4f\x44\x45\x20\x33\x39\x00")
             
-            # Encode the text "Code 128" as a Code 128 barcode, using form 1 of the command, and mode B
+            # Encode the text "Code 128" as a Code 128 barcode,
+            # using form 1 of the command, and mode B
             write("\x1d\x6b\x08\x7b\x42\x43\x6f\x64\x65\x20\x31\x32\x38\x00")
             
-            # Encode the text "pi = 3.14159265" as a Code 128 barcode, using form 2 of the command, and modes B and C
-            write("\x1d\x6b\x49\x0f")                       # Command header (includes code system and string length)
-            write("\x7b\x42\x70\x69\x20\x3a\x20\x33\x2e")   # Mode B select, and the string "pi = 3."
-            write("\x7b\x43\x0e\x0f\x5c\x41")               # Mode C select, and the string "14159265"
+            # Encode the text "pi = 3.14159265" as a Code 128 barcode,
+            # using form 2 of the command, and modes B and C
+            # Command header (includes code system and string length)
+            write("\x1d\x6b\x49\x0f")
+            
+            # Mode B select, and the string "pi = 3."
+            write("\x7b\x42\x70\x69\x20\x3a\x20\x33\x2e")
+            
+            # Mode C select, and the string "14159265"
+            write("\x7b\x43\x0e\x0f\x5c\x41")               
 
 
 ----
