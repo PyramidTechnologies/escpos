@@ -349,6 +349,7 @@ This section describes all commands that affect how and which font is rendered.
    :Default: ``n=0, n is base 10``
    :Notes:
        - Reserved values of ``n`` should not be used in your application     
+       - Names with an asterisk (*) may require updated firmware
 
        +------+----------------------------------------------------+
        |  n   |  Font Code Page                                    |
@@ -367,6 +368,8 @@ This section describes all commands that affect how and which font is rendered.
        +------+----------------------------------------------------+
        | 17   | CP808 (Cyrillic)                                   |
        +------+----------------------------------------------------+
+       | 18   | Georgian Mkhedruli*                                |
+       +------+----------------------------------------------------+       
        | 19   | Reserved                                           |                     
        +------+----------------------------------------------------+
        | 255  | Reserved                                           |       
