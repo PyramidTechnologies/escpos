@@ -67,27 +67,35 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
        - Form 1: 0 ≤ `m` ≤ 20
        
-        +-------+----------------+-------------------+----------------------------+
-        | m     | Barcode System | No. of Characters | Valid Characters (decimal) |
-        +=======+================+===================+============================+
-        | 4     | Code  39       | 1 ≤ k             | 48 ≤ d ≤ 57, 65 ≤ d ≤ 90,  |
-        |       |                |                   | 32, 36, 37, 43, 45, 46,    |
-        |       |                |                   | 47, 58                     |
-        +-------+----------------+-------------------+----------------------------+
-        | 8     | Code  128      | 1 ≤ k             | 1 ≤ d ≤ 127                |
-        +-------+----------------+-------------------+----------------------------+
+        +-------+----------------+-------------------+----------------------------+--------------------------+
+        | m     | Barcode System | No. of Characters | Valid Characters (decimal) | Minimum Firmware Version |
+        +=======+================+===================+============================+==========================+
+        | 4     | Code  39       | 1 ≤ k             | 48 ≤ d ≤ 57, 65 ≤ d ≤ 90,  | 1.18                     |
+        |       |                |                   | 32, 36, 37, 43, 45, 46,    |                          |
+        |       |                |                   | 47, 58                     |                          |
+        +-------+----------------+-------------------+----------------------------+--------------------------+
+        | 5     | ITF            | 1 ≤ k,            | 48 ≤ d ≤ 57                | 1.21                     |
+        |       |                | k must be even    |                            |                          |
+        +-------+----------------+-------------------+----------------------------+--------------------------+
+        | 8     | Code  128      | 1 ≤ k             | 1 ≤ d ≤ 127                | 1.18                     |
+        +-------+----------------+-------------------+----------------------------+--------------------------+
         
         - Form 2: 65 ≤ `m` ≤ 90
         
-        +-------+----------------+-------------------+----------------------------+
-        | m     | Barcode System | No. of Characters | Valid Characters (decimal) |
-        +-------+----------------+-------------------+----------------------------+
-        | 73    | Code  128      | 1 ≤ k             | 0 ≤ d ≤ 127                |
-        +-------+----------------+-------------------+----------------------------+
+        +-------+----------------+-------------------+----------------------------+--------------------------+
+        | m     | Barcode System | No. of Characters | Valid Characters (decimal) | Minimum Firmware Version |
+        +=======+================+===================+============================+==========================+
+        | 69    | Code  39       | 1 ≤ n             | 48 ≤ d ≤ 57, 65 ≤ d ≤ 90,  | 1.21                     |
+        |       |                |                   | 32, 36, 37, 43, 45, 46,    |                          |
+        |       |                |                   | 47, 58                     |                          |
+        +-------+----------------+-------------------+----------------------------+--------------------------+
+        | 70    | ITF            | 1 ≤ n,            | 48 ≤ d ≤ 57                | 1.21                     |
+        |       |                | k must be even    |                            |                          |
+        +-------+----------------+-------------------+----------------------------+--------------------------+
+        | 73    | Code  128      | 1 ≤ n             | 0 ≤ d ≤ 127                | 1.18                     |
+        +-------+----------------+-------------------+----------------------------+--------------------------+
         
        - Form 2 of the command allows a NUL byte to be encoded when used with Code 128.
-       
-       - Currently only Code 39 and Code 128 are supported.
 
 
    .. note:: Requires firmware 1.18 or newer
@@ -254,6 +262,95 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
 
 ----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1d48:
+.. index:: $1D $48 - Set HRI Printing Position
+
+.. py:attribute:: Set HRI Printing Position - $1D $48 n
+
+   Sets HRI Printing Position based on `n`:
+   
+        +-------+----------------------------------+
+        | n     | Position                         |
+        +=======+==================================+
+        | 0, 48 | Not printed                      |
+        +-------+----------------------------------+
+        | 1, 49 | Above the barcode                |
+        +-------+----------------------------------+
+        | 2, 50 | Below the barcode                |
+        +-------+----------------------------------+
+        | 3, 51 | Both above and below the barcode |
+        +-------+----------------------------------+
+
+   If an invalid value of `n` is used, the command is ignored.
+
+   :Format:
+       ``Hex       $1D $48 n``  
+
+       ``ASCII     GS  H   n``  
+        
+       ``Decimal   29  72  n``
+
+   :Range:
+       ``0 ≤ n ≤ 3, 48 ≤ n ≤ 51``
+
+   :Default:
+       ``n = 0``
+
+   :Example:
+        .. code-block:: none
+            write("\x1d\x48\x32")    # Set HRI characters to print below the barcode
+
+----
+
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1d66:
+.. index:: $1D $66 - Set HRI Font
+
+.. py:attribute:: Set HRI Font - $1D $66 n
+
+   Sets HRI Font `n`:
+   
+        +-------+-----------------+
+        | n     | Position        |
+        +=======+=================+
+        | 0, 48 | Font A (15 CPI) |
+        +-------+-----------------+
+        | 1, 49 | Font B (20 CPI) |
+        +-------+-----------------+
+
+   If an invalid value of `n` is used, the command is ignored.
+
+   :Format:
+       ``Hex       $1D $66 n``  
+
+       ``ASCII     GS  f   n``  
+        
+       ``Decimal   29  102 n``
+
+   :Notes:
+       - CPI means "characters per inch". A higher CPI equates to a smaller, more compact font.
+
+   :Range:
+       ``n = 0, 1, 48, 49``
+
+   :Default:
+       ``n = 0``
+
+   :Example:
+        .. code-block:: none
+            write("\x1d\x66\x31")    # Set HRI characters to print using font B.
+
+----
+
 
 .. raw:: latex
 
