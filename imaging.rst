@@ -303,6 +303,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
    :Example:
         .. code-block:: none
+
             write("\x1d\x48\x32")    # Set HRI characters to print below the barcode
 
 ----
@@ -347,6 +348,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
    :Example:
         .. code-block:: none
+
             write("\x1d\x66\x31")    # Set HRI characters to print using font B.
 
 ----
