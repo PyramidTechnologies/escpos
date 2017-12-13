@@ -261,9 +261,9 @@ are advanced features that are not commonly by most users.
        - Sets the horizontal and vertical motion units to approximately 25.4/x mm {1/x"} and approximately 25.4/y mm {1/y"}, respectively.
 
         - When x = 0, the default value of the horizontal motion unit is used. 
-        - When y = 0, the default value of the horizontal motion unit is used.
+        - When y = 0, the default value of the vertical motion unit is used.
         - When x > 204, the default value of the horizontal motion unit is used.
-        - When y > 204, the default value of the horizontal motion unit is used.
+        - When y > 204, the default value of the vertical motion unit is used.
 
        - The horizontal direction is perpendicular to the paper feed direction and the vertical direction is the paper feed direction. 
        - The horizontal and vertical motion units indicate the minimum pitch used for calculating the values of related commands 
