@@ -260,21 +260,13 @@ This section describes all commands that affect how and which font is rendered.
 
    Selects character font based on n.
 
-        +----------------------+------+----------------------+
-        | Chars/Inch ($1B $C1) | n    | DESCRIPTION          |
-        +======================+======+======================+
-        | A = 11 cpi           | 0,48 | 11 cpi font selected |
-        |                      +------+----------------------+
-        | B = 15 cpi           | 1,49 | 15 cpi font selected |  
-        +----------------------+------+----------------------+
-        | A = 15 cpi           | 0,48 | 15 cpi font selected |
-        |                      +------+----------------------+
-        | B = 20 cpi           | 1,48 | 20 cpi font selected |  
-        +----------------------+------+----------------------+        
-        | A = 20 cpi           | 0,48 | 20 cpi font selected |
-        |                      +------+----------------------+
-        | B = 15 cpi           | 1,48 | 15 cpi font selected |          
-        +----------------------+------+----------------------+   
+        +-----+------+----------------------+
+        | Set | n    | DESCRIPTION          |
+        +=====+======+======================+
+        | A   | 0,48 | Select Font A        |
+        +-----+------+----------------------+
+        | B   | 1,48 | Select Font B        |          
+        +-----+------+----------------------+         
 
    :Format: ``Hex       $1B $4D n`` 
 
@@ -285,8 +277,7 @@ This section describes all commands that affect how and which font is rendered.
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - CPI means characters per inch
-       - A higher CPI equates to a smaller, more compact font
+       - Up to two fonts can be active at one time
 
    :Related: ``None``   
    :Example: ``None``             
