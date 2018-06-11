@@ -366,7 +366,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
    Prints a raster image
 
    :Format:
-       ``Hex       $1C  $76 30  m xL xH yL yH d1...dk``  
+       ``Hex       $1D  $76 30  m xL xH yL yH d1...dk``  
 
        ``ASCII     GS   v   %   m xL xH yL yH d1...dk``  
         
