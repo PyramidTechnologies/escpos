@@ -181,7 +181,10 @@ are advanced features that are not commonly by most users.
        - This command is enabled only when processed at the beginning of a line. (When the current line is empty) 
        - This command applies the justification within the area set by :ref:`Left Margin<1d4c>` ​and :ref:`Print Area Width<1d57>`
        - This command will justify all data in the printing area such as characters, graphics, bit images, barcode and space area set by :ref:`Horizontal Tab<x09>`, :ref:`Absolute<1b24>` and :ref:`Relative<1b5c>` print positions. 
-       - Settings of this command are effective until ​the :ref:`Initialize <1b40>` command is executed, the printer is reset, or the power is turned off. 
+       - Settings of this command are effective until ​the :ref:`Initialize <1b40>` command is executed, the printer is reset, or the power is turned off.        
+        - When n=0 or 48, left justification is enabled 
+        - When n=1 or 49, center justification is enabled 
+        - When n=2 or 50, right justification is enabled         
    
    :Range: ``n=0,1,2,48,49,50``
    :Default: ``0``
