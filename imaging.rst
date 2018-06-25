@@ -45,6 +45,18 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
          write("\x0a")           # Ending line feed
          print()
          >>> 
+         
+   :Example:
+       .. code-block:: none
+         :emphasize-lines: 2,3
+        
+         write("\x0a")           # Beginning line feed
+         write("\x1c\x7d\x25")   # Start QR Code® command
+         write("\x06")           # Length of string to follow (6 bytes in this example)
+         write("\xE5\x90\x8C\xE5\x83\x9A") # 同僚 (Colleague)
+         write("\x0a")           # Ending line feed
+         print()
+         >>>          
 
 QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
