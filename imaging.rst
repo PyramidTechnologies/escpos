@@ -20,7 +20,7 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
    .. note:: Requires firmware 1.9 or newer
 
    :Format:
-       ``Hex       $1C  $7D 25  k d1...dk``  
+       ``Hex       $1C  $7D $25 k d1...dk``  
 
        ``ASCII     FS   }   %   k d1...dk``  
         
@@ -28,10 +28,10 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
    :Notes:
        - This 2D barcode is compliant with the QR Code® specification and can be read by all 2D barcode readers.
        - This command must be sent when the current line is empty. If not, the command will be ignored, and the bytes to be encoded will be printed as text.
-       - Up to 154 8-bit characters are supported.
-       - If the input string length exceeds the range specified by the k parameter, only the first 154 characters will be encoded. The rest of the characters to be encoded will be printed as regular ESC/POS characters on a new line.
+       - Up to 154 8-bit characters are supported when used with firmware before version 1.29. Firmware version 1.29 and higher supports up to 255 characters.
+       - If the input string length exceeds the range specified by the k parameter, only the first 154 characters (255 character if using version 1.29 or higher) will be encoded. The rest of the characters to be encoded will be printed as regular ESC/POS characters on a new line.
 
-   :Range: ``0 < k <= 154 8-bit alphanumeric and URL-safe characters``
+   :Range: ``0 < k <= 154 8-bit alphanumeric and URL-safe characters for version < 1.29, 0 < k <= 255 for version >= 1.29``
    :Default: ``None``
    :Related: ``None``
    :Example:
@@ -61,6 +61,39 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
 QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
 |pyramidqr|
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1c7d74:
+.. index:: $1C $7D $74 - Set 2D Barcode Size
+
+.. py:attribute:: Set 2D Barcode Size - $1C $7D $74 k
+
+   Sets the width/height of QR code cells, measured in dots (8 dots = 1mm). 
+
+   .. note:: Requires firmware 1.29 or newer
+
+   :Format:
+       ``Hex       $1C  $7D $74 k``  
+
+       ``ASCII     FS   }   t   k``  
+        
+       ``Decimal   28  125  116 k``  
+   :Notes:
+       - If the QR code generated with the configured size setting is too big to be printed on the paper being used, the printer will automatically choose smaller sizes, down to the smallest valid size (3 dots per cell) until a suitable size has been found. If no suitable size can be found, the QR code will not be printed. This will only occur when using paper smaller than 80mm with the largest valid size.
+       - If the size requested by the host is outside of the valid range, the size setting will not be changed.
+
+   :Range: ``3 <= k <= 8``
+   :Default: ``k = 8``
+   :Related: ``None``
+   :Example:
+       .. code-block:: none
+        
+         write("\x1c\x7d\x74\x04")      # Set the QR code to 4 dots per cell (4 dots = 0.5mm)
 
 ----
 
