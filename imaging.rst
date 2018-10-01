@@ -31,7 +31,8 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
        - Up to 154 8-bit characters are supported when used with firmware before version 1.29. Firmware version 1.29 and higher supports up to 255 characters.
        - If the input string length exceeds the range specified by the k parameter, only the first 154 characters (255 character if using version 1.29 or higher) will be encoded. The rest of the characters to be encoded will be printed as regular ESC/POS characters on a new line.
 
-   :Range: ``0 < k <= 154 8-bit alphanumeric and URL-safe characters for version < 1.29, 0 < k <= 255 for version >= 1.29``
+   :Range: ``0 < k ≤ 154 8-bit alphanumeric and URL-safe characters for version < 1.29``
+           ``0 < k ≤ 255 8-bit alphanumeric and URL-safe characters for version ≥ 1.29``
    :Default: ``None``
    :Related: ``None``
    :Example:
@@ -88,7 +89,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
        - Paper size is configured through the Pyramid Reliance Tools application.
        - If the size requested by the host is outside of the valid range, the size setting will not be changed.
 
-   :Range: ``3 <= k <= 8``
+   :Range: ``3 ≤ k ≤ 8``
    :Default: ``k = 8``
    :Related: ``None``
    :Example:
