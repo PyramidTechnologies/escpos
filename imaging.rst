@@ -84,7 +84,8 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
         
        ``Decimal   28  125  116 k``  
    :Notes:
-       - If the QR code generated with the configured size setting is too big to be printed on the paper being used, the printer will automatically choose smaller sizes, down to the smallest valid size (3 dots per cell) until a suitable size has been found. If no suitable size can be found, the QR code will not be printed. This will only occur when using paper smaller than 80mm with the largest valid size.
+       - If the QR code generated with the configured size setting is too big to be printed on the paper being used, the printer will automatically choose smaller sizes, down to the smallest valid size (3 dots per cell) until a suitable size has been found. If no suitable size can be found, the QR code will not be printed. This will only occur when using paper smaller than 80mm with the largest valid QR code size.
+       - Paper size is configured through the Pyramid Reliance Tools application.
        - If the size requested by the host is outside of the valid range, the size setting will not be changed.
 
    :Range: ``3 <= k <= 8``
