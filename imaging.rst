@@ -473,7 +473,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
         - yL, yH ​defines the raster bit image in the vertical direction in ​dots​ using two-byte number definitions. (​yL + (yH * 256)) Dots 
         - d ​ specifies the bit image data in raster format. 
         - k ​indicates the number of bytes in the bit image. ​k ​is not transmitted and is there for explanation only.         
-
+        - Image bytes should be in MSB order.  
 
    :Range:
        ``0 ≤ m ≤ 3, 48 ≤ m ≤ 51``
