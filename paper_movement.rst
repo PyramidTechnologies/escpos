@@ -172,40 +172,7 @@ presenting and retracting.
     .. code-block:: none
 
         write("\x1d\x65\x14")   # Set continuous mode
-        write("\x1d\x65\x12")   # Disable continuous mode      
-
-----
-
-.. raw:: latex
-
-    \clearpage
-
-.. _1b64:  
-.. index:: $1B $64 - Print And Feed
-.. py:attribute::  Print And Feed Paper n Rows - $1B $64  
-
-    Print and feed paper n rows
-
-    :Format: 
-             ``Hex      $1B $64 n``
-
-             ``ASCII    ESC d   n``
-
-             ``Decimal  27  100 n``
-    :Notes:
-      - ``n`` rows = ``n`` * (char height + line spacing)
-      - Once finished, the print position is set to the beginning of the line.
-      - This command has no effect on the line spacing setting set by :ref:`1/6" or 1/8"<1b32>` line spacing commands
-      - If ``n`` = 0, the command does a normal line feed. Same as the :ref:`Line Feed<x0a>` command.
-      - If ``n`` > 0, the command will do (``n``-1) extra line feeds. This makes a maximum paper feed limit of 254 rows.
-
-    :Range: ``0 ≤ 255``
-    :Default: ``None``
-    :Related:
-      :ref:`1/6" Line Spacing<1b32>`
-
-      :ref:`1/8" Line Spacing<1b32>`    
-    :Example: ``None``
+        write("\x1d\x65\x12")   # Disable continuous mode
 
 ----
 
