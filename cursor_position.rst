@@ -288,48 +288,6 @@ movable pointer that allows you to print anywhere on the print ticket.
 
     \clearpage
 
-.. _1b44:
-.. index:: $1B $44 - Horizontal Tab Positions
-
-.. py:attribute:: Horizontal Tab Positions - $1B $44
-
-    Sets the horizontal tab positions calculated from the start of the line.
-
-    :Format: 
-             ``Hex      $1B $44  n1...nk 00``
-
-             ``ASCII    ESC D    n1...nk 00``
-
-             ``Decimal  27  68   n1...nk 00``
-    :Notes:
-        - N is the column number specified from line start
-        - K is the total number of horizontal tab positions
-        - Sending zero or NUL terminates the command arguments
-        - The final position is n+1, e.g. a position set to 10 when called from the start of a line, will advance the position to 11.
-        - Up to 32 columns may be defined. Anything in excess of 32 will be treated as regular data.
-        - N1...nk must be sent in ascending order and be terminated with a 0 NUL code.
-        - If this format is violated, the data will be treated as regular data.
-        - This command cancels previous settings
-
-    :Range: ``None``
-    :Default: ``9, 17, 25, 33, 41 ...``
-    :Related: :ref:`Horizontal Tab<x09>`
-    :Example:
-        .. code-block:: none
-            :emphasize-lines: 1
-
-            write('\x1b\x44\x00')             # Cancel previous tab settings, restores defaults
-            write('\x1b\x44\x08\x14\x25\x00') # Set tab stops at 8, 20, and 32 characters
-            write('Item\x09Quantity\x09Price')
-            print()
-            >>> Item		Quantity	Price
-
-----
-
-.. raw:: latex
-
-    \clearpage
-
 .. _1b5c:
 .. index:: $1B $5C - Relative Print Position 
 

@@ -280,7 +280,7 @@ are advanced features that are not commonly by most users.
        - Settings of this command are effective until it is changed, :ref:`Initialize<1b40>` is executed, the printer is reset, or the power is turned off. 
 
 
-   :Range: ``0 ≤ x, y ≤ 255``
+   :Range: ``0 ≤ x, y ≤ 204``
    :Default: ``x = 204, y = 204``
    :Related: 
        :ref:`Left Margin <1d4c>`
