@@ -4,9 +4,21 @@
 
 Official Reliance Thermal Printer ESC/POS Command Set Documentation
 
+## Setup
+
+It is recommended that you create a virtual environment for this project. Conda or venv are fine. Once configured, activate your environment before
+proceeding.
+
+For quick development, we recommend VS Code + https://github.com/vscode-restructuredtext/vscode-restructuredtext to edit and preview the docs
+locally. Be sure to launch `code .` from your activate Python environment
+for the VS Code plugin to work properly. Alternatively `make html`, you can manually build and view in your browser.
+
 ## Building
+
+    pip install docutils
     pip install sphinx_rtd_theme
     pip install sphinx==1.2.2
+    pip install sphinx-autobuild
 
 (Can't use requirements.txt as that will break the build server for some reason)
 
@@ -20,18 +32,18 @@ Official Reliance Thermal Printer ESC/POS Command Set Documentation
  - Pay attention to tabs, spacing and newlines
 
  - Use \clearpage for forced page breaks on PDF render
- 
+
  .. raw:: latex
 
     \clearpage
 
-.. _tagname:  
-.. index:: $BYTE1 $BYTE2  
-.. py:attribute:: Command Name - $BYTE1 $BYTE2  
+.. _tagname:
+.. index:: $BYTE1 $BYTE2
+.. py:attribute:: Command Name - $BYTE1 $BYTE2
 
     Short description
 
-    :Format: 
+    :Format:
              ``Hex      $BYTE11B $CODE  ARGS``
 
              ``ASCII    ASCII CODE    ARGS``

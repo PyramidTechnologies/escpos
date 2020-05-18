@@ -50,7 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Reliance-ESC/POS'
-copyright = u'2017, Pyramid Technologies Inc'
+copyright = u'2020, Pyramid Technologies Inc'
 author = u'cat'
 
 # The version info for the project you're documenting, acts as replacement for
