@@ -13,13 +13,15 @@ presenting and retracting.
     \clearpage
 
 .. _1b69:
-.. index:: $1B $69 - Total Cut
+.. index:: $1B $69 - Partial Cut
 
-.. py:attribute:: Total Cut - $1B $69
+.. py:attribute:: Partial Cut - $1B $69
+   :type: TEST
 
-   Performs a full cut on the current ticket.
+   Performs a partial cut on the current ticket.
 
    :Notes:
+       - For Reliance, this command will always execute a Full Cut.
        - If a ticket is not at least the minimum ticket size, then a blank portion will be printed/added to the ticket to make it the minimum size before the cut.
        - If nothing has been printed, then the command is ignored.
 

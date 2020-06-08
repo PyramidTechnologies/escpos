@@ -37,6 +37,7 @@ Please refer to our operations manual for detailed cleaning and usage instructio
    layout
    imaging
    realtime_status
+   commands
 
 Indices and tables
 ==================
