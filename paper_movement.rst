@@ -15,8 +15,8 @@ presenting and retracting.
 .. _1b69:
 .. index:: $1B $69 - Partial Cut
 
-.. py:attribute:: Partial Cut - $1B $69
-   :type: TEST
+Partial Cut - ``$1B $69``
+-------------------------
 
    Performs a partial cut on the current ticket.
 
@@ -45,7 +45,8 @@ presenting and retracting.
 .. _1D65:
 .. index:: $1D $65 - Ejector
 
-.. py:attribute:: Ejector - $1D $65
+Ejector - ``$1D $65``
+---------------------
 
    Ejector Commands 
 
@@ -184,7 +185,9 @@ presenting and retracting.
 
 .. _1d56:  
 .. index:: $1D $56 - Select Cut Mode 
-.. py:attribute:: Select Cut Mode - $1D $56
+
+Select Cut Mode - ``$1D $56``
+-----------------------------
 
     Select cut mode
 

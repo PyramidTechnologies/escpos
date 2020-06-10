@@ -14,8 +14,9 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b40:
 .. index:: $1B $40 - Initialize 
 
-.. py:attribute:: Initialize - $1B $40
-   
+Initialize - ``$1B $40``
+------------------------
+
    Clears the data in the print buffer and resets the printer modes to the modes that were in effect when the power was turned on. 
    
    :Format: ``Hex       $1B $40`` 
@@ -43,7 +44,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b21:
 .. index:: $1B $21 - Select Print Mode 
 
-.. py:attribute:: Select Print Mode - $1B $21
+Select Print Mode - ``$1B $21``
+-------------------------------
 
    Quick-select a variety of print control options such as font type and effects.
 
@@ -124,7 +126,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b2d:
 .. index:: $1B $2D - Underline Mode 
 
-.. py:attribute:: Underline Mode - $1B $2D
+Underline Mode - ``$1B $2D``
+----------------------------
 
    Turns underline mode on or off, based on the following values of n:
 
@@ -173,7 +176,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b34:
 .. index:: $1B $34 - Italics Mode 
 
-.. py:attribute:: Italics Mode - $1B $34
+Italics Mode - ``$1B $34``
+--------------------------
 
    Turns *italics* mode on or off, based on the following values of n:
 
@@ -214,7 +218,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b45:
 .. index:: $1B $45 - Emphasis Mode 
 
-.. py:attribute:: Emphasis Mode - $1B $45
+Emphasis Mode - ``$1B $45``
+---------------------------
 
    Turns **emphasis** mode on or off, based on the LSB of n:
 
@@ -256,7 +261,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b4D:
 .. index:: $1B $4D - Select Character Font 
 
-.. py:attribute:: Select Character Font - $1B $4D
+Select Character Font - ``$1B $4D``
+-----------------------------------
 
    Selects character font based on n.
 
@@ -291,7 +297,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b56:
 .. index:: $1B $56 - 90° Rotation
 
-.. py:attribute:: 90° Rotation - $1B $56
+90° Rotation - ``$1B $56``
+--------------------------
 
    Turns 90° rotation on or off, based on n
 
@@ -325,7 +332,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b74:
 .. index:: $1B $74 - Select Character Code Page
 
-.. py:attribute:: Select Character Code Page - $1B $74
+Select Character Code Page - ``$1B $74``
+----------------------------------------
     
     Select character code page based on ``n``
 
@@ -378,7 +386,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b7b:
 .. index:: $1B $7B - Upside-down Mode
 
-.. py:attribute:: Upside-down Mode - $1B $7B
+Upside-down Mode - ``$1B $7B``
+------------------------------
 
    Turn upside-down print mode on/off
 
@@ -421,7 +430,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1bc1:
 .. index:: $1B $C1 - Set CPI Mode
 
-.. py:attribute:: Set CPI Mode - $1B $C1
+Set CPI Mode - ``$1B $C1``
+--------------------------
 
    Selects the active CPI mode.
 
@@ -459,7 +469,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1c7d26:
 .. index:: $1C $7D $26 - Select Codepage
 
-.. py:attribute:: Select Codepage - $1C $7D $26
+Select Codepage - ``$1C $7D $26``
+---------------------------------
     
     Used to select any installed codepage as the active codepage. Using Two Byte Number Definitions, send the integer number
     of the codepage. For example, if codepage 437 is desired, then send the integer 437.
@@ -502,7 +513,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1d21:
 .. index:: $1D $21 - Select Character Size
 
-.. py:attribute:: Select Character Size - $1D $21
+Select Character Size - ``$1D $21``
+-----------------------------------
     
     Select character width and height according to the bits of n.
     - Bits 0 to 3 : select character height (see table 2)
@@ -578,7 +590,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1d42:
 .. index:: $1D $42 - Reverse Print Mode
 
-.. py:attribute:: Reverse Print Mode - $1D $42
+Reverse Print Mode - ``$1D $42``
+--------------------------------
     
     Turn white/black reverse printing (inverted) mode on/off based on the LSB of n
     - LSB Set: reverse enabled

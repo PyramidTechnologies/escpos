@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Reliance-ESC/POS documentation build configuration file, created by
+# Pyramid ESC/POS Documentation documentation build configuration file, created by
 # sphinx-quickstart on Sat Feb 04 16:30:56 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -49,8 +49,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Reliance-ESC/POS'
-copyright = u'2017, Pyramid Technologies Inc'
+project = u'Pyramid ESC/POS Documentation'
+copyright = u'2020, Pyramid Technologies Inc'
 author = u'cat'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -94,19 +94,22 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'logo_only': True
+}
 
+html_logo = "img\logo_white.png"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_build/html/_static/css']
-html_style = 'css/my_theme.css' 
+html_static_path = ['build/_static']
+#html_style = 'css/my_theme.css' 
 
 
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Reliance-ESCPOSdoc'
+htmlhelp_basename = 'Pyramid ESC/POSdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -133,7 +136,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Reliance-ESCPOS.tex', u'Reliance-ESC/POS Documentation',
+    (master_doc, 'Pyramid ESC/POS Documentation.tex', u'Pyramid ESC/POS Documentation',
      u'Pyramid Technologies', 'manual'),
 ]
 
@@ -143,7 +146,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'reliance-escpos', u'Reliance-ESC/POS Documentation',
+    (master_doc, 'Pyramid ESC/POS', u'Pyramid ESC/POS Documentation',
      [author], 1)
 ]
 
@@ -154,8 +157,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Reliance-ESCPOS', u'Reliance-ESC/POS Documentation',
-     author, 'Reliance-ESCPOS', 'ESC/POS Command Set for Reliance Thermal Printer',
+    (master_doc, 'Pyramid ESC/POS', u'Pyramid ESC/POS Documentation',
+     author, 'Pyramid ESC/POS', 'ESC/POS Command Set for Phoenix and Reliance',
      'Miscellaneous'),
 ]
 
