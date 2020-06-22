@@ -14,9 +14,8 @@ and has a dedicated team of engineers who can help make your project successful.
 |logo|
 
 This document provides a detailed list of all the ESC/POS commands that are 
-supported by the PTI Reliance Thermal Printer. This document will provide descriptions, 
-explanations, use cases, and examples of how to use the ESC/POS command protocol 
-supported by the Reliance Printer.
+supported by the PTI Reliance and Phoenix Thermal Printers. This document will provide descriptions, 
+explanations, use cases, and examples of how to use the ESC/POS command protocol.
 
 Please refer to our operations manual for detailed cleaning and usage instructions:
 

@@ -14,7 +14,7 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b40:
 .. index:: $1B $40 - Initialize 
 
-Initialize - ``$1B $40``
+Initialize - ``$1B $40`` |rel| |phx|
 ------------------------
 
    Clears the data in the print buffer and resets the printer modes to the modes that were in effect when the power was turned on. 
@@ -44,7 +44,7 @@ Initialize - ``$1B $40``
 .. _1b21:
 .. index:: $1B $21 - Select Print Mode 
 
-Select Print Mode - ``$1B $21``
+Select Print Mode - ``$1B $21`` |phx|
 -------------------------------
 
    Quick-select a variety of print control options such as font type and effects.
@@ -126,7 +126,7 @@ Select Print Mode - ``$1B $21``
 .. _1b2d:
 .. index:: $1B $2D - Underline Mode 
 
-Underline Mode - ``$1B $2D``
+Underline Mode - ``$1B $2D`` |rel| |phx|
 ----------------------------
 
    Turns underline mode on or off, based on the following values of n:
@@ -176,7 +176,7 @@ Underline Mode - ``$1B $2D``
 .. _1b34:
 .. index:: $1B $34 - Italics Mode 
 
-Italics Mode - ``$1B $34``
+Italics Mode - ``$1B $34`` |rel| |phx|
 --------------------------
 
    Turns *italics* mode on or off, based on the following values of n:
@@ -218,7 +218,7 @@ Italics Mode - ``$1B $34``
 .. _1b45:
 .. index:: $1B $45 - Emphasis Mode 
 
-Emphasis Mode - ``$1B $45``
+Emphasis Mode - ``$1B $45`` |rel| |phx|
 ---------------------------
 
    Turns **emphasis** mode on or off, based on the LSB of n:
@@ -261,7 +261,7 @@ Emphasis Mode - ``$1B $45``
 .. _1b4D:
 .. index:: $1B $4D - Select Character Font 
 
-Select Character Font - ``$1B $4D``
+Select Character Font - ``$1B $4D`` |rel| |phx|
 -----------------------------------
 
    Selects character font based on n.
@@ -294,10 +294,95 @@ Select Character Font - ``$1B $4D``
 
     \clearpage
 
+.. _1b50:
+.. index:: $1B $50 - Select Font A 
+
+Select Font A - ``$1B $50`` |phx|
+-----------------------------------
+
+   Selects Font A Stored in the printer.       
+
+   :Format: ``Hex       $1B $50`` 
+
+            ``ASCII     ESC @``
+
+            ``Decimal   27 80`` 
+
+   :Range: ``None``
+   :Default: ``None``
+   :Notes:
+       - 
+
+   :Related: ``None``   
+   :Example: ``None``             
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b54:
+.. index:: $1B $54 - Select Font C 
+
+Select Font C - ``$1B $54`` |phx|
+-----------------------------------
+
+   Selects Font A Stored in the printer.       
+
+   :Format: ``Hex       $1B $54`` 
+
+            ``ASCII     ESC P``
+
+            ``Decimal   27 84`` 
+
+   :Range: ``None``
+   :Default: ``None``
+   :Notes:
+       - 
+
+   :Related: ``None``   
+   :Example: ``None``             
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b55:
+.. index:: $1B $55 - Select Font D 
+
+Select Font D - ``$1B $55`` |phx|
+-----------------------------------
+
+   Selects Font A Stored in the printer.       
+
+   :Format: ``Hex       $1B $55`` 
+
+            ``ASCII     ESC T``
+
+            ``Decimal   27 85`` 
+
+   :Range: ``None``
+   :Default: ``None``
+   :Notes:
+       - 
+
+   :Related: ``None``   
+   :Example: ``None``             
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+
 .. _1b56:
 .. index:: $1B $56 - 90° Rotation
 
-90° Rotation - ``$1B $56``
+90° Rotation - ``$1B $56`` |rel|
 --------------------------
 
    Turns 90° rotation on or off, based on n
@@ -332,7 +417,7 @@ Select Character Font - ``$1B $4D``
 .. _1b74:
 .. index:: $1B $74 - Select Character Code Page
 
-Select Character Code Page - ``$1B $74``
+Select Character Code Page - ``$1B $74`` |rel|
 ----------------------------------------
     
     Select character code page based on ``n``
@@ -386,7 +471,7 @@ Select Character Code Page - ``$1B $74``
 .. _1b7b:
 .. index:: $1B $7B - Upside-down Mode
 
-Upside-down Mode - ``$1B $7B``
+Upside-down Mode - ``$1B $7B`` |rel|
 ------------------------------
 
    Turn upside-down print mode on/off
@@ -430,7 +515,7 @@ Upside-down Mode - ``$1B $7B``
 .. _1bc1:
 .. index:: $1B $C1 - Set CPI Mode
 
-Set CPI Mode - ``$1B $C1``
+Set CPI Mode - ``$1B $C1`` |rel|
 --------------------------
 
    Selects the active CPI mode.
@@ -469,7 +554,7 @@ Set CPI Mode - ``$1B $C1``
 .. _1c7d26:
 .. index:: $1C $7D $26 - Select Codepage
 
-Select Codepage - ``$1C $7D $26``
+Select Codepage - ``$1C $7D $26`` |rel|
 ---------------------------------
     
     Used to select any installed codepage as the active codepage. Using Two Byte Number Definitions, send the integer number
@@ -513,7 +598,7 @@ Select Codepage - ``$1C $7D $26``
 .. _1d21:
 .. index:: $1D $21 - Select Character Size
 
-Select Character Size - ``$1D $21``
+Select Character Size - ``$1D $21`` |rel| |phx|
 -----------------------------------
     
     Select character width and height according to the bits of n.
@@ -590,7 +675,7 @@ Select Character Size - ``$1D $21``
 .. _1d42:
 .. index:: $1D $42 - Reverse Print Mode
 
-Reverse Print Mode - ``$1D $42``
+Reverse Print Mode - ``$1D $42`` |rel| |phx|
 --------------------------------
     
     Turn white/black reverse printing (inverted) mode on/off based on the LSB of n
