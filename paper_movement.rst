@@ -42,6 +42,35 @@ Partial Cut - ``$1B $69``
 
     \clearpage
 
+.. _1b6D:
+.. index:: $1B $6D - Full Cut
+
+Full Cut - ``$1B $6D`` |phx|
+-----------------------------
+
+   Performs a full cut on the current ticket.
+
+   :Notes:
+       - If a ticket is not at least the minimum ticket size, then a blank portion will be printed/added to the ticket to make it the minimum size before the cut.
+       - If nothing has been printed, then the command is ignored.
+
+   :Format:
+       ``Hex       $1B $6D``  
+
+       ``ASCII     ESC  m``  
+
+       ``Decimal   27   109``
+
+   :Range: ``None``
+   :Default: ``None``
+   :Related: :ref:`Form Feed<x0c>`
+
+----------
+
+.. raw:: latex
+
+    \clearpage
+
 .. _1D65:
 .. index:: $1D $65 - Ejector
 
@@ -183,40 +212,40 @@ Ejector - ``$1D $65``
 
     \clearpage
 
-.. _1d56:  
-.. index:: $1D $56 - Select Cut Mode 
+.. _1c7d60:  
+.. index:: $1C $7D $60 - Enable and Disable auto cut 
 
-Select Cut Mode - ``$1D $56``
------------------------------
+Enable and Disable Auto Cut - ``$1C $7D $60`` |phx|
+----------------------------------------------------
 
-    Select cut mode
+    This command changes if the Phoenix printer will auto-cut a ticket or not.
 
     :Format: 
-             ``Hex      $1D $56 m   n``
+             ``Hex      $1C $7D $60  n``
 
-             ``ASCII    GS  v   m   n``
+             ``ASCII    FS  }   '    n``
 
-             ``Decimal  29  86  m   n``
+             ``Decimal  34  175  140  n``
     :Notes:
-      - ``m`` is cut mode
 
-        - If ``m`` is 0 or 48 then Full cut
-        - If ``m`` is 65 ($41) then feed paper a distance then full cut
+    +--+-------+
+    |n|function|
+    +==+=======================================+
+    |$00|Disable Auto-Cut, must send cut command|
+    +---+----------------------------------+
+    |$01|Enable Auto-Cut, Paper cuts itself| 
+    +---+----------------------------------+
 
-          - Distance defined as :math:`cut position + [n * vertical motion units]`  
-      - ``n`` is only required if ``m`` is 65 ($41)
+      - If a ticket is not at least the minimum ticket size, then a blank portion
+        will be printed/added to the ticket to make it the minimum size before 
+        the cut.
 
     :Range: 
-      ``m=0,48,65``
+      ``n = $00, $01``
 
-      ``0 ≤ n ≤ 255``
-
-    :Default: ``m=0``
+    :Default: ``None``
     :Related:
-      :ref:`Motion Units<1d50>`   
+      :ref:`Select Cut Mode <1d56>`    
 
-   :Example Feed 10 motion and Full Cut:
-    .. code-block:: none
-
-        write("\x1d\x56\x41\x0A")
+    :Example:
     

@@ -21,8 +21,8 @@
 .. |printablearea| image:: img/printablearea.png
    :align: middle
 
-.. |phx| image:: img/phx_logo.png
+.. |phx| image:: img/printer-PHX.svg
    :align: middle
 
-.. |rel| image:: img/rel_logo.png
+.. |rel| image:: img/printer-REL.svg
    :align: middle

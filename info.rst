@@ -106,3 +106,52 @@ Commands that provide information about the printer's identity are provided here
 
             write('\x1d\x72\x01')             
             >>> \x03                # Roll is present but near end  
+
+----
+
+.. _1b76:  
+.. index:: $1B $76 - Transmit paper sensor status
+
+Transmit paper sensor status - $1B $76 |PHX|
+--------------------------------------------
+
+    Transmits the status of paper sensor as 1 byte of data. 
+
+    :Format: 
+             ``Hex      $1B $76``
+
+             ``ASCII    ESC  v ``
+
+             ``Decimal  27  118``
+    :Notes:
+        - This is **not** a real time status command. 
+        - Commands will be processed in order of reception, therefore a time delay may be present between receiving the command transmitting the Paper Sensor Status.
+        - Refer to this table for response codes:
+
+        +-----------------------------------------------------------------------+
+        |     Ejector State Byte Table                                          |
+        +-----+--------+------+---------+---------------------------------------+
+        | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                           |
+        +=====+========+======+=========+=======================================+
+        | 0,1 | Off    | 00   | 0       | Paper Roll Present With Abundance     |
+        |     +--------+------+---------+---------------------------------------+
+        |     | On     | 03   | 3       | Near Paper Roll End                   |
+        +-----+--------+------+---------+---------------------------------------+
+        | 2,3 | Off    | 00   | 0       | Paper Present                         |
+        |     +--------+------+---------+---------------------------------------+
+        |     | On     | 0C   | 12      | Paper Not Present                     |
+        +-----+--------+------+---------+---------------------------------------+
+        | 4   |        |      |         | Reserved                              |
+        +-----+--------+------+---------+---------------------------------------+
+        | 5   |        |      |         | Undefined                             |
+        +-----+--------+------+---------+---------------------------------------+
+        | 6   |        |      |         | Undefined                             |
+        +-----+--------+------+---------+---------------------------------------+
+        | 7   |        |      |         | Reserved                              |
+        +-----+--------+------+---------+---------------------------------------+
+
+    :Range: ``N/A``
+    :Default: ``N/A``
+    :Related: ``None``
+
+    :Example: ``None``
