@@ -8,12 +8,12 @@
    :maxdepth: 4
 
    intro
-   info
 
 .. toctree::
    :caption: Command Sets
    :maxdepth: 4
 
+   info
    font_cmds
    cursor_position
    paper_movement

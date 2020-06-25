@@ -1,4 +1,6 @@
 .. index:: Real Time Status
+.. include:: global.rst
+
 
 Real Time Status
 ================
@@ -18,8 +20,8 @@ fields for legacy support reasons but you effectively have access to all error a
 .. _x1004:
 .. Index:: $10 $04 - Real Time Status
 
-Real Time Status - ``$10 $04``
-------------------------------
+Real Time Status - ``$10 $04`` |rel|
+-------------------------------------
 
    Transmits the printer status in real time.
 

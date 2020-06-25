@@ -1,4 +1,6 @@
 .. index:: Movement
+.. include:: global.rst
+
 
 Paper Movement Commands
 ==========================
@@ -15,8 +17,8 @@ presenting and retracting.
 .. _1b69:
 .. index:: $1B $69 - Partial Cut
 
-Partial Cut - ``$1B $69``
--------------------------
+Partial Cut - ``$1B $69`` |rel| |phx|
+--------------------------------------
 
    Performs a partial cut on the current ticket.
 
@@ -74,8 +76,8 @@ Full Cut - ``$1B $6D`` |phx|
 .. _1D65:
 .. index:: $1D $65 - Ejector
 
-Ejector - ``$1D $65``
----------------------
+Ejector - ``$1D $65`` |rel|
+---------------------------
 
    Ejector Commands 
 
@@ -228,13 +230,13 @@ Enable and Disable Auto Cut - ``$1C $7D $60`` |phx|
              ``Decimal  34  175  140  n``
     :Notes:
 
-    +--+-------+
-    |n|function|
-    +==+=======================================+
-    |$00|Disable Auto-Cut, must send cut command|
-    +---+----------------------------------+
-    |$01|Enable Auto-Cut, Paper cuts itself| 
-    +---+----------------------------------+
+            +------+-----------------------------------------+
+            |  n   |              Function                   |
+            +======+=========================================+
+            |  $00 | Disable Auto-Cut, must send cut command |
+            +------+-----------------------------------------+
+            |  $01 |  Enable Auto-Cut, paper cuts itself     | 
+            +------+-----------------------------------------+
 
       - If a ticket is not at least the minimum ticket size, then a blank portion
         will be printed/added to the ticket to make it the minimum size before 
@@ -245,7 +247,118 @@ Enable and Disable Auto Cut - ``$1C $7D $60`` |phx|
 
     :Default: ``None``
     :Related:
-      :ref:`Select Cut Mode <1d56>`    
+      :ref:`Select Cut Mode and Cut Paper <1d56>`    
 
     :Example:
     
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1d56:  
+.. index:: $1D $56 - Select Cut Mode and Cut Paper
+
+Select Cut Mode and Cut Paper - ``$1D $56`` |phx|
+----------------------------------------------------
+
+    Select the cut mode for the printer and execute a cut command.
+
+    :Format: 
+             ``Hex      $1D $56  n``
+
+             ``ASCII    GS  V   n``
+
+             ``Decimal  29  86  n``
+    :Notes:
+    
+            +------+-----------------------------------------+
+            |  n   |              Function                   |
+            +======+=========================================+
+            |  $00 | Full Cut mode                           |
+            +------+-----------------------------------------+
+            |  $01 |  Partial Cut mode                       | 
+            +------+-----------------------------------------+
+      
+      - Dip switches overide choice of full or partial
+
+
+
+    :Range: 
+      ``n = 0,1``
+
+    :Default: ``None``
+    :Related: 
+        :ref:`Full Cut <1b6d>`
+        
+        :ref:`Partial Cut <1b69>`    
+
+    :Example: ``None``
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b64:  
+.. index:: $1B $64 - Print and Feed Paper n Lines 
+
+Print and Feed Paper n Lines - ``$1B $64`` |phx|
+----------------------------------------------------
+
+    Print current buffer and feed n number of lines up to a maximum of 200.
+
+    :Format: 
+             ``Hex      $1B $64  n``
+
+             ``ASCII    ESC  d   n``
+
+             ``Decimal  27  100  n``
+    :Notes:
+
+      - After printing, the print postion is moved to left side of the printable area. Also, the printer is in the status "Beginning of the line".
+
+    :Range: 
+      ``n>=0, n<=255``
+
+    :Default: ``None``
+    :Related:
+      :ref:`Print and Feed Paper <1b4a>`    
+
+    :Example:
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b4a:  
+.. index:: $1B $4A - Print and Feed Paper 
+
+Print and Feed Paper - ``$1B $4A`` |phx|
+----------------------------------------------------
+
+    Print current buffer and feed paper.
+
+    :Format: 
+             ``Hex      $1B $64  n``
+
+             ``ASCII    ESC  d   n``
+
+             ``Decimal  27  100  n``
+    :Notes:
+
+      - Any passed n value is ignored.
+      - Optional because the Phoenix prints on both (either) CR or LF
+
+    :Range: 
+      ``n>=0, n<=255``
+
+    :Default: ``None``
+    :Related:
+      :ref:`Print and Feed Paper n Lines <1b64>`    
+
+    :Example:

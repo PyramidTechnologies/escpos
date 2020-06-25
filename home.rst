@@ -7,6 +7,9 @@
 **********************************************
 ESC/POS Documentation for Phoenix and Reliance
 **********************************************
+
+**\\TODO:HEADING BLURB NEEDS TO CHANGE**
+
 The Reliance Thermal Printer is your reliable thermal printing solution for self-service kiosk
 and custom OEM applications. This printer supports 60mm - 80mm paper widths, runs fast, reliably,
 and has a dedicated team of engineers who can help make your project successful.

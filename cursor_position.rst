@@ -16,7 +16,8 @@ movable pointer that allows you to print anywhere on the print ticket.
 .. _x08:
 .. index:: $08 - Backspace 
 
-Backspace - $08
+Backspace - ``$08`` |rel|
+--------------------------
 
     Moves current print position back 1 character. This command can be used
     to print two or more characters at the same position.
@@ -50,8 +51,8 @@ Backspace - $08
 .. _x09:
 .. index:: $09 - Horizontal Tab 
 
-Horizontal Tab - ``$09``
-------------------------
+Horizontal Tab - ``$09`` |rel|
+------------------------------
 
     Advances the horizontal print position to the next column as specified by the Set Horizontal Tab Position command.
 
@@ -70,7 +71,7 @@ Horizontal Tab - ``$09``
 
     :Range: ``None``
     :Default: ``8 Columns``
-    :Related: :ref:`Horizontal Tabs Positions<1b44>`
+    :Related: ``None``
     :Example:
         .. code-block:: none
             :emphasize-lines: 1
@@ -88,8 +89,8 @@ Horizontal Tab - ``$09``
 .. _x0A:
 .. index:: $0A - Line Feed
 
-Line Feed - ``$0A``
--------------------
+Line Feed - ``$0A`` |rel| |phx|
+--------------------------------
 
     Prints the data in the print buffer and feeds one line based on the current line spacing.
 
@@ -124,8 +125,8 @@ Line Feed - ``$0A``
 .. _x0C:
 .. index:: $0C - Form Feed
 
-Form Feed - ``$0C``
--------------------
+Form Feed - ``$0C`` |rel|
+--------------------------
 
     Prints the data in the print buffer, cuts the paper and presents the ticket.
 
@@ -161,8 +162,8 @@ Form Feed - ``$0C``
 .. _x0D:
 .. index:: $0D - Carriage Return
 
-Carriage Return - ``$0D``
--------------------------
+Carriage Return - ``$0D`` |rel| |phx|
+--------------------------------------
 
     If CR command is enabled, this command will function exactly like the command $0A does,
     otherwise, the command is ignored.
@@ -191,8 +192,8 @@ Carriage Return - ``$0D``
 .. _x18:
 .. index:: $18 - Cancel Current Line
 
-Cancel Current Line- ``$18``
-----------------------------
+Cancel Current Line- ``$18`` |rel|
+-----------------------------------
 
     Deletes/Cancels the current line
 
@@ -227,8 +228,8 @@ Cancel Current Line- ``$18``
 .. _1b24:
 .. index:: $1B $24 - Absolute Print Position
 
-Absolute Print Position - ``$1B $24``
--------------------------------------
+Absolute Print Position - ``$1B $24`` |rel|
+--------------------------------------------
 
     Moves the print position to [(nL + (nH × 256)) × (horizontal or vertical 
     motion unit)] from the left edge of the print area. Uses Two Byte Number 
@@ -297,8 +298,8 @@ Absolute Print Position - ``$1B $24``
 .. _1b5c:
 .. index:: $1B $5C - Relative Print Position 
 
-Relative Print Position  - ``$1B $5C``
---------------------------------------
+Relative Print Position  - ``$1B $5C`` |rel|
+---------------------------------------------
 
    Relative Print Position
 

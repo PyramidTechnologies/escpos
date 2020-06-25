@@ -16,8 +16,8 @@ are advanced features that are not commonly by most users.
 .. _1b20:
 .. index:: $1B $20 - Right Side Character Spacing
 
-Right Side Character Spacing - ``$1B $20``
-------------------------------------------
+Right Side Character Spacing - ``$1B $20`` |rel|
+------------------------------------------------
 
    Sets the right-side character spacing to [n × (horizontal or vertical motion unit)]. 
 
@@ -54,8 +54,8 @@ Right Side Character Spacing - ``$1B $20``
 .. _1b33:
 .. index:: $1B $33 - Line Spacing 
 
-Line Spacing - ``$1B $33``
---------------------------
+Line Spacing - ``$1B $33`` |rel|
+---------------------------------
 
    Sets the line spacing to [n  (vertical or horizontal motion unit)] in inches
 
@@ -98,8 +98,8 @@ Line Spacing - ``$1B $33``
 .. _1b32:
 .. index:: $1B $32 - 1/6"  Line Spacing 
 
-Select 1/6 Inch Line Spacing - ``$1B $32``
-------------------------------------------
+Select 1/6 Inch Line Spacing - ``$1B $32`` |rel|
+-------------------------------------------------
 
    Sets the line spacing to 1/6 an inch
 
@@ -134,8 +134,8 @@ Select 1/6 Inch Line Spacing - ``$1B $32``
 .. _1b30:
 .. index:: $1B $30 - 1/8"  Line Spacing 
 
-Select 1/8 Inch Line Spacing - ``$1B $30``
-------------------------------------------
+Select 1/8 Inch Line Spacing - ``$1B $30`` |rel|
+-------------------------------------------------
 
     Sets the line spacing to 1/8 an inch
 
@@ -170,8 +170,8 @@ Select 1/8 Inch Line Spacing - ``$1B $30``
 .. _1b61:
 .. index:: $1B $61 - Select Justification 
 
-Select Justification - ``$1B $61``
-----------------------------------
+Select Justification - ``$1B $61`` |rel| |phx|
+----------------------------------------------
 
    Select justification mode
 
@@ -189,7 +189,8 @@ Select Justification - ``$1B $61``
        - Settings of this command are effective until ​the :ref:`Initialize <1b40>` command is executed, the printer is reset, or the power is turned off.        
         - When n=0 or 48, left justification is enabled 
         - When n=1 or 49, center justification is enabled 
-        - When n=2 or 50, right justification is enabled         
+        - When n=2 or 50, right justification is enabled
+                 
    
    :Range: ``n=0,1,2,48,49,50``
    :Default: ``0``
@@ -216,8 +217,8 @@ Select Justification - ``$1B $61``
 .. _1d4c:
 .. index:: $1D $4C - Left Margin 
 
-Left Margin - ``$1D $4C``
--------------------------
+Left Margin - ``$1D $4C`` |rel|
+--------------------------------
 
     Set left margin
 
@@ -255,8 +256,8 @@ Left Margin - ``$1D $4C``
 .. _1d50:
 .. index:: $1D $50 - Motion Units 
 
-Motion Units - ``$1D $50``
---------------------------
+Motion Units - ``$1D $50`` |rel|
+--------------------------------
 
     Set horizontal and vertical motion units
 
@@ -305,8 +306,8 @@ Motion Units - ``$1D $50``
 .. _1d57:
 .. index:: $1D $57 - Print Area Width 
 
-Print Area Width  - ``$1D $57``
--------------------------------
+Print Area Width  - ``$1D $57`` |rel|
+-------------------------------------
 
     Set print area width 
 

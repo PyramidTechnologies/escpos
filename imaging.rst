@@ -13,8 +13,8 @@ This section describes functions for raster images, bitmaps, bar codes, and QR C
 .. _1c7d25:
 .. index:: $1C $7D $25 - 2D Barcode Generator
 
-2D Barcode Generator - ``$1C $7D $25 k d1...dk``
-------------------------------------------------
+2D Barcode Generator - ``$1C $7D $25 k d1...dk`` |rel|
+-------------------------------------------------------
 
    Encodes the specified string as a center justified 2D barcode. Only k bytes of the string will be read and any remaining will be treated as regular text or ESC/POS commands. The command and data must be enclosed by :ref:`Line Feeds<x0a>`.
 
@@ -70,6 +70,74 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 
     \clearpage
 
+.. _1d286b:
+.. index:: $1D $28 $6B - Dynamic 2D Barcode
+Dynamic 2D Barcode - ``$1D $28 $6B`` |phx|
+-----------------------------------------------------
+
+   Encodes and prints a string of characters up to 26 characters long
+
+   .. note:: Requires Universal firmware for Phoenix.
+
+   :Format:
+       ``Hex       $1D  $28 $6B  pL  pH  cn  fn [parameters]``  
+
+       ``ASCII     GS   (   k    pL  pH  cn  fn [parameters]``  
+        
+       ``Decimal   29   40  107  pL  pH  cn  fn [parameters]``  
+   :Notes:
+       - pL is the length of the string to encode plus three. This represent the total count of bytes following the pL parameter.
+       - pL and pH specify the number of bytes following cn as (pL + pH × 256).
+       - The function is specified with the function code (fn). Details of the performance differ according to the function.
+
+       - cn and fn are specified in decimal format.
+        +----+----+---------------+------------------------------------------------------------+
+        | cn | fn |  Function no. | Function Name                                              |
+        +----+----+---------------+------------------------------------------------------------+
+        |    | 80 | Function 180  | QR Code: Store the data in the symbol storage area.        |
+        | 49 +----+---------------+------------------------------------------------------------+
+        |    | 81 |  Function 181 | QR Code: Print the symbol data in the symbol storage area. |
+        +----+----+---------------+------------------------------------------------------------+
+
+        +----+----+---------------+------------------------------------------------------------+
+        | cn | fn |  Function no. | [parameters]                                               |
+        +----+----+---------------+------------------------------------------------------------+
+        |    | 80 | Function 180  | m = 48                                                     |
+        | 49 +----+---------------+------------------------------------------------------------+
+        |    | 81 |  Function 181 | m = 48, d1...dk                                            |
+        +----+----+---------------+------------------------------------------------------------+
+
+        - Function 180:
+            Stores the QR Code symbol data (d1...dk) in the symbol storage area.
+
+        - Function 181: 
+            Prints the 2D barcode if available. Must be called after sending the Generate
+            command. Once this command is sent, the generated barcode is erased. 
+            Each QR code must be printed by first generating then printing.
+
+   :Range: 
+           ``(pL + pH x 256) = 4 - 7092`` **Function 180**
+
+           ``(pL + pH x 256) = 3`` **Function 181**
+
+           ``cn = 49, fn = 80,81``
+
+           ``m = 48``
+
+           ``d = 0 - 255``
+
+           ``k = (pL + pH x 256) - 3``
+           
+   :Default: ``None``
+   :Related: ``None``
+   :Example: ``None``
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
 .. _1c7d74:
 .. index:: $1C $7D $74 - Set 2D Barcode Size
 
@@ -108,10 +176,10 @@ Set 2D Barcode Size - ``$1C $7D $74 k``
 .. _1d6b:
 .. index:: $1D $6B - Barcode Generator
 
-Barcode Generator (1) - ``$1D $6B m d1...dk $00``
--------------------------------------------------
-Barcode Generator (2) - ``$1D $6B m n d1...dn``
--------------------------------------------------
+Barcode Generator (1) - ``$1D $6B m d1...dk $00`` |rel|
+-------------------------------------------------------
+Barcode Generator (2) - ``$1D $6B m n d1...dn`` |rel|
+-------------------------------------------------------
 
 
        - Defines and prints a 1D barcode using the mode specified by `m`. This command has two forms. Form 1 does not take the string length `n`, but reads all bytes after `m` and before the first NUL byte (0x00) received as the string to encode. Form 2 of the command reads `n` bytes following `n` as the string to encode. The form used is determined by the value of `m` received.
@@ -243,8 +311,8 @@ Barcode Generator (2) - ``$1D $6B m n d1...dn``
 .. _1d77:
 .. index:: $1D $77 - Set 1D Barcode Width Multiplier
 
-Set 1D Barcode Width Multiplier - ``$1D $77 n``
------------------------------------------------
+Set 1D Barcode Width Multiplier - ``$1D $77 n`` |rel|
+-----------------------------------------------------
 
    Sets the 1D barcode width multiplier.
 
@@ -284,8 +352,8 @@ Set 1D Barcode Width Multiplier - ``$1D $77 n``
 .. _1d68:
 .. index:: $1D $68 - Set 1D Barcode Height
 
-Set 1D Barcode Height - ``$1D $68 n``
--------------------------------------
+Set 1D Barcode Height - ``$1D $68 n`` |rel|
+-------------------------------------------
 
    Sets the 1D barcode height, measured in dots.
 
@@ -323,8 +391,8 @@ Set 1D Barcode Height - ``$1D $68 n``
 .. _1d48:
 .. index:: $1D $48 - Set HRI Printing Position
 
-Set HRI Printing Position - ``$1D $48 n``
------------------------------------------
+Set HRI Printing Position - ``$1D $48 n`` |rel|
+-----------------------------------------------
 
    Sets HRI Printing Position based on `n`:
    
@@ -416,8 +484,8 @@ Set HRI Font - ``$1D $66 n``
 .. _1d7630:
 .. index:: $1D $76 $30 - Raster Image
 
-Raster Image - ``$1D $76 $30 m xL xH yL yH d1...dk``
-----------------------------------------------------
+Raster Image - ``$1D $76 $30 m xL xH yL yH d1...dk`` |rel| |phx|
+-----------------------------------------------------------------
 
    Prints a raster image
 
@@ -508,8 +576,8 @@ Raster Image - ``$1D $76 $30 m xL xH yL yH d1...dk``
 .. _1bfa:  
 .. index:: $1B $FA -  Print Graphic Bank/Logo  
 
-Print Graphic Bank/Logo - ``$1B $FA``
---------------------------------------
+Print Graphic Bank/Logo - ``$1B $FA`` |rel|
+--------------------------------------------
 
     Prints logo ``n`` from internal storage using dimensions defined as :ref:`Two Byte Numbers<2byte>`.
 
@@ -554,8 +622,8 @@ Print Graphic Bank/Logo - ``$1B $FA``
 .. _1c79:  
 .. index:: $1C $79 -  Print Graphic Bank/Logo (Simplified)
 
-Print Graphic Bank/Logo (Simplified) - ``$1C $79``
---------------------------------------------------
+Print Graphic Bank/Logo (Simplified) - ``$1C $79`` |rel| 
+--------------------------------------------------------
 
     Prints logo ``n`` from internal storage using the dimensions stored in flash. This command is similar to the "Print Graphic Bank/Logo" command using the command bytes ``$1B $FA``, but does not need the dimensions to be specified as part of the command.
 
