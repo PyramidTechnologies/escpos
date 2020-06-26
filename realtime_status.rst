@@ -1,4 +1,6 @@
 .. index:: Real Time Status
+.. include:: global.rst
+
 
 Real Time Status
 ================
@@ -18,7 +20,8 @@ fields for legacy support reasons but you effectively have access to all error a
 .. _x1004:
 .. Index:: $10 $04 - Real Time Status
 
-.. py:attribute:: Real Time Status - $10 $04
+Real Time Status - ``$10 $04`` |rel| |phx|
+------------------------------------------
 
    Transmits the printer status in real time.
 
@@ -314,37 +317,3 @@ fields for legacy support reasons but you effectively have access to all error a
         write("\x10\x04\x04")   # Paper Roll Status
         >>> 0b00001100          # $0C or 12, this means that the paper level is low
 
- .. raw:: latex
-
-    \clearpage
-
-.. _2c7d24:  
-.. index:: $1C $7D $24 $00  
-.. py:attribute:: Command Name - $BYTE1 $BYTE2  
-
-    Short description
-
-    :Format: 
-             ``Hex      $1C $7D $24 $00``
-
-             ``ASCII    FS } ,  NULL``
-
-             ``Decimal  28 175 44 00``
-    :Notes:
-        - Caveats and exception
-        - Go in this section of the doc
-        - If you need subnotes, then indent 3x
-          - Like this!
-
-    :Range: ``None``
-    :Default: ``None``
-    :Related: :ref:`Description of what you're linking to <tagname>`
-    :Example:
-        .. code-block:: none
-            :emphasize-lines: 1
-
-            write('\x1b\x44\x00')             # Cancel previous tab settings, restores defaults
-            write('\x1b\x44\x08\x14\x25\x00') # Set tab stops at 8, 20, and 32 characters
-            write('Item\x09Quantity\x09Price')
-            print()
-            >>> Item		Quantity	Price

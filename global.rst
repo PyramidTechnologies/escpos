@@ -1,4 +1,5 @@
 .. Common images should be declared here
+
 .. |logo| image:: img/logo_small.png
    :align: middle
 
@@ -18,4 +19,10 @@
    :align: middle   
 
 .. |printablearea| image:: img/printablearea.png
+   :align: middle
+
+.. |phx| image:: img/printer-PHX.svg
+   :align: middle
+
+.. |rel| image:: img/printer-REL.svg
    :align: middle

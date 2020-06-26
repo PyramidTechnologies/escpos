@@ -1,4 +1,6 @@
 .. index:: Movement
+.. include:: global.rst
+
 
 Paper Movement Commands
 ==========================
@@ -13,13 +15,15 @@ presenting and retracting.
     \clearpage
 
 .. _1b69:
-.. index:: $1B $69 - Total Cut
+.. index:: $1B $69 - Partial Cut
 
-.. py:attribute:: Total Cut - $1B $69
+Partial Cut - ``$1B $69`` |rel| |phx|
+--------------------------------------
 
-   Performs a full cut on the current ticket.
+   Performs a partial cut on the current ticket.
 
    :Notes:
+       - For Reliance, this command will always execute a Full Cut.
        - If a ticket is not at least the minimum ticket size, then a blank portion will be printed/added to the ticket to make it the minimum size before the cut.
        - If nothing has been printed, then the command is ignored.
 
@@ -40,10 +44,40 @@ presenting and retracting.
 
     \clearpage
 
+.. _1b6D:
+.. index:: $1B $6D - Full Cut
+
+Full Cut - ``$1B $6D`` |phx|
+-----------------------------
+
+   Performs a full cut on the current ticket.
+
+   :Notes:
+       - If a ticket is not at least the minimum ticket size, then a blank portion will be printed/added to the ticket to make it the minimum size before the cut.
+       - If nothing has been printed, then the command is ignored.
+
+   :Format:
+       ``Hex       $1B $6D``  
+
+       ``ASCII     ESC  m``  
+
+       ``Decimal   27   109``
+
+   :Range: ``None``
+   :Default: ``None``
+   :Related: :ref:`Form Feed<x0c>`
+
+----------
+
+.. raw:: latex
+
+    \clearpage
+
 .. _1D65:
 .. index:: $1D $65 - Ejector
 
-.. py:attribute:: Ejector - $1D $65
+Ejector - ``$1D $65`` |rel|
+---------------------------
 
    Ejector Commands 
 
@@ -180,38 +214,153 @@ presenting and retracting.
 
     \clearpage
 
-.. _1d56:  
-.. index:: $1D $56 - Select Cut Mode 
-.. py:attribute:: Select Cut Mode - $1D $56
+.. _1c7d60:  
+.. index:: $1C $7D $60 - Enable and Disable auto cut 
 
-    Select cut mode
+Enable and Disable Auto Cut - ``$1C $7D $60`` |phx|
+----------------------------------------------------
+
+    This command changes if the printer will auto-cut a ticket or not.
 
     :Format: 
-             ``Hex      $1D $56 m   n``
+             ``Hex      $1C $7D $60  n``
 
-             ``ASCII    GS  v   m   n``
+             ``ASCII    FS  }   '    n``
 
-             ``Decimal  29  86  m   n``
+             ``Decimal  34  175  140  n``
     :Notes:
-      - ``m`` is cut mode
 
-        - If ``m`` is 0 or 48 then Full cut
-        - If ``m`` is 65 ($41) then feed paper a distance then full cut
+      - Reliance supports enable/disable autocut through the Reliance Tools program.
+      
+            +------+-----------------------------------------+
+            |  n   |              Function                   |
+            +======+=========================================+
+            |  $00 | Disable Auto-Cut, must send cut command |
+            +------+-----------------------------------------+
+            |  $01 |  Enable Auto-Cut, paper cuts itself     | 
+            +------+-----------------------------------------+
 
-          - Distance defined as :math:`cut position + [n * vertical motion units]`  
-      - ``n`` is only required if ``m`` is 65 ($41)
+      - If a ticket is not at least the minimum ticket size, then a blank portion
+        will be printed/added to the ticket to make it the minimum size before 
+        the cut.
 
     :Range: 
-      ``m=0,48,65``
+      ``n = $00, $01``
 
-      ``0 ≤ n ≤ 255``
-
-    :Default: ``m=0``
+    :Default: ``None``
     :Related:
-      :ref:`Motion Units<1d50>`   
+      :ref:`Select Cut Mode and Cut Paper <1d56>`    
 
-   :Example Feed 10 motion and Full Cut:
-    .. code-block:: none
-
-        write("\x1d\x56\x41\x0A")
+    :Example:
     
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1d56:  
+.. index:: $1D $56 - Select Cut Mode and Cut Paper
+
+Select Cut Mode and Cut Paper - ``$1D $56`` |phx|
+----------------------------------------------------
+
+    Select the cut mode for the printer and execute a cut command.
+
+    :Format: 
+             ``Hex      $1D $56  n``
+
+             ``ASCII    GS  V   n``
+
+             ``Decimal  29  86  n``
+    :Notes:
+    
+            +------+-----------------------------------------+
+            |  n   |              Function                   |
+            +======+=========================================+
+            |  $00 | Full Cut mode                           |
+            +------+-----------------------------------------+
+            |  $01 |  Partial Cut mode                       | 
+            +------+-----------------------------------------+
+      
+      - Dip switches overide choice of full or partial
+
+
+
+    :Range: 
+      ``n = 0,1``
+
+    :Default: ``None``
+    :Related: 
+        :ref:`Full Cut <1b6d>`
+        
+        :ref:`Partial Cut <1b69>`    
+
+    :Example: ``None``
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b64:  
+.. index:: $1B $64 - Print and Feed Paper n Lines 
+
+Print and Feed Paper n Lines - ``$1B $64`` |phx|
+----------------------------------------------------
+
+    Print current buffer and feed n number of lines up to a maximum of 200.
+
+    :Format: 
+             ``Hex      $1B $64  n``
+
+             ``ASCII    ESC  d   n``
+
+             ``Decimal  27  100  n``
+    :Notes:
+
+      - After printing, the print postion is moved to left side of the printable area. Also, the printer is in the status "Beginning of the line".
+
+    :Range: 
+      ``n>=0, n<=255``
+
+    :Default: ``None``
+    :Related:
+      :ref:`Print and Feed Paper <1b4a>`    
+
+    :Example:
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b4a:  
+.. index:: $1B $4A - Print and Feed Paper 
+
+Print and Feed Paper - ``$1B $4A`` |phx|
+----------------------------------------------------
+
+    Print current buffer and feed paper.
+
+    :Format: 
+             ``Hex      $1B $64  n``
+
+             ``ASCII    ESC  d   n``
+
+             ``Decimal  27  100  n``
+    :Notes:
+
+      - Any passed n value is ignored.
+      - Optional because the Phoenix prints on both (either) CR or LF
+
+    :Range: 
+      ``n>=0, n<=255``
+
+    :Default: ``None``
+    :Related:
+      :ref:`Print and Feed Paper n Lines <1b64>`    
+
+    :Example:
