@@ -144,7 +144,7 @@ Underline Mode - ``$1B $2D`` |rel| |phx|
    :Range: ``0  n ≤ 2, 48 ≤ n ≤ 50``
    :Default: ``0``
    :Notes:
-       - Invalid n values will be ignored. The existing underline and underline thickness settings will be maintained.
+       - Invalid ``n`` values will be ignored. The existing underline and underline thickness settings will be maintained.
        - :ref:`90° Rotation<1b56>` characters will not be underlined
        - :ref:`Black/White Reverse<1d42>` characters will not be underlined.
        - Tab characters are not underlined when this mode is enabled.
@@ -221,10 +221,10 @@ Italics Mode - ``$1B $34`` |rel| |phx|
 Emphasis Mode - ``$1B $45`` |rel| |phx|
 ---------------------------------------
 
-   Turns **emphasis** mode on or off, based on the LSB of n:
+   Turns **emphasis** mode on or off, based on the LSB of ``n``:
 
-       - n & 1  = 0 Turns off **emphasis** mode
-       - n & 1  = 1 Turns on **emphasis** mode
+       - n = 0, Turns off *emphasis* mode
+       - n = 1,  Turns on *emphasis* mode
 
    :Format: ``Hex       $1B $45 n`` 
 
@@ -236,7 +236,7 @@ Emphasis Mode - ``$1B $45`` |rel| |phx|
    :Default: ``n=0, n is base 10``
    :Notes:
        - This effect is applied immediately
-       - Only the LSB of n is inspected
+       - Only the LSB of ``n`` is inspected
        - :ref:`Select Print Mode<1b21>` can also be used for this settings. The last received command is the effective one.
 
    :Related: ``None``
@@ -283,7 +283,13 @@ Select Character Font - ``$1B $4D`` |rel| |phx|
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Up to two fonts can be active at one time
+       - |phx| Toggles between two Font A and Font B
+          - Font A (12w 24h)
+          - Font B (9w 17h)
+       - |rel| Toggles scales the current font depending on :ref:`CPI Mode<1bc1>`
+          - Mode 1: Font A width * 0.33, Font B width * 2
+          - Mode 2: Font A width * 2   , Font B width * 4
+          - Mode 3: Font A width * 4   , Font B width * 2 
 
    :Related: ``None``   
    :Example: ``None``             
@@ -399,7 +405,7 @@ Select Font D - ``$1B $55`` |phx|
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Invalid n values will be ignored
+       - Invalid ``n`` values will be ignored
        - :ref:`90° Rotation<1b56>` characters will be underlined in the vertical direction.     
 
    .. tip:: :ref:`Double-width<1b21>` and :ref:`Double-height<1b21>` commands in :ref:`90° Rotation<1b56>` will enlarge the opposite dimension when this mode is enabled. i.e. width and height scalars are swapped
@@ -496,7 +502,7 @@ Upside-down Mode - ``$1B $7B`` |rel|
 
        - Upside-down print mode is effective until any of the following occur:
 
-          - It is explicitly disabled by settings LSB of n to 0         
+          - It is explicitly disabled by settings LSB of ``n`` to 0         
           - :ref:`Initialize<1b40>` is executed 
           - Printer is reset 
           - Power is turned off 
@@ -602,8 +608,9 @@ Select Character Size - ``$1D $21`` |rel| |phx|
 -----------------------------------------------
     
     Select character width and height according to the bits of n.
-    - Bits 0 to 3 : select character height (see table 2)
-    - Bits 4 to 7 : select character width (see table 1)
+
+      - Bits 0 to 3 : select character height (see table 2)
+      - Bits 4 to 7 : select character width (see table 1)
 
     Table 1 - Width
         +-----+---------+---------------+
@@ -657,7 +664,7 @@ Select Character Size - ``$1D $21`` |rel| |phx|
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Invalid n values are ignored, the current character size is maintained.
+       - Invalid ``n`` values are ignored, the current character size is maintained.
        - Characters on the same line sized to different heights will be aligned to the topline.
        - Width is expanded to the right.
        - In standard mode, the character is enlarged in the paper feed direction when double-height mode is selected, and it is enlarged perpendicular to the paper feed direction when double-width mode is selected. However, when character orientation changes in 90° clockwise rotation mode, the relationship between double-height and double-width is reversed.
@@ -692,7 +699,7 @@ Reverse Print Mode - ``$1D $42`` |rel| |phx|
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Only the LSB of n is inspected.
+       - Only the LSB of ``n`` is inspected.
        - This does not affect images, barcodes, or user defined images.
        - This has a higher priority than underline. 
 
@@ -727,7 +734,7 @@ Select Double-strike mode - ``$1B $47`` |phx|
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Only the LSB of n is inspected.
+       - Only the LSB of ``n`` is inspected.
        - This does not affect images, barcodes, or user defined images. 
 
    :Related: ``None``

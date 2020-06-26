@@ -8,7 +8,7 @@
 ESC/POS Documentation for Pyramid Printers
 **********************************************
 
-Pyramid Technologies provide thermal printing solutions for self-service kiosk
+Pyramid Technologies provides thermal printing solutions for self-service kiosk
 and custom OEM applications. We have printers that support 58mm to 80mm paper widths, 
 multiple operating systems, and many standard protocols. Our dedicated team of engineers 
 are ready to help make your project successful. Ask us about our Phoenix and Reliance thermal printers today.
