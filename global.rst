@@ -22,7 +22,5 @@
    :align: middle
 
 .. |phx| image:: img/printer-PHX.svg
-   :align: middle
 
 .. |rel| image:: img/printer-REL.svg
-   :align: middle
