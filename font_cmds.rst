@@ -733,4 +733,4 @@ Select Double-strike mode - ``$1B $47`` |phx|
    :Related: ``None``
    :Example: ``None`` 
 
-----
+
