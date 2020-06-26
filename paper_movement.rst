@@ -220,7 +220,7 @@ Ejector - ``$1D $65`` |rel|
 Enable and Disable Auto Cut - ``$1C $7D $60`` |phx|
 ----------------------------------------------------
 
-    This command changes if the Phoenix printer will auto-cut a ticket or not.
+    This command changes if the printer will auto-cut a ticket or not.
 
     :Format: 
              ``Hex      $1C $7D $60  n``
@@ -230,6 +230,8 @@ Enable and Disable Auto Cut - ``$1C $7D $60`` |phx|
              ``Decimal  34  175  140  n``
     :Notes:
 
+      - Reliance supports enable/disable autocut through the Reliance Tools program.
+      
             +------+-----------------------------------------+
             |  n   |              Function                   |
             +======+=========================================+

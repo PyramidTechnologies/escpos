@@ -13,37 +13,6 @@ movable pointer that allows you to print anywhere on the print ticket.
 
 ----
 
-.. _x08:
-.. index:: $08 - Backspace 
-
-Backspace - ``$08`` |rel|
---------------------------
-
-    Moves current print position back 1 character. This command can be used
-    to print two or more characters at the same position.
-
-    :Format: 
-       ``Hex        $08``
-
-       ``ASCII      BS``
-
-       ``Decimal    8``
-    
-    :Range: ``None``
-    :Default: ``None``
-    :Related: ``None``
-    :Example:
-        .. code-block:: none
-            :emphasize-lines: 2,3
-
-            write("Hello World!")
-            write('\x08')           # Send tab
-            write("?")              # Write a new character
-            print()
-            >>> Hello World?
-
-----
-
 .. raw:: latex
 
     \clearpage
@@ -235,7 +204,7 @@ Absolute Print Position - ``$1B $24`` |rel|
     motion unit)] from the left edge of the print area. Uses Two Byte Number 
     Definitions. See :ref:`Terminology Section <terminology>`
 
-        |absolutepp|
+    |absolutepp|
 
     :Format: 
              ``Hex      $1B $24 nL  nH``

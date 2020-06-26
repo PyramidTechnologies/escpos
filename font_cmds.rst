@@ -44,8 +44,8 @@ Initialize - ``$1B $40`` |rel| |phx|
 .. _1b21:
 .. index:: $1B $21 - Select Print Mode 
 
-Select Print Mode - ``$1B $21`` |phx|
--------------------------------------
+Select Print Mode - ``$1B $21`` |rel| |phx|
+--------------------------------------------
 
    Quick-select a variety of print control options such as font type and effects.
 
@@ -311,7 +311,7 @@ Select Font A - ``$1B $50`` |phx|
    :Range: ``None``
    :Default: ``None``
    :Notes:
-       - 
+       - Set character font to type A. (12w 24h)
 
    :Related: ``None``   
    :Example: ``None``             
@@ -328,7 +328,7 @@ Select Font A - ``$1B $50`` |phx|
 Select Font C - ``$1B $54`` |phx|
 ---------------------------------
 
-   Selects Font A Stored in the printer.       
+   Selects Font C Stored in the printer.       
 
    :Format: ``Hex       $1B $54`` 
 
@@ -339,7 +339,7 @@ Select Font C - ``$1B $54`` |phx|
    :Range: ``None``
    :Default: ``None``
    :Notes:
-       - 
+       - Set character font to type C. (24w 48h)
 
    :Related: ``None``   
    :Example: ``None``             
@@ -356,7 +356,7 @@ Select Font C - ``$1B $54`` |phx|
 Select Font D - ``$1B $55`` |phx|
 ---------------------------------
 
-   Selects Font A Stored in the printer.       
+   Selects Font D Stored in the printer.       
 
    :Format: ``Hex       $1B $55`` 
 
@@ -367,7 +367,7 @@ Select Font D - ``$1B $55`` |phx|
    :Range: ``None``
    :Default: ``None``
    :Notes:
-       - 
+       - Set character font to type D. (16w 24h)
 
    :Related: ``None``   
    :Example: ``None``             
@@ -714,8 +714,8 @@ Select Double-strike mode - ``$1B $47`` |phx|
 ---------------------------------------------
     
     Turns double-strike mode on or off depending on the LSB of n.
-    - LSB Set: double-strike mode is turned off
-    - LSB Clear: double-strike mode is turned on
+    - LSB Set: double-strike mode is turned on
+    - LSB Clear: double-strike mode is turned off
 
    :Format:
         ``Hex       $1B $47  n``  

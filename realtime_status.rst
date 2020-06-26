@@ -20,8 +20,8 @@ fields for legacy support reasons but you effectively have access to all error a
 .. _x1004:
 .. Index:: $10 $04 - Real Time Status
 
-Real Time Status - ``$10 $04`` |rel|
--------------------------------------
+Real Time Status - ``$10 $04`` |rel| |phx|
+------------------------------------------
 
    Transmits the printer status in real time.
 
