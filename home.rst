@@ -22,10 +22,10 @@ explanations, use cases, and examples of how to use the ESC/POS command protocol
 Please refer to our operations manuals for detailed cleaning and usage instructions:
 
 **Reliance**
-- `English Manual <https://pyramidacceptors.com/pdf/Reliance_Manual.pdf>`_
+- `Reliance English Manual <https://pyramidacceptors.com/pdf/Reliance_Manual.pdf>`_
 - `Руководство Русский <https://pyramidacceptors.com/pdf/Reliance_Manual_Russian.PDF>`_
 
 **Phoenix**
-- `English Manual <https://pyramidacceptors.com/customer-support/maintenance/phoenix-thermal-printer-cleaning-instruction>`_
+- `Phoenix English Manual <https://pyramidacceptors.com/customer-support/maintenance/phoenix-thermal-printer-cleaning-instruction>`_
 
 .. tip:: `Thermal Talk ESC/POS API <https://github.com/PyramidTechnologies/ThermalTalk>`_ automates a lot of these features for you. Continue reading this document if your specific requirements are not yet covered by our ESC/POS API.

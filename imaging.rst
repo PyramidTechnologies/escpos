@@ -141,8 +141,8 @@ Dynamic 2D Barcode - ``$1D $28 $6B`` |phx|
 .. _1c7d74:
 .. index:: $1C $7D $74 - Set 2D Barcode Size
 
-Set 2D Barcode Size - ``$1C $7D $74 k``
----------------------------------------
+Set 2D Barcode Size - ``$1C $7D $74 k``  |rel|
+----------------------------------------------
 
    Sets the width/height of QR code cells, measured in dots (8 dots = 1mm). 
 
@@ -438,8 +438,8 @@ Set HRI Printing Position - ``$1D $48 n`` |rel|
 .. _1d66:
 .. index:: $1D $66 - Set HRI Font
 
-Set HRI Font - ``$1D $66 n``
-----------------------------
+Set HRI Font - ``$1D $66 n`` |rel|
+----------------------------------
 
    Sets HRI Font `n`:
    
