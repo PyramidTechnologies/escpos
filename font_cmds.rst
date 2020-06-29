@@ -190,11 +190,11 @@ Italics Mode - ``$1B $34`` |rel| |phx|
 
             ``Decimal   27  52  n``  
 
-   :Range: ``0 ≤ n ≤ 1, 48 ≤ n ≤ 59``
+   :Range: ``0 ≤ n ≤ 1, 48 ≤ n ≤ 49``
    :Default: ``n=0, n is base 10``
    :Notes:
        - This effect is applied immediately
-       - :ref:`Select Print Mode<1b21>` can also be used for this settings. The last received command is the effective one.
+       - :ref:`Select Print Mode<1b21>` can also be used for these settings. The last received command is the effective one.
 
    :Related: ``None``
    :Example:
@@ -271,7 +271,7 @@ Select Character Font - ``$1B $4D`` |rel| |phx|
         +=====+======+======================+
         | A   | 0,48 | Select Font A        |
         +-----+------+----------------------+
-        | B   | 1,48 | Select Font B        |          
+        | B   | 1,49 | Select Font B        |          
         +-----+------+----------------------+         
 
    :Format: ``Hex       $1B $4D n`` 
@@ -283,10 +283,10 @@ Select Character Font - ``$1B $4D`` |rel| |phx|
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - |phx| Toggles between two Font A and Font B
+       - |phx| Toggles between Font A and Font B
           - Font A (12w 24h)
           - Font B (9w 17h)
-       - |rel| Toggles scales the current font depending on :ref:`CPI Mode<1bc1>`
+       - |rel| Scales the current font depending on :ref:`CPI Mode<1bc1>`
           - Mode 1: Font A width * 0.33, Font B width * 2
           - Mode 2: Font A width * 2   , Font B width * 4
           - Mode 3: Font A width * 4   , Font B width * 2 
