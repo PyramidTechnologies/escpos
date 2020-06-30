@@ -231,6 +231,7 @@ Enable and Disable Auto Cut - ``$1C $7D $60`` |phx|
     :Notes:
 
       - Reliance supports enable/disable autocut through the Reliance Tools program.
+      - Phoenix supports enable/disable autocut through the Phoenix tools program.
       
             +------+-----------------------------------------+
             |  n   |              Function                   |

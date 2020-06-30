@@ -108,7 +108,7 @@ Select Print Mode - ``$1B $21`` |rel| |phx|
         .. code-block:: none
 
             write("\x1b\x21\x01")          # Select Font B
-            write("\x1b\x21\x10")          # Select double-height mode            
+            write("\x1b\x21\x11")          # Select double-height mode            
             write("This is font B, double-height")
             print()
             >>> This is font B, double-height
@@ -665,7 +665,7 @@ Select Character Size - ``$1D $21`` |rel| |phx|
    :Default: ``n=0, n is base 10``
    :Notes:
        - Invalid ``n`` values are ignored, the current character size is maintained.
-       - Characters on the same line sized to different heights will be aligned to the topline.
+       - |rel| Characters on the same line sized to different heights will be aligned to the topline.
        - Width is expanded to the right.
        - In standard mode, the character is enlarged in the paper feed direction when double-height mode is selected, and it is enlarged perpendicular to the paper feed direction when double-width mode is selected. However, when character orientation changes in 90° clockwise rotation mode, the relationship between double-height and double-width is reversed.
        - :ref:`Select Print Mode<1b21>` Can also be used for this setting. The last received command is the effective one.
@@ -703,7 +703,7 @@ Reverse Print Mode - ``$1D $42`` |rel| |phx|
        - This does not affect images, barcodes, or user defined images.
        - This has a higher priority than underline. 
 
-          - Underline will stay enabled but no be applied if this setting is enabled.        
+          - Underline will stay enabled but not be applied if this setting is enabled.        
 
    :Related: ``None``
    :Example: ``None`` 

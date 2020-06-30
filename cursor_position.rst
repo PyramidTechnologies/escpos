@@ -116,7 +116,7 @@ Form Feed - ``$0C`` |rel|
         .. code-block:: none
             :emphasize-lines: 4
 
-            write("Hello World!\x0A")
+            write("Hello World!\x0C")
             print()
             >>> Hello World?
             # Paper is cut and presented, buffer is now empty and awaiting more data

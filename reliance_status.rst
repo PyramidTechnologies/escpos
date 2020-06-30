@@ -1,8 +1,8 @@
-.. index:: Real Time Status
+.. index:: Reliance Status
 .. include:: global.rst
 
 
-Real Time Status
+Reliance Status
 ================
 This command provides a wealth of information about the printers current status. The command will always receive a response unless
 the printer is offline (powered down, disconnected, etc.) or paper is actively being fed through the printer. A numeric
@@ -17,11 +17,11 @@ fields for legacy support reasons but you effectively have access to all error a
 
     \clearpage
 
-.. _x1004:
+.. _r1004:
 .. Index:: $10 $04 - Real Time Status
 
-Real Time Status - ``$10 $04`` |rel| |phx|
-------------------------------------------
+Real Time Status - ``$10 $04`` |rel|
+--------------------------------------
 
    Transmits the printer status in real time.
 

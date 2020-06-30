@@ -19,7 +19,8 @@
    paper_movement
    layout
    imaging
-   realtime_status
+   reliance_status
+   phoenix_status
    commands
 
 Indices and tables
