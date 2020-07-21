@@ -1,4 +1,4 @@
-.. Reliance-ESC/POS documentation master file, created by
+.. ESC/POS documentation master file, created by
    sphinx-quickstart on Sat Feb 04 16:30:56 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -9,14 +9,14 @@ ESC/POS Documentation for Pyramid Printers
 **********************************************
 
 Pyramid Technologies provides thermal printing solutions for self-service kiosk
-and custom OEM applications. We have printers that support 58mm to 80mm paper widths, 
-multiple operating systems, and many standard protocols. Our dedicated team of engineers 
+and custom OEM applications. We have printers that support 58mm to 80mm paper widths,
+multiple operating systems, and many standard protocols. Our dedicated team of engineers
 are ready to help make your project successful. Ask us about our Phoenix and Reliance thermal printers today.
 
 |logo|
 
-This document provides a detailed list of all the ESC/POS commands that are 
-supported by the PTI Reliance and Phoenix Thermal Printers. This document will provide descriptions, 
+This document provides a detailed list of all the ESC/POS commands that are
+supported by the PTI Reliance and Phoenix Thermal Printers. This document will provide descriptions,
 explanations, use cases, and examples of how to use the ESC/POS command protocol.
 
 Please refer to our operations manuals for detailed cleaning and usage instructions:

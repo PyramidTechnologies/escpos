@@ -1,8 +1,8 @@
-# Reliance-ESCPOS-Commands
+# Pyramid Thermal Printer Command Set
 
-![](https://readthedocs.org/projects/reliance-escpos-commands/badge/?version=latest)
+![](https://readthedocs.org/projects/escpos/badge/?version=latest)
 
-Official Reliance Thermal Printer ESC/POS Command Set Documentation
+Official Pyramid Technologies Thermal Printer ESC/POS Command Set Documentation
 
 ## Setup
 
@@ -22,7 +22,7 @@ for the VS Code plugin to work properly. Alternatively `make html`, you can manu
 
 (Can't use requirements.txt as that will break the build server for some reason)
 
-[Read on Readthedocs](http://reliance-escpos-commands.readthedocs.io/)
+[Read on Readthedocs](http://escpos.readthedocs.io/)
 
 
 ## Template (RST)

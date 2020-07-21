@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=Reliance-ESCPOS
+set SPHINXPROJ=Pyramid-ESCPOS
 
 if "%1" == "" goto help
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Reliance-ESC/POS documentation build configuration file, created by
+# ESC/POS documentation build configuration file, created by
 # sphinx-quickstart on Sat Feb 04 16:30:56 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -49,7 +49,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Reliance-ESC/POS'
+project = u'Pyramid ESC/POS'
 copyright = u'2020, Pyramid Technologies Inc'
 author = u'cat'
 
@@ -132,7 +132,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'Reliance-ESCPOS.tex', u'Reliance-ESC/POS Documentation',
+    (master_doc, 'Pyramid-ESCPOS.tex', u'Pyramid-ESC/POS Documentation',
      u'Pyramid Technologies', 'manual'),
 ]
 
@@ -142,7 +142,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'reliance-escpos', u'Reliance-ESC/POS Documentation',
+    (master_doc, 'pyramid-escpos', u'Pyramid-ESC/POS Documentation',
      [author], 1)
 ]
 
@@ -153,8 +153,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Reliance-ESCPOS', u'Reliance-ESC/POS Documentation',
-     author, 'Reliance-ESCPOS', 'ESC/POS Command Set for Reliance Thermal Printer',
+    (master_doc, 'Pyramid-ESCPOS', u'Pyramid-ESC/POS Documentation',
+     author, 'Pyramid-ESCPOS', 'Pyramid Thermal Printer Command Set',
      'Miscellaneous'),
 ]
 
