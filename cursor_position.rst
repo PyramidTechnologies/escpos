@@ -13,36 +13,6 @@ movable pointer that allows you to print anywhere on the print ticket.
 
 ----
 
-.. _x08:
-.. index:: $08 - Backspace 
-
-.. py:attribute:: Backspace - $08
-
-    Moves current print position back 1 character. This command can be used
-    to print two or more characters at the same position.
-
-    :Format: 
-       ``Hex        $08``
-
-       ``ASCII      BS``
-
-       ``Decimal    8``
-    
-    :Range: ``None``
-    :Default: ``None``
-    :Related: ``None``
-    :Example:
-        .. code-block:: none
-            :emphasize-lines: 2,3
-
-            write("Hello World!")
-            write('\x08')           # Send tab
-            write("?")              # Write a new character
-            print()
-            >>> Hello World?
-
-----
-
 .. raw:: latex
 
     \clearpage
@@ -50,7 +20,8 @@ movable pointer that allows you to print anywhere on the print ticket.
 .. _x09:
 .. index:: $09 - Horizontal Tab 
 
-.. py:attribute:: Horizontal Tab - $09
+Horizontal Tab - ``$09`` |rel|
+------------------------------
 
     Advances the horizontal print position to the next column as specified by the Set Horizontal Tab Position command.
 
@@ -69,7 +40,7 @@ movable pointer that allows you to print anywhere on the print ticket.
 
     :Range: ``None``
     :Default: ``8 Columns``
-    :Related: :ref:`Horizontal Tabs Positions<1b44>`
+    :Related: ``None``
     :Example:
         .. code-block:: none
             :emphasize-lines: 1
@@ -87,7 +58,8 @@ movable pointer that allows you to print anywhere on the print ticket.
 .. _x0A:
 .. index:: $0A - Line Feed
 
-.. py:attribute:: Line Feed - $0A
+Line Feed - ``$0A`` |rel| |phx|
+--------------------------------
 
     Prints the data in the print buffer and feeds one line based on the current line spacing.
 
@@ -122,7 +94,8 @@ movable pointer that allows you to print anywhere on the print ticket.
 .. _x0C:
 .. index:: $0C - Form Feed
 
-.. py:attribute:: Form Feed - $0C
+Form Feed - ``$0C`` |rel|
+--------------------------
 
     Prints the data in the print buffer, cuts the paper and presents the ticket.
 
@@ -143,7 +116,7 @@ movable pointer that allows you to print anywhere on the print ticket.
         .. code-block:: none
             :emphasize-lines: 4
 
-            write("Hello World!\x0A")
+            write("Hello World!\x0C")
             print()
             >>> Hello World?
             # Paper is cut and presented, buffer is now empty and awaiting more data
@@ -158,7 +131,8 @@ movable pointer that allows you to print anywhere on the print ticket.
 .. _x0D:
 .. index:: $0D - Carriage Return
 
-.. py:attribute:: Carriage Return - $0D
+Carriage Return - ``$0D`` |rel| |phx|
+--------------------------------------
 
     If CR command is enabled, this command will function exactly like the command $0A does,
     otherwise, the command is ignored.
@@ -187,7 +161,8 @@ movable pointer that allows you to print anywhere on the print ticket.
 .. _x18:
 .. index:: $18 - Cancel Current Line
 
-.. py:attribute:: Cancel Current Line- $18
+Cancel Current Line- ``$18`` |rel|
+-----------------------------------
 
     Deletes/Cancels the current line
 
@@ -222,7 +197,8 @@ movable pointer that allows you to print anywhere on the print ticket.
 .. _1b24:
 .. index:: $1B $24 - Absolute Print Position
 
-.. py:attribute:: Absolute Print Position - $1B $24
+Absolute Print Position - ``$1B $24`` |rel|
+--------------------------------------------
 
     Moves the print position to [(nL + (nH × 256)) × (horizontal or vertical 
     motion unit)] from the left edge of the print area. Uses Two Byte Number 
@@ -291,7 +267,8 @@ movable pointer that allows you to print anywhere on the print ticket.
 .. _1b5c:
 .. index:: $1B $5C - Relative Print Position 
 
-.. py:attribute:: Relative Print Position  - $1B $5C
+Relative Print Position  - ``$1B $5C`` |rel|
+---------------------------------------------
 
    Relative Print Position
 

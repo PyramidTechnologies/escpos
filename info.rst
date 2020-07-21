@@ -1,4 +1,5 @@
 .. index:: Printer Information
+.. include:: global.rst
 
 Printer Information
 ====================
@@ -13,7 +14,8 @@ Commands that provide information about the printer's identity are provided here
 
 .. _1d49:  
 .. index:: $1D $49 - Printer ID
-.. py:attribute:: Printer ID - $1D $49
+Printer ID - ``$1D $49`` |rel| |phx|
+-------------------------------------
 
     Short description
 
@@ -28,6 +30,7 @@ Commands that provide information about the printer's identity are provided here
 
         - Refer to this table for valid values of ``n``:
 
+        - Phoenix only supports the ``n=3`` parameter.
         +------+---------------------+-----------------------------------+
         |  n   | Printer ID          | Description                       |
         +======+=====================+===================================+
@@ -38,7 +41,9 @@ Commands that provide information about the printer's identity are provided here
         | 3,31 | Firmware Revision   | 4 character revision, e.g. "1.12" |
         +------+---------------------+-----------------------------------+
 
-    :Range: ``1 ≤ n ≤ 3, 49 ≤ n ≤ 51``
+    :Range: 
+        Reliance: ``1 ≤ n ≤ 3, 49 ≤ n ≤ 51``
+        Phoenix: ``n = 3``
     :Default: ``N/A``
     :Related: ``None``
     :Example Model:
@@ -48,7 +53,7 @@ Commands that provide information about the printer's identity are provided here
             write('\x1d\x49\x01')             
             >>> $5D $95 $59             # Reliance model code followed by 2 reserved bytes
 
-    :Example Firmware Revision:
+    :Example Firmware Revision (PHX and REL):
         .. code-block:: none
             :emphasize-lines: 2
 
@@ -59,7 +64,8 @@ Commands that provide information about the printer's identity are provided here
 
 .. _1d72:  
 .. index:: $1D $72 - Transmit Status
-.. py:attribute:: Transmit Status - $1D $72
+Transmit Status - ``$1D $72`` |rel|
+---------------------------------------------
 
     Transmits the paper sensor status based on the value of ``n``. 
 
@@ -106,3 +112,52 @@ Commands that provide information about the printer's identity are provided here
 
             write('\x1d\x72\x01')             
             >>> \x03                # Roll is present but near end  
+
+----
+
+.. _1b76:  
+.. index:: $1B $76 - Transmit paper sensor status
+
+Transmit paper sensor status - $1B $76 |phx|
+--------------------------------------------
+
+    Transmits the status of paper sensor as 1 byte of data. 
+
+    :Format: 
+             ``Hex      $1B $76``
+
+             ``ASCII    ESC   v``
+
+             ``Decimal  27  118``
+    :Notes:
+        - This is **not** a real time status command. 
+        - Commands will be processed in order of reception, therefore a time delay may be present between receiving the command transmitting the Paper Sensor Status.
+        - Refer to this table for response codes:
+
+        +-----------------------------------------------------------------------+
+        |     Ejector State Byte Table                                          |
+        +-----+--------+------+---------+---------------------------------------+
+        | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                           |
+        +=====+========+======+=========+=======================================+
+        | 0,1 | Off    | 00   | 0       | Paper Roll Present With Abundance     |
+        |     +--------+------+---------+---------------------------------------+
+        |     | On     | 03   | 3       | Near Paper Roll End                   |
+        +-----+--------+------+---------+---------------------------------------+
+        | 2,3 | Off    | 00   | 0       | Paper Present                         |
+        |     +--------+------+---------+---------------------------------------+
+        |     | On     | 0C   | 12      | Paper Not Present                     |
+        +-----+--------+------+---------+---------------------------------------+
+        | 4   |        |      |         | Reserved                              |
+        +-----+--------+------+---------+---------------------------------------+
+        | 5   |        |      |         | Undefined                             |
+        +-----+--------+------+---------+---------------------------------------+
+        | 6   |        |      |         | Undefined                             |
+        +-----+--------+------+---------+---------------------------------------+
+        | 7   |        |      |         | Reserved                              |
+        +-----+--------+------+---------+---------------------------------------+
+
+    :Range: ``N/A``
+    :Default: ``N/A``
+    :Related: ``None``
+
+    :Example: ``None``

@@ -16,7 +16,8 @@ are advanced features that are not commonly by most users.
 .. _1b20:
 .. index:: $1B $20 - Right Side Character Spacing
 
-.. py:attribute:: Right Side Character Spacing - $1B $20
+Right Side Character Spacing - ``$1B $20`` |rel|
+------------------------------------------------
 
    Sets the right-side character spacing to [n × (horizontal or vertical motion unit)]. 
 
@@ -53,7 +54,8 @@ are advanced features that are not commonly by most users.
 .. _1b33:
 .. index:: $1B $33 - Line Spacing 
 
-.. py:attribute:: Line Spacing - $1B $33
+Line Spacing - ``$1B $33`` |rel|
+---------------------------------
 
    Sets the line spacing to [n  (vertical or horizontal motion unit)] in inches
 
@@ -96,7 +98,8 @@ are advanced features that are not commonly by most users.
 .. _1b32:
 .. index:: $1B $32 - 1/6"  Line Spacing 
 
-.. py:attribute:: Select 1/6 Inch Line Spacing - $1B $32
+Select 1/6 Inch Line Spacing - ``$1B $32`` |rel|
+-------------------------------------------------
 
    Sets the line spacing to 1/6 an inch
 
@@ -131,14 +134,15 @@ are advanced features that are not commonly by most users.
 .. _1b30:
 .. index:: $1B $30 - 1/8"  Line Spacing 
 
-.. py:attribute:: Select 1/8 Inch Line Spacing - $1B $30
+Select 1/8 Inch Line Spacing - ``$1B $30`` |rel|
+-------------------------------------------------
 
     Sets the line spacing to 1/8 an inch
 
    :Format:
         ``Hex       $1B $30``  
 
-        ``ASCII     ESC 1``  
+        ``ASCII     ESC 0``  
         
         ``Decimal   27  48`` 
 
@@ -166,7 +170,8 @@ are advanced features that are not commonly by most users.
 .. _1b61:
 .. index:: $1B $61 - Select Justification 
 
-.. py:attribute:: Select Justification - $1B $61
+Select Justification - ``$1B $61`` |rel| |phx|
+----------------------------------------------
 
    Select justification mode
 
@@ -184,7 +189,8 @@ are advanced features that are not commonly by most users.
        - Settings of this command are effective until ​the :ref:`Initialize <1b40>` command is executed, the printer is reset, or the power is turned off.        
         - When n=0 or 48, left justification is enabled 
         - When n=1 or 49, center justification is enabled 
-        - When n=2 or 50, right justification is enabled         
+        - When n=2 or 50, right justification is enabled
+                 
    
    :Range: ``n=0,1,2,48,49,50``
    :Default: ``0``
@@ -211,14 +217,15 @@ are advanced features that are not commonly by most users.
 .. _1d4c:
 .. index:: $1D $4C - Left Margin 
 
-.. py:attribute:: Left Margin - $1D $4C
+Left Margin - ``$1D $4C`` |rel|
+--------------------------------
 
     Set left margin
 
    :Format:
         ``Hex       $1D $4C nL nH``  
 
-        ``ASCII     GL  L   nL nH``  
+        ``ASCII     GS  L   nL nH``  
         
         ``Decimal   27  76  nL nH``     
 
@@ -229,7 +236,7 @@ are advanced features that are not commonly by most users.
        - This command will justify all data in the printing area such as characters, graphics, bit images, bar code and space area set by :ref:`Horizontal Tab<x09>`, :ref:`Absolute<1b24>` and :ref:`Relative<1b5c>` print positions. 
        - Settings of this command are effective until :ref:`Initialize <1b40>` is executed, the printer is reset, or the power is turned off. 
     
-   |leftmargin|
+      |leftmargin|
 
    :Range: ``0 ≤ nL, nH ≥ 255, 0 ≤ (nL + (nH × 256))≤ 65535``
    :Default: ``nL = 0, nH =0``
@@ -249,7 +256,8 @@ are advanced features that are not commonly by most users.
 .. _1d50:
 .. index:: $1D $50 - Motion Units 
 
-.. py:attribute:: Motion Units - $1D $50
+Motion Units - ``$1D $50`` |rel|
+--------------------------------
 
     Set horizontal and vertical motion units
 
@@ -298,7 +306,8 @@ are advanced features that are not commonly by most users.
 .. _1d57:
 .. index:: $1D $57 - Print Area Width 
 
-.. py:attribute:: Print Area Width  - $1D $57
+Print Area Width  - ``$1D $57`` |rel|
+-------------------------------------
 
     Set print area width 
 
@@ -326,4 +335,4 @@ are advanced features that are not commonly by most users.
 
        :ref:`Print Area Width<1d57>`       
 
-   :Example: |printablearea|
+   :Example:  |printablearea|

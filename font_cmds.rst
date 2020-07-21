@@ -14,8 +14,9 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b40:
 .. index:: $1B $40 - Initialize 
 
-.. py:attribute:: Initialize - $1B $40
-   
+Initialize - ``$1B $40`` |rel| |phx|
+------------------------------------
+
    Clears the data in the print buffer and resets the printer modes to the modes that were in effect when the power was turned on. 
    
    :Format: ``Hex       $1B $40`` 
@@ -43,7 +44,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b21:
 .. index:: $1B $21 - Select Print Mode 
 
-.. py:attribute:: Select Print Mode - $1B $21
+Select Print Mode - ``$1B $21`` |rel| |phx|
+--------------------------------------------
 
    Quick-select a variety of print control options such as font type and effects.
 
@@ -106,7 +108,7 @@ This section describes all commands that affect how and which font is rendered.
         .. code-block:: none
 
             write("\x1b\x21\x01")          # Select Font B
-            write("\x1b\x21\x10")          # Select double-height mode            
+            write("\x1b\x21\x11")          # Select double-height mode            
             write("This is font B, double-height")
             print()
             >>> This is font B, double-height
@@ -124,7 +126,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b2d:
 .. index:: $1B $2D - Underline Mode 
 
-.. py:attribute:: Underline Mode - $1B $2D
+Underline Mode - ``$1B $2D`` |rel| |phx|
+----------------------------------------
 
    Turns underline mode on or off, based on the following values of n:
 
@@ -141,7 +144,7 @@ This section describes all commands that affect how and which font is rendered.
    :Range: ``0  n ≤ 2, 48 ≤ n ≤ 50``
    :Default: ``0``
    :Notes:
-       - Invalid n values will be ignored. The existing underline and underline thickness settings will be maintained.
+       - Invalid ``n`` values will be ignored. The existing underline and underline thickness settings will be maintained.
        - :ref:`90° Rotation<1b56>` characters will not be underlined
        - :ref:`Black/White Reverse<1d42>` characters will not be underlined.
        - Tab characters are not underlined when this mode is enabled.
@@ -173,7 +176,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b34:
 .. index:: $1B $34 - Italics Mode 
 
-.. py:attribute:: Italics Mode - $1B $34
+Italics Mode - ``$1B $34`` |rel| |phx|
+--------------------------------------
 
    Turns *italics* mode on or off, based on the following values of n:
 
@@ -186,11 +190,11 @@ This section describes all commands that affect how and which font is rendered.
 
             ``Decimal   27  52  n``  
 
-   :Range: ``0 ≤ n ≤ 1, 48 ≤ n ≤ 59``
+   :Range: ``0 ≤ n ≤ 1, 48 ≤ n ≤ 49``
    :Default: ``n=0, n is base 10``
    :Notes:
        - This effect is applied immediately
-       - :ref:`Select Print Mode<1b21>` can also be used for this settings. The last received command is the effective one.
+       - :ref:`Select Print Mode<1b21>` can also be used for these settings. The last received command is the effective one.
 
    :Related: ``None``
    :Example:
@@ -214,12 +218,13 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b45:
 .. index:: $1B $45 - Emphasis Mode 
 
-.. py:attribute:: Emphasis Mode - $1B $45
+Emphasis Mode - ``$1B $45`` |rel| |phx|
+---------------------------------------
 
-   Turns **emphasis** mode on or off, based on the LSB of n:
+   Turns **emphasis** mode on or off, based on the LSB of ``n``:
 
-       - n & 1  = 0 Turns off **emphasis** mode
-       - n & 1  = 1 Turns on **emphasis** mode
+       - n = 0, Turns off *emphasis* mode
+       - n = 1,  Turns on *emphasis* mode
 
    :Format: ``Hex       $1B $45 n`` 
 
@@ -231,7 +236,7 @@ This section describes all commands that affect how and which font is rendered.
    :Default: ``n=0, n is base 10``
    :Notes:
        - This effect is applied immediately
-       - Only the LSB of n is inspected
+       - Only the LSB of ``n`` is inspected
        - :ref:`Select Print Mode<1b21>` can also be used for this settings. The last received command is the effective one.
 
    :Related: ``None``
@@ -256,7 +261,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b4D:
 .. index:: $1B $4D - Select Character Font 
 
-.. py:attribute:: Select Character Font - $1B $4D
+Select Character Font - ``$1B $4D`` |rel| |phx|
+-----------------------------------------------
 
    Selects character font based on n.
 
@@ -265,7 +271,7 @@ This section describes all commands that affect how and which font is rendered.
         +=====+======+======================+
         | A   | 0,48 | Select Font A        |
         +-----+------+----------------------+
-        | B   | 1,48 | Select Font B        |          
+        | B   | 1,49 | Select Font B        |          
         +-----+------+----------------------+         
 
    :Format: ``Hex       $1B $4D n`` 
@@ -277,7 +283,13 @@ This section describes all commands that affect how and which font is rendered.
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Up to two fonts can be active at one time
+       - |phx| Toggles between Font A and Font B
+          - Font A (12w 24h)
+          - Font B (9w 17h)
+       - |rel| Scales the current font depending on :ref:`CPI Mode<1bc1>`
+          - Mode 1: Font A width * 0.33, Font B width * 2
+          - Mode 2: Font A width * 2   , Font B width * 4
+          - Mode 3: Font A width * 4   , Font B width * 2 
 
    :Related: ``None``   
    :Example: ``None``             
@@ -288,10 +300,96 @@ This section describes all commands that affect how and which font is rendered.
 
     \clearpage
 
+.. _1b50:
+.. index:: $1B $50 - Select Font A 
+
+Select Font A - ``$1B $50`` |phx|
+---------------------------------
+
+   Selects Font A Stored in the printer.       
+
+   :Format: ``Hex       $1B $50`` 
+
+            ``ASCII     ESC @``
+
+            ``Decimal   27 80`` 
+
+   :Range: ``None``
+   :Default: ``None``
+   :Notes:
+       - Set character font to type A. (12w 24h)
+
+   :Related: ``None``   
+   :Example: ``None``             
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b54:
+.. index:: $1B $54 - Select Font C 
+
+Select Font C - ``$1B $54`` |phx|
+---------------------------------
+
+   Selects Font C Stored in the printer.       
+
+   :Format: ``Hex       $1B $54`` 
+
+            ``ASCII     ESC P``
+
+            ``Decimal   27 84`` 
+
+   :Range: ``None``
+   :Default: ``None``
+   :Notes:
+       - Set character font to type C. (24w 48h)
+
+   :Related: ``None``   
+   :Example: ``None``             
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b55:
+.. index:: $1B $55 - Select Font D 
+
+Select Font D - ``$1B $55`` |phx|
+---------------------------------
+
+   Selects Font D Stored in the printer.       
+
+   :Format: ``Hex       $1B $55`` 
+
+            ``ASCII     ESC T``
+
+            ``Decimal   27 85`` 
+
+   :Range: ``None``
+   :Default: ``None``
+   :Notes:
+       - Set character font to type D. (16w 24h)
+
+   :Related: ``None``   
+   :Example: ``None``             
+
+----
+
+.. raw:: latex
+
+    \clearpage
+
+
 .. _1b56:
 .. index:: $1B $56 - 90° Rotation
 
-.. py:attribute:: 90° Rotation - $1B $56
+90° Rotation - ``$1B $56`` |rel|
+--------------------------------
 
    Turns 90° rotation on or off, based on n
 
@@ -307,7 +405,7 @@ This section describes all commands that affect how and which font is rendered.
    :Range: ``n = 0, 1, 48, 49``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Invalid n values will be ignored
+       - Invalid ``n`` values will be ignored
        - :ref:`90° Rotation<1b56>` characters will be underlined in the vertical direction.     
 
    .. tip:: :ref:`Double-width<1b21>` and :ref:`Double-height<1b21>` commands in :ref:`90° Rotation<1b56>` will enlarge the opposite dimension when this mode is enabled. i.e. width and height scalars are swapped
@@ -325,7 +423,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b74:
 .. index:: $1B $74 - Select Character Code Page
 
-.. py:attribute:: Select Character Code Page - $1B $74
+Select Character Code Page - ``$1B $74`` |rel|
+----------------------------------------------
     
     Select character code page based on ``n``
 
@@ -378,7 +477,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1b7b:
 .. index:: $1B $7B - Upside-down Mode
 
-.. py:attribute:: Upside-down Mode - $1B $7B
+Upside-down Mode - ``$1B $7B`` |rel|
+------------------------------------
 
    Turn upside-down print mode on/off
 
@@ -402,7 +502,7 @@ This section describes all commands that affect how and which font is rendered.
 
        - Upside-down print mode is effective until any of the following occur:
 
-          - It is explicitly disabled by settings LSB of n to 0         
+          - It is explicitly disabled by settings LSB of ``n`` to 0         
           - :ref:`Initialize<1b40>` is executed 
           - Printer is reset 
           - Power is turned off 
@@ -421,7 +521,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1bc1:
 .. index:: $1B $C1 - Set CPI Mode
 
-.. py:attribute:: Set CPI Mode - $1B $C1
+Set CPI Mode - ``$1B $C1`` |rel|
+--------------------------------
 
    Selects the active CPI mode.
 
@@ -459,7 +560,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1c7d26:
 .. index:: $1C $7D $26 - Select Codepage
 
-.. py:attribute:: Select Codepage - $1C $7D $26
+Select Codepage - ``$1C $7D $26`` |rel|
+---------------------------------------
     
     Used to select any installed codepage as the active codepage. Using Two Byte Number Definitions, send the integer number
     of the codepage. For example, if codepage 437 is desired, then send the integer 437.
@@ -502,11 +604,13 @@ This section describes all commands that affect how and which font is rendered.
 .. _1d21:
 .. index:: $1D $21 - Select Character Size
 
-.. py:attribute:: Select Character Size - $1D $21
+Select Character Size - ``$1D $21`` |rel| |phx|
+-----------------------------------------------
     
     Select character width and height according to the bits of n.
-    - Bits 0 to 3 : select character height (see table 2)
-    - Bits 4 to 7 : select character width (see table 1)
+
+      - Bits 0 to 3 : select character height (see table 2)
+      - Bits 4 to 7 : select character width (see table 1)
 
     Table 1 - Width
         +-----+---------+---------------+
@@ -560,8 +664,8 @@ This section describes all commands that affect how and which font is rendered.
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Invalid n values are ignored, the current character size is maintained.
-       - Characters on the same line sized to different heights will be aligned to the topline.
+       - Invalid ``n`` values are ignored, the current character size is maintained.
+       - |rel| Characters on the same line sized to different heights will be aligned to the topline.
        - Width is expanded to the right.
        - In standard mode, the character is enlarged in the paper feed direction when double-height mode is selected, and it is enlarged perpendicular to the paper feed direction when double-width mode is selected. However, when character orientation changes in 90° clockwise rotation mode, the relationship between double-height and double-width is reversed.
        - :ref:`Select Print Mode<1b21>` Can also be used for this setting. The last received command is the effective one.
@@ -578,7 +682,8 @@ This section describes all commands that affect how and which font is rendered.
 .. _1d42:
 .. index:: $1D $42 - Reverse Print Mode
 
-.. py:attribute:: Reverse Print Mode - $1D $42
+Reverse Print Mode - ``$1D $42`` |rel| |phx|
+--------------------------------------------
     
     Turn white/black reverse printing (inverted) mode on/off based on the LSB of n
     - LSB Set: reverse enabled
@@ -594,14 +699,45 @@ This section describes all commands that affect how and which font is rendered.
    :Range: ``0 ≤ n ≤ 255``
    :Default: ``n=0, n is base 10``
    :Notes:
-       - Only the LSB of n is inspected.
+       - Only the LSB of ``n`` is inspected.
        - This does not affect images, barcodes, or user defined images.
        - This has a higher priority than underline. 
 
-          - Underline will stay enabled but no be applied if this setting is enabled.        
+          - Underline will stay enabled but not be applied if this setting is enabled.        
 
    :Related: ``None``
    :Example: ``None`` 
 
 ----
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b47:
+.. index:: $1B $47 - Select Double-strike mode
+
+Select Double-strike mode - ``$1B $47`` |phx|
+---------------------------------------------
+    
+    Turns double-strike mode on or off depending on the LSB of n.
+    - LSB Set: double-strike mode is turned on
+    - LSB Clear: double-strike mode is turned off
+
+   :Format:
+        ``Hex       $1B $47  n``  
+
+        ``ASCII     ESC  G   n``  
+        
+        ``Decimal   27  71   n``  
+
+   :Range: ``0 ≤ n ≤ 255``
+   :Default: ``n=0, n is base 10``
+   :Notes:
+       - Only the LSB of ``n`` is inspected.
+       - This does not affect images, barcodes, or user defined images. 
+
+   :Related: ``None``
+   :Example: ``None`` 
+
 
