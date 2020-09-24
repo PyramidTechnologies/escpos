@@ -347,11 +347,11 @@ Print and Feed Paper - ``$1B $4A`` |phx|
     Print current buffer and feed paper.
 
     :Format: 
-             ``Hex      $1B $64  n``
+             ``Hex      $1B $4a  n``
 
-             ``ASCII    ESC  d   n``
+             ``ASCII    ESC  j   n``
 
-             ``Decimal  27  100  n``
+             ``Decimal  27  74  n``
     :Notes:
 
       - Any passed n value is ignored.
