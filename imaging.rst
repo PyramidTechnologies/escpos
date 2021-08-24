@@ -137,7 +137,7 @@ Dynamic 2D Barcode - ``$1D $28 $6B`` |phx|
          write("\x0d")                             # newline
          write("\1d\x28\x6b")                      # start command
          write("\x1f\x00")                         # string length (28 bytes + 3)
-         write("\x00\x31\x50\x31")                 # rest of command...
+         write("\x31\x50\x31")                     # rest of command...
          write("https://pyramidacceptors.com")     # Actual string
          write("\x1d\x28\x6b\x03\x00\x31\x51\x31") # Print now
 
