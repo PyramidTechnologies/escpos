@@ -75,7 +75,7 @@ QR Code® is a registered trademark of DENSO WAVE INCORPORATED.
 Dynamic 2D Barcode - ``$1D $28 $6B`` |phx|
 -----------------------------------------------------
 
-   Encodes and prints a string of characters up to 26 characters long
+   Encodes and prints a string of characters up to 32 characters long
 
    .. note:: Requires Universal firmware for Phoenix.
 
