@@ -227,7 +227,7 @@ Enable and Disable Auto Cut - ``$1C $7D $60`` |phx|
 
              ``ASCII    FS  }   '    n``
 
-             ``Decimal  34  175  140  n``
+             ``Decimal  28  125  140  n``
     :Notes:
 
       - Reliance supports enable/disable autocut through the Reliance Tools program.
