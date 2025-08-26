@@ -4,8 +4,7 @@
 RTC Commands
 ================
 
-This section describes all commands that affect the layout of text in terms of spacing and margins. These
-are advanced features that are not commonly by most users.
+This section describes the commands available for Real Time Clock (RTC) functionality.
 
 ----------
 
