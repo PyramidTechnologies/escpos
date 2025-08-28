@@ -19,6 +19,7 @@
    paper_movement
    layout
    imaging
+   rtc
    reliance_status
    phoenix_status
    commands
