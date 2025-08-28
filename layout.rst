@@ -336,3 +336,69 @@ Print Area Width  - ``$1D $57`` |rel|
        :ref:`Print Area Width<1d57>`       
 
    :Example:  |printablearea|
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b4c:
+.. index:: $1B $4C - Select Page Mode
+
+Select Page Mode  - ``$1B $4C`` |rel|
+-------------------------------------
+
+    Select page mode and set the vertical length (parallel with paper feed direction) of the print area 
+
+   :Format:
+        ``Hex       $1B $4C n``  
+
+        ``ASCII     ESC  L   n``  
+        
+        ``Decimal   27  76  n``     
+
+   :Notes:   
+       - Select page mode and set the print area to (n × print area width) 
+       - n is limited to a range between 8mm and 156mm
+       - This command is only executed when the printer is in a :ref:`New Line State<newlinestate>`
+       - If the print length is outside of acceptable range, the print length will be set to 156mm.
+       - The printer will reset to standard mode after a print command is executed.
+       - When data sent for printing exceeds the print area, the printer will automatically reset to standard mode and continue printing. 
+
+   :Range: ``8 ≤ n ≤ 156``
+   :Default: ``n = 156``
+   :Related: 
+       :ref:`Motion Units<1d50>`
+        
+       :ref:`Print Area Width<1d57>`       
+
+       :ref:`Select Standard Mode<1b53>`
+
+   :Example:  |pagemode|
+
+.. raw:: latex
+
+    \clearpage
+
+.. _1b53:
+.. index:: $1B $53 - Select Standard Mode
+
+Select Standard Mode  - ``$1B $53`` |rel|
+-----------------------------------------
+
+    Select standard mode. 
+
+   :Format:
+        ``Hex       $1B $53``  
+
+        ``ASCII     ESC  S``  
+        
+        ``Decimal   27  83``     
+
+   :Notes:   
+       - Only executed when printer is in a :ref:`New Line State<newlinestate>`
+       - Only executed when printer is in a :ref:`Page Mode<1b4c>`
+       - Will print whatever is in the print buffer in Page mode prior to switching to standard mode.
+   :Related: 
+       :ref:`Select Page Mode<1b53>`
+    
+   :Example:  ``None``

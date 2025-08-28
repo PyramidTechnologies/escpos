@@ -344,7 +344,7 @@ Print and Feed Paper n Lines - ``$1B $64`` |phx|
 Print and Feed Paper - ``$1B $4A`` |phx|
 ----------------------------------------------------
 
-    Print current buffer and feed paper.
+    Print current buffer and feed paper. Will print in currently selected mode.
 
     :Format: 
              ``Hex      $1B $4a  n``
@@ -363,5 +363,9 @@ Print and Feed Paper - ``$1B $4A`` |phx|
     :Default: ``None``
     :Related:
       :ref:`Print and Feed Paper n Lines <1b64>`    
+
+      :ref:`Select Page Mode<1b53>`
+
+      :ref:`Select Standard Mode<1b53>`
 
     :Example:

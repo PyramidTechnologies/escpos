@@ -21,6 +21,9 @@
 .. |printablearea| image:: img/printablearea.png
    :align: middle
 
+.. |pagemode| image:: img/pagemode.png
+   :align: middle
+
 .. |phx| image:: img/printer-PHX.svg
 
 .. |rel| image:: img/printer-REL.svg
