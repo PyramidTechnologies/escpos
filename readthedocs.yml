@@ -1,8 +1,4 @@
 version: 2
 
 sphinx:
-  configuration: conf.py   # since yours is at the root
-
-python:
-  install:
-    - requirements: docs/requirements.txt   # if you have one
+  configuration: conf.py
