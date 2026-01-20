@@ -190,19 +190,19 @@ Ejector - ``$1D $65`` |rel|
      ``0 ≤ t ≤ 255``
    :Default: ``N/A``
    :Related: :ref:`Form Feed<x0c>`    
-   :Example clear paper path:
+   :Example:
     .. code-block:: none
 
         write("\x1d\x65\x05")   # Eject Ticket
         write("\x1d\x65\x02")   # Retract Ticket
         
-   :Example cut and present printed ticket:
+   :Example:
     .. code-block:: none
 
         write("\x1d\x65\x03\x0c")       # Present 84 mm
         write("\x1d\x65\x20\x0c\x1e")   # Present 84 mm with timeout of 30 seconds 
 
-   :Example Set and clear continuous mode:
+   :Example:
     .. code-block:: none
 
         write("\x1d\x65\x14")   # Set continuous mode

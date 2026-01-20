@@ -48,7 +48,8 @@ Real Time Status - ``$10 $04`` |rel|
    20 Transmit Full Status (6 Byte Reply)
    == =====================================
 
-   :n=1 (hexadecimal $01) Printer Status:
+   :n=1 ($01) Printer Status:
+
     
        +-----+--------+------+---------+-------------+
        | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION |
@@ -72,7 +73,7 @@ Real Time Status - ``$10 $04`` |rel|
        | 7   | `-`    | `-`  | `-`     | Reserved    |
        +-----+--------+------+---------+-------------+
 
-   :n=2 (hexadecimal $02) Offline Status:
+   :n=2 ($02) Offline Status:
        
        +-----+--------+------+---------+-----------------------------------+
        | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                       |
@@ -108,7 +109,7 @@ Real Time Status - ``$10 $04`` |rel|
    .. note:: Error:
       This bit means that *any* error has been reported. Query the other status commands to determine the precise error.
 
-   :n=3 (hexadecimal $03) Error Status:
+   :n=3 ($03) Error Status:
 
        +-----+--------+------+---------+-----------------------------------+
        | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                       |
@@ -136,7 +137,7 @@ Real Time Status - ``$10 $04`` |rel|
        | 7   | `-`    | `-`  | `-`     | Reserved                          |
        +-----+--------+------+---------+-----------------------------------+
 
-   :n=4 (hexadecimal $04) Paper Roll Sensor Status:
+   :n=4 ($04)Roll Sensor:
 
        +-----+--------+------+---------+-----------------------------------+
        | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                       |
@@ -158,7 +159,7 @@ Real Time Status - ``$10 $04`` |rel|
        | 7   | `-`    | `-`  | `-`     | Reserved                          |
        +-----+--------+------+---------+-----------------------------------+
 
-   :n=17 (hexadecimal $11) Print Status:
+   :n=17 ($11) Print Status:
 
        +-----+--------+------+---------+-----------------------------------+
        | BIT | OFF/ON | HEX  | DECIMAL | DESCRIPTION                       |
@@ -184,7 +185,7 @@ Real Time Status - ``$10 $04`` |rel|
        | 7   | `-`    | `-`  | `-`     | Reserved                          |
        +-----+--------+------+---------+-----------------------------------+
 
-   :n=20 (hexadecimal $14) Full Status:
+   :n=20 ($14) Full Status:
 
        1st Byte = $10 (DLE)
 
