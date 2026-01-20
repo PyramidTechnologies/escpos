@@ -53,7 +53,7 @@ Printer ID - ``$1D $49`` |rel| |phx|
             write('\x1d\x49\x01')             
             >>> $5D $95 $59             # Reliance model code followed by 2 reserved bytes
 
-    :Example Firmware Revision (PHX and REL):
+    :Example:
         .. code-block:: none
             :emphasize-lines: 2
 

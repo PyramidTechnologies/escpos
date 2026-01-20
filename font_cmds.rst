@@ -415,10 +415,9 @@ Select Font D - ``$1B $55`` |phx|
 
 ----
 
-.. raw:: html
+.. raw:: latex
 
-    </div>
-    <div id="1b74">
+    \clearpage
 
 .. _1b74:
 .. index:: $1B $74 - Select Character Code Page
@@ -582,12 +581,12 @@ Select Codepage - ``$1C $7D $26`` |rel|
        - See :ref:`Two Byte Numbers<2byte>` section for more information on two byte number definitions.      
 
    :Related: :ref:`Select Codepage<1b74>`
-   :Example Select Codapge 437:
+   :Example Codapge 437:
         .. code-block:: none
 
             write('\x1c\x7d\x26\xb5\x01')   #  Select codepage 437
 
-   :Example Select Codapge 1252:
+   :Example Codapge 1252:
         .. code-block:: none
 
             write('\x1c\x7d\x26\xe4\x04')   #  Select codepage 1252
