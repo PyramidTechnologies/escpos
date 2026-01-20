@@ -15,12 +15,8 @@ for the VS Code plugin to work properly. Alternatively `make html`, you can manu
 
 ## Building
 
-    pip install docutils
-    pip install sphinx_rtd_theme
-    pip install sphinx==1.2.2
-    pip install sphinx-autobuild
+Use requirements.txt to build the env
 
-(Can't use requirements.txt as that will break the build server for some reason)
 
 [Read on Readthedocs](http://escpos.readthedocs.io/)
 
