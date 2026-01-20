@@ -12,7 +12,7 @@ proceeding.
 For quick development, we recommend VS Code + https://github.com/vscode-restructuredtext/vscode-restructuredtext to edit and preview the docs
 locally. Be sure to launch `code .` from your activate Python environment
 for the VS Code plugin to work properly. Alternatively `.\make.bat html`, you can manually build and view in your browser.
-Run `start \_build\html\index.html`
+Run `start .\_build\html\index.html`
 
 ## Building
 
